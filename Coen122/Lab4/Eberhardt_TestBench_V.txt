@@ -1,0 +1,98 @@
+`timescale 1ns / 1ps
+
+// Evan Eberhardt
+// Pipeline Buffer TestBench
+
+
+
+module testbench;
+    reg Clock;
+    
+    //inputs
+    reg [31:0]inA;
+    reg [31:0]inB;
+    reg [31:0]inC;
+    
+    //outputs
+    //buffer 1
+    wire [31:0]buffer1_A;
+    wire [31:0]buffer1_B;
+    wire [31:0]buffer1_C;
+    //buffer 2
+    wire [31:0]buffer2_A; 
+    wire [31:0]buffer2_B; 
+    wire [31:0]buffer2_C;
+    //buffer 3
+    wire [31:0]buffer3_A; 
+    wire [31:0]buffer3_B; 
+    wire [31:0]buffer3_C;
+    //buffer 4
+    wire [31:0]buffer4_A; 
+    wire [31:0]buffer4_B;
+    wire [31:0]buffer4_C;
+    
+    //Modules
+    pipelineBuffer buffer1(
+        .Clock(Clock),
+        //Inputs
+        .inputA(inA),
+        .inputB(inB),
+        .inputC(inC),
+        //Outputs
+        .outputA(buffer1_A),
+        .outputB(buffer1_B),
+        .outputC(buffer1_C)
+    );
+    
+    pipelineBuffer buffer2(
+        .Clock(Clock),
+        //Inputs
+        .inputA(buffer1_B),
+        .inputB(buffer1_C),
+        .inputC(buffer1_A),
+        //Outputs
+        .outputA(buffer2_A),
+        .outputB(buffer2_B),
+        .outputC(buffer2_C)
+    );
+    
+    pipelineBuffer buffer3(
+        .Clock(Clock),
+        //Inputs
+        .inputA(buffer2_B),
+        .inputB(buffer2_C),
+        .inputC(buffer2_A),
+ 
+        //Outputs
+        .outputA(buffer3_A),
+        .outputB(buffer3_B),
+        .outputC(buffer3_C)
+    );
+    
+    pipelineBuffer buffer4(
+        .Clock(Clock),
+        //Inputs
+        .inputA(buffer3_B),
+        .inputB(buffer3_C),
+        .inputC(buffer3_A),
+        
+        //Outputs
+        .outputA(buffer4_A),
+        .outputB(buffer4_B),
+        .outputC(buffer4_C)
+    );
+    
+    //Clock
+    initial begin
+        Clock = 0;
+        forever #5 Clock = ~Clock;
+    end
+    
+    //Test: Set inA, inB, inC and read the resultant outputs
+    //note: buffers send their input to a corresponding output. The four buffers connect to each other in an alternating pattern
+    initial begin
+        inA = 100;
+        inB = 200;
+        inC = 300;
+    end    
+endmodule

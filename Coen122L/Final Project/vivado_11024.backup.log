@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Fri Jun 09 17:12:58 2017
+# Process ID: 11024
+# Current directory: C:/Users/eeberhar/Coen122L/Final Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7568 C:\Users\eeberhar\Coen122L\Final Project\Final Project.xpr
+# Log file: C:/Users/eeberhar/Coen122L/Final Project/vivado.log
+# Journal file: C:/Users/eeberhar/Coen122L/Final Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/eeberhar/Coen122L/Final Project/Final Project.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Apps/Xilinx/Vivado/2016.2/data/ip'.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 09 17:13:26 2017...
+e_compile_order -fileset sources_1
+add_files -norecurse C:/Users/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/testbench.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+import_files
+INFO: [filemgmt 20-348] Importing the appropriate files for fileset: 'sources_1'
+set_property is_enabled false [get_files  {{C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/testbench.v}}]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+set_property source_mgmt_mode DisplayOnly [current_project]
+update_compile_order -fileset sim_1
+add_files -norecurse {{C:/Users/eeberhar/Coen122L/Final Project/instruction.v} {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v}}
+add_files -fileset sim_1 -norecurse {{C:/Users/eeberhar/Coen122L/Final Project/instruction.v}}
+remove_files {{C:/Users/eeberhar/Coen122L/Final Project/instruction.v}}
+remove_files -fileset sim_1 {{C:/Users/eeberhar/Coen122L/Final Project/instruction.v}}
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 09 23:57:17 2017...

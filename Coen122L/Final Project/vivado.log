@@ -1,0 +1,1096 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:40 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Tue Jun 13 11:29:10 2017
+# Process ID: 9664
+# Current directory: C:/Users/eeberhar/Coen122L/Final Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8588 C:\Users\eeberhar\Coen122L\Final Project\Final Project.xpr
+# Log file: C:/Users/eeberhar/Coen122L/Final Project/vivado.log
+# Journal file: C:/Users/eeberhar/Coen122L/Final Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/eeberhar/Coen122L/Final Project/Final Project.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Apps/Xilinx/Vivado/2016.2/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 799.484 ; gain = 110.215
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 841.398 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 100000 ns
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run all
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 914.387 ; gain = 0.934
+INFO: [Common 17-344] 'run' was cancelled
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 10000 ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 2000 ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+restart
+INFO: [Simtcl 6-17] Simulation restarted
+run 1500 ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+save_wave_config {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg}
+add_files -fileset sim_1 -norecurse {{C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg}}
+WARNING: [filemgmt 56-12] File 'C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg' cannot be added to the project because it already exists in the project, skipping this file
+set_property xsim.view {{C:/Users/eeberhar/Coen122L/Final Project/CPU_behav.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/CPU_behav1.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg}} [get_filesets sim_1]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+save_wave_config {C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg}
+add_files -fileset sim_1 -norecurse {{C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg}}
+set_property xsim.view {{C:/Users/eeberhar/Coen122L/Final Project/CPU_behav.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/CPU_behav1.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} {C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg}} [get_filesets sim_1]
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+WARNING: [USF-XSim-17] WCFG file does not exist:C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg
+WARNING: [USF-XSim-17] WCFG file does not exist:C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [USF-XSim-27] Simulation object is 'sim_1'
+INFO: [USF-XSim-37] Inspecting design source files for 'FinalProject_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+"xvlog -m64 --relax -prj FinalProject_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/SourceTruth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCSource
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IFIDBuffer
+INFO: [VRFC 10-311] analyzing module IDEXBuffer
+INFO: [VRFC 10-311] analyzing module EXWBBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Dmem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Rfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Imem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-311] analyzing module Addone
+INFO: [VRFC 10-311] analyzing module SignExtend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.srcs/sources_1/new/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC_
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FinalProject_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+Vivado Simulator 2016.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Apps/Xilinx/Vivado/2016.2/bin/unwrapped/win64.o/xelab.exe -wto 72469bb7971645af9ccc3cab7dc4a6b8 --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FinalProject_tb_behav xil_defaultlib.FinalProject_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.PC_
+Compiling module xil_defaultlib.mux
+Compiling module xil_defaultlib.Addone
+Compiling module xil_defaultlib.Imem
+Compiling module xil_defaultlib.IFIDBuffer
+Compiling module xil_defaultlib.control
+Compiling module xil_defaultlib.Rfile
+Compiling module xil_defaultlib.SignExtend
+Compiling module xil_defaultlib.Adder
+Compiling module xil_defaultlib.IDEXBuffer
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.Dmem
+Compiling module xil_defaultlib.EXWBBuffer
+Compiling module xil_defaultlib.PCSource
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.FinalProject_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FinalProject_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+WARNING: [USF-XSim-17] WCFG file does not exist:C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg
+WARNING: [USF-XSim-17] WCFG file does not exist:C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/xsim.dir/FinalProject_tb_behav/FinalProject_tb_behav.wcfg
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FinalProject_tb_behav -key {Behavioral:sim_1:Functional:FinalProject_tb} -tclbatch {FinalProject_tb.tcl} -view {C:/Users/eeberhar/Coen122L/Final Project/FinalProject_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2016.2
+Time resolution is 1 ps
+open_wave_config C:/Users/eeberhar/Coen122L/Final
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final.wcfg'.
+open_wave_config Project/FinalProject_tb_behav.wcfg
+ERROR: [Wavedata 42-2] Error while reading WCFG file 'C:/Users/eeberhar/Coen122L/Final Project/Final Project.sim/sim_1/behav/Project/FinalProject_tb_behav.wcfg'.
+source FinalProject_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FinalProject_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 13 15:31:47 2017...

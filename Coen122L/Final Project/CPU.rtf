@@ -1,0 +1,363 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 `timescale 1ns / 1ps\par
+//////////////////////////////////////////////////////////////////////////////////\par
+// Evan Eberhardt\par
+// James Olwell\par
+// \par
+// Create Date: 06/05/2017 05:45:26 PM\par
+// Module Name: CPU\par
+// Project Name: Final Project\par
+//////////////////////////////////////////////////////////////////////////////////\par
+module PC_( \par
+    input Clock, \par
+    input [31:0] in,   \par
+    output reg [31:0] out\par
+    );\par
+    \par
+    //reg [31:0] out;\par
+    \par
+    initial begin\par
+        out = 0;\par
+    end\par
+    \par
+    always @(*) \par
+    begin \par
+        out = in; \par
+    end\par
+endmodule \par
+\par
+module CPU(\par
+    input Clock,\par
+    \par
+    output wire [31:0] Imem_to_IFIDBuffer, \par
+    output wire regwrt_to_Rfile,\par
+    output wire [1:0] toreg_to_mux_1,\par
+    output wire BrN_to_PCSource,\par
+    output wire BrZ_to_PCSource,\par
+    output wire J_to_PCSource,\par
+    output wire JM_to_PCSource,\par
+    output wire Z_to_PCSource,\par
+    output wire N_to_PCSource,\par
+    output wire [2:0] ALUop_to_ALU,\par
+    output wire mrd_to_Dmem,\par
+    output wire mwrt_to_Dmem,\par
+    output wire [3:0] opcode_to_control,\par
+    output wire [5:0] rd_to_IDEXBuffer,\par
+    output wire [5:0] rs_to_Rfile,\par
+    output wire [5:0] rt_to_Rfile,\par
+    output wire [21:0] X_to_SignExtend,\par
+    output wire [31:0] Adder_1_to_IDEXBuffer,\par
+    output wire [31:0] RS_to_Dmem_ALU,\par
+    output wire [31:0] RT_to_Dmem_ALU,\par
+    output wire [31:0] out_to_EXWBBuffer,\par
+    output wire Z_to_EXWBBuffer,\par
+    output wire N_to_EXWBBuffer,\par
+    output wire [31:0] sum_to_EXWBBuffer,\par
+    output wire [5:0] rd_to_Rfile,\par
+    output wire [31:0] mux_1_to_Rfile,\par
+    output wire [31:0] mux_0_to_PC,\par
+    output wire [31:0] PC,\par
+    output wire [1:0] PCSource_to_mux_0   \par
+    );\par
+    //reg Clock;\par
+\par
+    //First Stage-----\par
+    //Wires from fourth stage\par
+    wire [31:0] sum_to_mux;\par
+    wire [31:0] out_to_mux;\par
+    //wire [1:0] PCSource_to_mux_0;\par
+    \par
+    //Other Wires\par
+    wire [31:0] Adder_0_to_mux_0;\par
+    //wire [31:0] Imem_to_IFIDBuffer;\par
+    \par
+    //Modules\par
+    //reg [31:0] PC;\par
+    PC_ PC__(\par
+        .Clock(Clock),\par
+        .in(mux_0_to_PC),\par
+        .out(PC)\par
+     );\par
+    \par
+    mux mux_0(\par
+        .Clock(Clock),\par
+        .a(Adder_0_to_mux_0),\par
+        .b(sum_to_mux),\par
+        .c(out_to_mux),\par
+        .d(out_to_mux), //unused\par
+        .s(PCSource_to_mux_0),\par
+        .o(mux_0_to_PC)\par
+    );\par
+    //reg one;\par
+    //initial one = 1;\par
+    Addone Adder_0(\par
+        .Clock(Clock),\par
+        .A(PC),\par
+        .Out(Adder_0_to_mux_0)\par
+    );\par
+    \par
+    Imem Imem_(\par
+        .Clock(Clock),\par
+        .PC_addr(PC),\par
+        .Instruction(Imem_to_IFIDBuffer)\par
+    );\par
+    \par
+    \par
+    //IF/ID Buffer-----\par
+    //Wires out of buffer\par
+    //wire [3:0] opcode_to_control;\par
+    //wire [5:0] rd_to_IDEXBuffer;\par
+    //wire [5:0] rs_to_Rfile;\par
+    //wire [5:0] rt_to_Rfile;\par
+    //wire [21:0] X_to_SignExtend;\par
+    wire [31:0] PC_to_Adder_1;\par
+    \par
+    IFIDBuffer IFIDBuffer_(\par
+        .Clock(Clock),\par
+        //Im\par
+        .inst(Imem_to_IFIDBuffer),\par
+        .PC_in(PC),\par
+        //Out\par
+        .opcode(opcode_to_control),\par
+        .rd(rd_to_IDEXBuffer),\par
+        .rs(rs_to_Rfile),\par
+        .rt(rt_to_Rfile),\par
+        .X(X_to_SignExtend),\par
+        .PC(PC_to_Adder_1)\par
+    );\par
+    \par
+    \par
+   //Second Stage-----\par
+   //Wires from fourth stage\par
+   //wire regwrt_to_Rfile;\par
+   //wire [31:0] mux_1_to_Rfile;\par
+   //wire [5:0] rd_to_Rfile;\par
+   \par
+   //Wires out of control\par
+   wire regwrt_to_IDEXBuffer;\par
+   wire [1:0] toreg_to_IDEXBuffer;\par
+   wire BrN_to_IDEXBuffer;\par
+   wire BrZ_to_IDEXBuffer;\par
+   wire J_to_IDEXBuffer;\par
+   wire JM_to_IDEXBuffer;\par
+   wire [2:0] ALUop_to_IDEXBuffer;\par
+   wire mrd_to_IDEXBuffer;\par
+   wire mwrt_to_IDEXBuffer;\par
+   \par
+   //Wires out of Rfile\par
+   wire [31:0] RS_to_IDEXBuffer;\par
+   wire [31:0] RT_to_IDEXBuffer;\par
+   \par
+   //Other wires\par
+   wire [31:0] SignExtend_to_Adder_1;\par
+   //wire [31:0] Adder_1_to_IDEXBuffer;\par
+   \par
+   //Modules\par
+   control control_(\par
+        .Clock(Clock),\par
+        .opcode(opcode_to_control),\par
+        .regwrt(regwrt_to_IDEXBuffer),\par
+        .toreg(toreg_to_IDEXBuffer),\par
+        .BrN(BrN_to_IDEXBuffer),\par
+        .BrZ(BrZ_to_IDEXBuffer),\par
+        .J(J_to_IDEXBuffer),\par
+        .JM(JM_to_IDEXBuffer),\par
+        .ALUop(ALUop_to_IDEXBuffer),\par
+        .mrd(mrd_to_IDEXBuffer),\par
+        .mwrt(mwrt_to_IDEXBuffer)\par
+    );\par
+    \par
+    Rfile Rfile_(\par
+        .Clock(Clock),\par
+        .RegWrite(regwrt_to_Rfile),\par
+        .RS(rs_to_Rfile),\par
+        .RT(rt_to_Rfile),\par
+        .RD(rd_to_Rfile),\par
+        .DataIN(mux_1_to_Rfile),\par
+        .rs_Reg(RS_to_IDEXBuffer),\par
+        .rt_Reg(RT_to_IDEXBuffer)\par
+    );\par
+    \par
+    SignExtend SignExtend_(\par
+        .Clock(Clock),\par
+        .In(X_to_SignExtend),\par
+        .Out(SignExtend_to_Adder_1)\par
+    );\par
+    \par
+    Adder Adder_1(\par
+        .Clock(Clock),\par
+        .A(SignExtend_to_Adder_1),\par
+        .B(PC_to_Adder_1),\par
+        .Out(Adder_1_to_IDEXBuffer)\par
+    );\par
+    \par
+    \par
+    //ID/EX Buffer-----\par
+    //Wires out of buffer\par
+    wire regwrt_to_EXWBBuffer;\par
+    wire [1:0] toreg_to_EXWBBuffer;\par
+    wire BrZ_to_EXWBBuffer;\par
+    wire BrN_to_EXWBBuffer;\par
+    wire J_to_EXWBBuffer;\par
+    wire JM_to_EXWBBuffer;\par
+    //wire [2:0] ALUop_to_ALU;\par
+    //wire mrd_to_Dmem;\par
+    //wire mwrt_to_Dmem;\par
+    wire [5:0] rd_to_EXWBBuffer;\par
+    //wire [31:0] RS_to_Dmem_ALU;\par
+    //wire [31:0] RT_to_Dmem_ALU;\par
+    wire [31:0] PC_to_EXWBBuffer;\par
+    \par
+    IDEXBuffer IDEXBuffer_(\par
+         .Clock(Clock),\par
+        //In    \par
+        .regwrt_in(regwrt_to_IDEXBuffer),\par
+        .toreg_in(toreg_to_IDEXBuffer),\par
+        .brn_in(BrN_to_IDEXBuffer),\par
+        .brz_in(BrZ_to_IDEXBuffer),\par
+        .J_in(J_to_IDEXBuffer),\par
+        .JM_in(JM_to_IDEXBuffer),\par
+        .ALUop_in(ALUop_to_IDEXBuffer),\par
+        .mrd_in(mrd_to_IDEXBuffer),\par
+        .mwrt_in(mwrt_to_IDEXBuffer),\par
+        .rd_in(rd_to_IDEXBuffer),\par
+        .RS_in(RS_to_IDEXBuffer),\par
+        .RT_in(RT_to_IDEXBuffer),\par
+        .PCplusX(Adder_1_to_IDEXBuffer),\par
+        //Out\par
+        .regwrt(regwrt_to_EXWBBuffer),\par
+        .toreg(toreg_to_EXWBBuffer),\par
+        .brn(BrN_to_EXWBBuffer),\par
+        .brz(BrZ_to_EXWBBuffer),\par
+        .J(J_to_EXWBBuffer),\par
+        .JM(JM_to_EXWBBuffer),\par
+        .ALUop(ALUop_to_ALU),\par
+        .mrd(mrd_to_Dmem),\par
+        .mwrt(mwrt_to_Dmem),\par
+        .rd(rd_to_EXWBBuffer),\par
+        .RS(RS_to_Dmem_ALU),\par
+        .RT(RT_to_Dmem_ALU),\par
+        .PC(PC_to_EXWBBuffer)\par
+    );\par
+    \par
+    \par
+    //Third Stage-----\par
+    //Wires out of ALU\par
+    //wire Z_to_EXWBBuffer;\par
+    //wire N_to_EXWBBuffer;\par
+    //wire [31:0] sum_to_EXWBBuffer;\par
+    //Wire out of Dmem\par
+    //wire [31:0] out_to_EXWBBuffer;\par
+    \par
+    //Modules\par
+    alu ALU_(\par
+        .Clock(Clock),\par
+        .opcode(ALUop_to_ALU),\par
+        .a(RS_to_Dmem_ALU),\par
+        .b(RT_to_Dmem_ALU),\par
+        .out(sum_to_EXWBBuffer),\par
+        .Z(Z_to_EXWBBuffer),\par
+        .N(N_to_EXWBBuffer)\par
+    );\par
+    \par
+    Dmem Dmem_(\par
+        .Clock(Clock),\par
+        .MemWrite(mwrt_to_Dmem),\par
+        .MemRead(mrd_to_Dmem),\par
+        .DataAddr(RS_to_Dmem_ALU),\par
+        .DataIN(RT_to_Dmem_ALU),\par
+        .DataRead(out_to_EXWBBuffer)\par
+    );\par
+    \par
+    \par
+    //EX/WB Buffer-----\par
+    //Wires out of buffer\par
+    //wire regwrt_to_Rfile goes to second stage\par
+    //wire [1:0] toreg_to_mux_1;\par
+    //wire BrZ_to_PCSource;\par
+    //wire BrN_to_PCSource;\par
+    //wire J_to_PCSource;\par
+    //wire JM_to_PCSource;\par
+    //wire N_to_PCSource;\par
+    //wire Z_to_PCSource;\par
+    //wire [31:0] sum_to_mux goes to first stage \par
+    //wire [31:0] out_to_muz goes to first stage\par
+    //wire [5:0] rd_to_Rfile goes to second stage\par
+    wire [31:0] PC_to_mux_1;\par
+    \par
+    EXWBBuffer EXWBBuffer_(\par
+        .Clock(Clock),\par
+        //In\par
+        .regwrt_in(regwrt_to_EXWBBuffer),\par
+        .toreg_in(toreg_to_EXWBBuffer),\par
+        .brz_in(BrZ_to_EXWBBuffer),\par
+        .brn_in(BrN_to_EXWBBuffer),\par
+        .J_in(J_to_EXWBBuffer),\par
+        .JM_in(JM_to_EXWBBuffer),\par
+        .N_in(N_to_EXWBBuffer),\par
+        .Z_in(Z_to_EXWBBuffer),\par
+        .sum_in(sum_to_EXWBBuffer),\par
+        .out_in(out_to_EXWBBuffer),\par
+        .rd_in(rd_to_EXWBBuffer),\par
+        .PC_in(PC_to_EXWBBuffer),\par
+        //Out\par
+        .regwrt(regwrt_to_Rfile),\par
+        .toreg(toreg_to_mux_1),\par
+        .brz(BrZ_to_PCSource),\par
+        .brn(BrN_to_PCSource),\par
+        .J(J_to_PCSource),\par
+        .JM(JM_to_PCSource),\par
+        .N(N_to_PCSource),\par
+        .Z(Z_to_PCSource),\par
+        .sum(sum_to_mux),\par
+        .out(out_to_mux),\par
+        .rd(rd_to_Rfile),\par
+        .PC(PC_to_mux_1)\par
+    );\par
+    \par
+    \par
+    //Fourth Stage\par
+    //Wires\par
+    //wire mux_1_to_Rfile goes to stage 2\par
+    //wire PCSource_to_mux_0 goes to stage 1\par
+    \par
+    //Modules\par
+    PCSource PCSource_(\par
+        .clk(Clock),\par
+        .brn(BrN_to_PCSource),\par
+        .n(N_to_PCSource),\par
+        .brz(BrZ_to_PCSource),\par
+        .z(Z_to_PCSource),\par
+        .j(J_to_PCSource),\par
+        .jm(JM_to_PCSource),\par
+        .out(PCSource_to_mux_0)\par
+    );\par
+    \par
+    mux mux_1(\par
+        .Clock(Clock),\par
+        .a(sum_to_mux),\par
+        .b(out_to_mux),\par
+        .c(PC_to_mux_1),\par
+        .d(PC_to_mux_1),\par
+        .s(toreg_to_mux_1),\par
+        .o(mux_1_to_Rfile)\par
+    );\par
+    \par
+    \par
+    /*\par
+        initial begin\par
+             Clock = 0;\par
+             forever #5 Clock = ~Clock;\par
+             end\par
+             //*/\par
+    \par
+endmodule\par
+//Wires out of fourth stage\par
+//sum_to_mux\par
+//out_to_mux\par
+//PCSource_to_mux_0\par
+//regwrt_to_Rfile\par
+//mux_1_to_Rfile\par
+//rd_to_Rfile\par
+}
+ 

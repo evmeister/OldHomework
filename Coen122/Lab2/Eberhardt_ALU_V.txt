@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Evan Eberhardt
+// 
+// Create Date: 04/25/2017 02:36:55 PM
+// Design Name: eberhardt_alu
+// Module Name: alu
+// Lab 2
+// 
+// Revision: 0
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module alu(
+    input [3:0] opcode,
+    input [31:0] a,
+    input [31:0] b,
+    output reg [31:0] out,
+    output reg Z,
+    output reg N
+    );
+    always @(*)
+    begin
+        case (opcode)
+            4'b0000 : begin out = a + b; end //add
+            4'b0001 : begin out = b + 1; end //increment
+            4'b0010 : begin out = -a; end //negate
+            4'b0011 : begin out = b + (-a); end //subtract
+            4'b0100 : begin out = 0 + a; end //pass
+            default: out = 32'bXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX; //default
+        endcase
+        if( out == 0 )
+            Z = 1;
+        else Z = 0;
+        if( out[31] == 1 ) 
+            N = 1;
+        else N = 0;
+    end          
+endmodule

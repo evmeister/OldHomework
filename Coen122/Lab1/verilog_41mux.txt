@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: n/a
+// Engineer: Evan Eberhardt 
+// 
+// Create Date: 04/18/2017 03:21:05 PM
+// Design Name: eeberhardt_mux
+// Module Name: mux
+// Project Name: eeberhardt_mux
+// Target Devices: n/a
+// Tool Versions: n/a
+// Description: 4:1 multiplexer
+// 
+// Dependencies: n/a
+// 
+// Revision: 0
+// Revision 0.01 - File Created
+// Additional Comments: n/a
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module mux(
+    input a,
+    input b,
+    input c,
+    input d,
+    input [1:0] s,
+    output o
+    );
+    reg o;
+    always @(a or b or c or d or s)
+    begin
+        if (s == 2'b00) o = a;
+        else if (s == 2'b01) o = b;
+        else if (s == 2'b10) o = c;
+        else o = d;
+     end
+endmodule

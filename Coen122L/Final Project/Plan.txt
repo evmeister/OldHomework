@@ -1,0 +1,20 @@
+Doctor the Modules
+Create a 32 bit adder
+Create SignExtend
+Create Control module - combinational logic
+Create PC Source control module - combinational logic, outputs 2 bit bus 
+Edit the mux to support 32 bits
+Use the memory lab to create the three unique buffers
+Create a file containing the binary of your instructions
+Edit Instruction Memory to use the loading command that the powerpoint describes, loads the instruction.
+Start the CPU.v
+Make a register for Program Counter. Could be a module, but then you need more wires. This way you can pretend the Program Counter is just another wire between modules
+Name and create every wire on your datapath. keep track of which ones are busses.
+Create a module for every module on your datapath
+make the proper connections between modules using your wires, just like the other testbenches
+Make the Testbench
+Make wires for everything you need to see on the waveforms
+Make a cpu module
+connect those wires to the very same wires you need in the cpu module - just like the other testbenches
+Simply make the testbench cycle a clock. The CPU will handle the rest
+Now you can use your binary file to test all your instructions, and test out your program (which is hopefully correct)

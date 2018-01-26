@@ -1,0 +1,27 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Evan Berhardt
+// 
+// Create Date: 05/09/2017 03:26:11 PM
+// Design Name: pipelineBuffer
+// Module Name: pipelineBuffer
+// Project Name: Lab 4
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module pipelineBuffer(
+    input Clock,
+    input [31:0] inputA,
+    input [31:0] inputB,
+    input [31:0] inputC,
+    output reg [31:0] outputA,
+    output reg [31:0] outputB,
+    output reg [31:0] outputC
+    );
+    
+    always @(posedge Clock) begin
+        outputA = inputA;
+        outputB = inputB;
+        outputC = inputC;
+    end    
+endmodule

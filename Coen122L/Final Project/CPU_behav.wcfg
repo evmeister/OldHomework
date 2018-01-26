@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CPU_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CPU" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="74900001fs"></ZoomEndTime>
+      <Cursor1Time time="85760000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="55" />
+   <wvobject fp_name="/CPU/Clock" type="logic">
+      <obj_property name="ElementShortName">Clock</obj_property>
+      <obj_property name="ObjectShortName">Clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/Adder_0_to_mux_0" type="array">
+      <obj_property name="ElementShortName">Adder_0_to_mux_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Adder_0_to_mux_0[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mux_0_to_PC" type="array">
+      <obj_property name="ElementShortName">mux_0_to_PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mux_0_to_PC[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/Imem_to_IFIDBuffer" type="array">
+      <obj_property name="ElementShortName">Imem_to_IFIDBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Imem_to_IFIDBuffer[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/opcode_to_control" type="array">
+      <obj_property name="ElementShortName">opcode_to_control[3:0]</obj_property>
+      <obj_property name="ObjectShortName">opcode_to_control[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/rs_to_Rfile" type="array">
+      <obj_property name="ElementShortName">rs_to_Rfile[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rs_to_Rfile[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#008000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/RS_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">RS_to_IDEXBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RS_to_IDEXBuffer[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#008000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/rt_to_Rfile" type="array">
+      <obj_property name="ElementShortName">rt_to_Rfile[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rt_to_Rfile[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/RT_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">RT_to_IDEXBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RT_to_IDEXBuffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/rd_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">rd_to_IDEXBuffer[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_to_IDEXBuffer[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/X_to_SignExtend" type="array">
+      <obj_property name="ElementShortName">X_to_SignExtend[21:0]</obj_property>
+      <obj_property name="ObjectShortName">X_to_SignExtend[21:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/regwrt_to_Rfile" type="logic">
+      <obj_property name="ElementShortName">regwrt_to_Rfile</obj_property>
+      <obj_property name="ObjectShortName">regwrt_to_Rfile</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/rd_to_Rfile" type="array">
+      <obj_property name="ElementShortName">rd_to_Rfile[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_to_Rfile[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mux_1_to_Rfile" type="array">
+      <obj_property name="ElementShortName">mux_1_to_Rfile[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mux_1_to_Rfile[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/toreg_to_mux_1" type="array">
+      <obj_property name="ElementShortName">toreg_to_mux_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">toreg_to_mux_1[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrN_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">BrN_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">BrN_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrZ_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">BrZ_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">BrZ_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/J_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">J_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">J_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/JM_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">JM_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">JM_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/Z_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">Z_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">Z_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/N_to_PCSource" type="logic">
+      <obj_property name="ElementShortName">N_to_PCSource</obj_property>
+      <obj_property name="ObjectShortName">N_to_PCSource</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/ALUop_to_ALU" type="array">
+      <obj_property name="ElementShortName">ALUop_to_ALU[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUop_to_ALU[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mrd_to_Dmem" type="logic">
+      <obj_property name="ElementShortName">mrd_to_Dmem</obj_property>
+      <obj_property name="ObjectShortName">mrd_to_Dmem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mwrt_to_Dmem" type="logic">
+      <obj_property name="ElementShortName">mwrt_to_Dmem</obj_property>
+      <obj_property name="ObjectShortName">mwrt_to_Dmem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/Adder_1_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">Adder_1_to_IDEXBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Adder_1_to_IDEXBuffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/out_to_EXWBBuffer" type="array">
+      <obj_property name="ElementShortName">out_to_EXWBBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_to_EXWBBuffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/Z_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">Z_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">Z_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/N_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">N_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">N_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/sum_to_EXWBBuffer" type="array">
+      <obj_property name="ElementShortName">sum_to_EXWBBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_to_EXWBBuffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/PCSource_to_mux_0" type="array">
+      <obj_property name="ElementShortName">PCSource_to_mux_0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">PCSource_to_mux_0[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/sum_to_mux" type="array">
+      <obj_property name="ElementShortName">sum_to_mux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_to_mux[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/out_to_mux" type="array">
+      <obj_property name="ElementShortName">out_to_mux[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_to_mux[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/PC_to_Adder_1" type="array">
+      <obj_property name="ElementShortName">PC_to_Adder_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_to_Adder_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/regwrt_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">regwrt_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">regwrt_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/toreg_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">toreg_to_IDEXBuffer[1:0]</obj_property>
+      <obj_property name="ObjectShortName">toreg_to_IDEXBuffer[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrN_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">BrN_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">BrN_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrZ_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">BrZ_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">BrZ_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/J_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">J_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">J_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/JM_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">JM_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">JM_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/ALUop_to_IDEXBuffer" type="array">
+      <obj_property name="ElementShortName">ALUop_to_IDEXBuffer[2:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUop_to_IDEXBuffer[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mrd_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">mrd_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">mrd_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/mwrt_to_IDEXBuffer" type="logic">
+      <obj_property name="ElementShortName">mwrt_to_IDEXBuffer</obj_property>
+      <obj_property name="ObjectShortName">mwrt_to_IDEXBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/SignExtend_to_Adder_1" type="array">
+      <obj_property name="ElementShortName">SignExtend_to_Adder_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SignExtend_to_Adder_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/regwrt_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">regwrt_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">regwrt_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/toreg_to_EXWBBuffer" type="array">
+      <obj_property name="ElementShortName">toreg_to_EXWBBuffer[1:0]</obj_property>
+      <obj_property name="ObjectShortName">toreg_to_EXWBBuffer[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrZ_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">BrZ_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">BrZ_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/BrN_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">BrN_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">BrN_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/J_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">J_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">J_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/JM_to_EXWBBuffer" type="logic">
+      <obj_property name="ElementShortName">JM_to_EXWBBuffer</obj_property>
+      <obj_property name="ObjectShortName">JM_to_EXWBBuffer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/rd_to_EXWBBuffer" type="array">
+      <obj_property name="ElementShortName">rd_to_EXWBBuffer[5:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_to_EXWBBuffer[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/RS_to_Dmem_ALU" type="array">
+      <obj_property name="ElementShortName">RS_to_Dmem_ALU[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RS_to_Dmem_ALU[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/RT_to_Dmem_ALU" type="array">
+      <obj_property name="ElementShortName">RT_to_Dmem_ALU[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RT_to_Dmem_ALU[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/PC_to_EXWBBuffer" type="array">
+      <obj_property name="ElementShortName">PC_to_EXWBBuffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_to_EXWBBuffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU/PC_to_mux_1" type="array">
+      <obj_property name="ElementShortName">PC_to_mux_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_to_mux_1[31:0]</obj_property>
+   </wvobject>
+</wave_config>

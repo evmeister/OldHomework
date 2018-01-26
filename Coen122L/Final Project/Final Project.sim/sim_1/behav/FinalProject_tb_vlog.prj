@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/new/SourceTruth.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/Coen122L/eberhardt_pipelineBuffer/eberhardt_pipelineBuffer.srcs/sources_1/new/pipelineBuffer.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Dmem.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/eberhardt_alu/eberhardt_alu.srcs/sources_1/new/alu.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Rfile.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/eeberhardt_mux/eeberhardt_mux.srcs/sources_1/new/mux.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/imports/eeberhar/eberhardt_memory/eberhardt_memory.srcs/sources_1/new/Imem.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/new/control.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/new/Adder.v"
+verilog xil_defaultlib  "../../../Final Project.srcs/sources_1/new/CPU.v"
+verilog xil_defaultlib  "../../../FinalProject_tb.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
