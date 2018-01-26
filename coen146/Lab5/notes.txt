@@ -1,0 +1,20 @@
+notes on all labs present and previous:
+--> Descriptive Comments
+--> Checking command line args
+able to fix lab 3 and resubmit sunday night
+              -2/17
+
+Lab 5
+two programs, one generates a random sting of bytes, and the other calculates the entropy in that string. e.g. chars are one byte but are signed values so you need an unsigned char, 0-255, to get them all, where normal char only covers -127 to 218
+gen a megabyte string: 1048576 bytes per string
+- can use random number generator or something
+- seed and rand are easiest; have a loop printing bytes. 
+bonus to those who generate most random string of bytes
+
+on source: first block reads in string, second block bins the values (histogram), third block does the calculation. need math.h lib and use -lm flag when compiling: gcc -lm -o execute code.c for entropycalc
+./rand generator | ./entropycalc
+entropy is summated, goes to stdout, use fread() stdin
+
+download .zip file and make. execute ./ent along with the randgen to verify calculation
+
+8.0 is max entropy

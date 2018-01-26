@@ -1,0 +1,51 @@
+***** HSPICE -- D-2010.03 32-BIT (Feb 23 2010) linux ******
+ Input File: prelab1.lis
+ lic:
+ lic: FLEXlm: v8.5b
+ lic: USER:   eeberhar             HOSTNAME: linux60418
+ lic: HOSTID: 3417ebbc87a9         PID:      2251
+ lic: Using FLEXlm license file:
+ lic: 27000@hoth
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 31-jul-2016/2015.06
+ lic: FLOATING license(s) on SERVER hoth
+ lic:
+ init: begin read circuit files,  cpu clock=  0.00E+00
+       option search   = /applications/synopsys/2010.03/hspice/hspice
+       option runlvl
+       option post     =     1.00
+ init: end read circuit files,  cpu clock=  0.00E+00 memory=    150 kb
+ init: begin check errors,  cpu clock=  0.00E+00
+ init: end check errors,  cpu clock=  1.00E-02 memory=    150 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  1.00E-02
+       establish matrix -- done,  cpu clock=  1.00E-02 memory=    150 kb
+       re-order matrix -- done,  cpu clock=  1.00E-02 memory=    150 kb
+ init: end setup matrix,  cpu clock=  1.00E-02 memory=    159 kb
+ sweep: voltage         voltage1         begin, #sweeps =   6
+ voltage: vgs             =    0.00E+00
+ output: prelab1.sw0
+ sweep: dc dc1    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc1    end,  cpu clock=  1.00E-02 memory=    159 kb
+ voltage: vgs             =    1.00E+00
+ output: prelab1.sw0
+ sweep: dc dc2    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc2    end,  cpu clock=  1.00E-02 memory=    159 kb
+ voltage: vgs             =    2.00E+00
+ output: prelab1.sw0
+ sweep: dc dc3    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc3    end,  cpu clock=  1.00E-02 memory=    159 kb
+ voltage: vgs             =    3.00E+00
+ output: prelab1.sw0
+ sweep: dc dc4    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc4    end,  cpu clock=  1.00E-02 memory=    159 kb
+ voltage: vgs             =    4.00E+00
+ output: prelab1.sw0
+ sweep: dc dc5    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc5    end,  cpu clock=  1.00E-02 memory=    159 kb
+ voltage: vgs             =    5.00E+00
+ output: prelab1.sw0
+ sweep: dc dc6    begin, #sweeps=  11 cpu clock=  1.00E-02
+ sweep: dc dc6    end,  cpu clock=  1.00E-02 memory=    159 kb
+ sweep: voltage         voltage         1 end
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

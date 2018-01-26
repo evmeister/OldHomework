@@ -1,0 +1,284 @@
+;Evan Eberhardt
+
+;Initializations
+(define (initialize-agent) "ok")
+(define chart (list)) ;map of interesting things
+(define boundaries (list)) ;map of edge of world
+(define veg-types (list)) ;different types of vegetation and their recorded maximum bloom
+;(define threats (list)) ;list of agents and predators
+(define location '(0 0 N))
+;(define origin '(0 0)) ;locations from which surrounding info was gathered
+;(define spin-ctr 0) ;keeps track of spinning to gather info
+(define turn-ctr 0)
+(define desire "explore") ;determines goal of actions
+(define mood "peaceful") ;determines goal of actions
+(define target (list)) ;target location to move to
+
+;choose-action
+(define (choose-action current-energy previous-events percepts)
+  (begin (view percepts -1 1) ;record interesting things in chart
+		 ;decide what the next desire is
+		 (choose current-energy previous-events percepts)
+		 ;decide what to do based on desire
+		 (cond ((equal? desire "eat") (eat current-energy previous-events percepts)) ;
+			   ((equal? desire "explore") (explore percepts)) ;
+			   ((equal? desire "target") (seek-target)) ;
+			   )))
+
+;--------------
+;View + helpers
+;--------------
+(define (view percepts x y)
+  (cond ((> y 5) "ok")
+		((> x y) (view percepts (- 0 (+ 1 y)) (+ 1 y)))
+		((list? (get-location percepts x y))
+		   (begin (set! chart (cons (list (get-location percepts x y) (x-loc x y) (y-loc x y)) chart))
+				  (if (equal? (nth-item 1 (get-location percepts x y)) 'vegetation)
+					(is-new? (get-location percepts x y))
+					;(set! threats (cons (get-location percepts x y) threats)))
+					)
+				  (view percepts (+ 1 x) y)))
+		(#t (view percepts (+ 1 x) y))))
+
+(define (x-loc x y)
+  (cond ((equal? (nth-item 3 location) 'N) (+ x (nth-item 1 location)))
+		((equal? (nth-item 3 location) 'W) (- (nth-item 1 location) y))
+		((equal? (nth-item 3 location) 'S) (- (nth-item 1 location) x))
+		((equal? (nth-item 3 location) 'E) (+ (nth-item 1 location) y))))
+
+(define (y-loc x y)
+  (cond ((equal? (nth-item 3 location) 'N) (+ y (nth-item 2 location)))
+		((equal? (nth-item 3 location) 'W) (+ x (nth-item 2 location)))
+		((equal? (nth-item 3 location) 'S) (- (nth-item 2 location) y))
+		((equal? (nth-item 3 location) 'E) (- (nth-item 2 location) x))))
+
+(define (is-new? vegetation)
+  (if (equal? (present-idx vegetation) 0)
+	 (set! veg-types (cons vegetation veg-types))
+	 (if (> (nth-item 3 vegetation) (nth-item 3 (nth-item (present-idx vegetation) veg-types)))
+	   (replace-nth-item (present-idx vegetation) veg-types vegetation))))
+
+(define (present-idx vegetation)
+  (check-veg vegetation 1 veg-types))
+(define (check-veg vegetation n vlist)
+  (cond ((null? vlist) 0)
+		((equal? (nth-item 2 vegetation) (nth-item 2 (car vlist))) n)
+		(#t (check-veg vegetation (+ n 1) (cdr vlist)))))
+
+;-------------
+;Eat + helpers
+;-------------
+
+;eat: simple decision tree,
+(define (eat energy prev percepts)
+  (if (equal? (nth-item 3 (best-veg veg-types)) (nth-item 3 (get-location percepts 0 1)))
+	"EAT-AGGRESSIVE"
+	(if (and (not (list? (get-location percepts -1 1)))
+			 (not (list? (get-location percepts 1 1)))
+		     (not (list? (get-location percepts 0 2))))
+	  "STAY"
+	  (cond ((weaker-agent? (get-location percepts -1 1) energy) (attack (x-loc -1 1) (y-loc -1 1) E energy prev percepts))
+			((weaker-agent? (get-location percepts 1 1) energy) (attack (x-loc 1 1) (y-loc 1 1) W  energy prev percepts))
+			((weaker-agent? (get-location percepts 0 2) energy) (attack (x-loc 0 2) (y-loc 0 2) S energy prev percepts))
+			(#t "EAT-PASSIVE")))))
+
+(define (best-veg vlist)
+  (cond ((null? (cdr vlist)) (car vlist))
+		((> (nth-item 3 (car vlist)) (nth-item 3 (best-veg (cdr vlist)))) (car vlist))
+		(else (best-veg (cdr vlist)))))
+
+(define (weaker-agent? agent energy)
+  (if (not (equal? (nth-item 1 agent) 'agent))
+	#f
+	(if (> (/ (+ 1 (- (max-energy agent) energy)) (+ 1 (- max-energy min-energy))) 0.84)
+	  #t
+	  #f)))
+
+(define (max-energy agent)
+  (expt 2 (+ (nth-item 3 agent) 1)))
+
+(define (min-energy agent)
+  (expt 2 (- (nth-item 3 agent) 1)))
+
+(define (attack x y D energy prev percepts)
+  (begin (set! mood "aggressive")
+		 (set! target (cons '(x y D) target))
+		 (set! desire "target")
+		 (seek-target)))
+
+
+
+;-----------------
+;Explore + helpers
+;-----------------
+
+;explore: randomly 
+(define (explore percepts)
+  (cond ((predator-front percepts) (face-L))
+		((barrier-front percepts) (face-L))
+		(#t (let ((rand (random 12)))
+			  (cond ((equal? rand 0) (face-R))
+					((equal? rand 1) (face-L))
+					((equal? rand 2) (face-A))
+					((> rand 9) "MOVE-PASSIVE-3")
+					((> rand 6) "MOVE-PASSIVE-2")
+					((> rand 3) "MOVE-PASSIVE-1"))))))
+
+(define (predator-front percepts)
+  (if (equal? (nth-item 1 (object-front 1 percepts)) 'predator) #t #f))
+
+(define (barrier-front percepts)
+  (if (equal? (nth-item 1 (object-front 1 percepts)) 'barrier) #t #f))
+
+(define (object-front n percepts)
+  (if (> n 5) '(empty)
+	(cond ((list? (get-location percepts 0 n)) (get-location percepts 0 n))
+		  ((equal? (get-location percepts 0 n) 'barrier) (list (get-location percepts 0 n)))
+		  (#t (object-front (+ 1 n) percepts)))))
+
+;----------------
+;Target + helpers
+;----------------
+
+;target: seek given point
+(define (seek-target)
+  (cond ((not (equal? (nth-item 1 location) (nth-item 1 (car target)))) (move-x))
+		((not (equal? (nth-item 2 location) (nth-item 2 (car target)))) (move-y))
+		((not (equal? (nth-item 3 location) (nth-item 3 (car target)))) (move-D))))
+
+(define (move-x)
+  (cond ((> (nth-item 1 location) (nth-item 1 (car target)))
+		 (if (not (equal? (nth-item 3 location) 'W))
+		   (cond ((equal? (nth-item 3 location) 'N) (face-L))
+				 ((equal? (nth-item 3 location) 'E) (face-A))
+				 ((equal? (nth-item 3 location) 'S) (face-R)))
+		   (forward-x)))
+		((< (nth-item 1 location) (nth-item 1 (car target)))
+		 (if (not (equal? (nth-item 3 location) 'E))
+		   (cond ((equal? (nth-item 3 location) 'S) (face-L))
+				 ((equal? (nth-item 3 location) 'W) (face-A))
+				 ((equal? (nth-item 3 location) 'N) (face-R)))
+		   (forward-x)))))
+
+(define (forward-x)
+		   (cond ((equal? 1 (delta-x))
+				  (if (equal? mood "peaceful") "MOVE-PASSIVE-1" "MOVE-AGGRESSIVE-1"))
+				 ((equal? 2 (delta-x))
+				  (if (equal? mood "peaceful") "MOVE-PASSIVE-2" "MOVE-AGGRESSIVE-2"))
+				 (#t
+				  (if (equal? mood "peaceful") "MOVE-PASSIVE-3" "MOVE-AGGRESSIVE-3"))))
+
+(define (move-y)
+  (cond ((> (nth-item 2 location) (nth-item 2 (car target)))
+		 (if (not (equal? (nth-item 3 location) 'S))
+		   (cond ((equal? (nth-item 3 location) 'W) (face-L))
+				 ((equal? (nth-item 3 location) 'N) (face-A))
+				 ((equal? (nth-item 3 location) 'E) (face-R)))
+		   (forward-y)))
+		((< (nth-item 2 location) (nth-item 2 (car target)))
+		 (if (not (equal? (nth-item 3 location) 'N))
+		   (cond ((equal? (nth-item 3 location) 'E) (face-L))
+				 ((equal? (nth-item 3 location) 'S) (face-A))
+				 ((equal? (nth-item 3 location) 'W) (face-R)))
+		   (forward-y)))))
+
+(define (forward-y)
+  			(cond ((equal? 1 (delta-y))
+				   (if (equal? mood "peaceful") "MOVE-PASSIVE-1" "MOVE-AGGRESSIVE-1"))
+				  ((equal? 2 (delta-y))
+				   (if (equal? mood "peaceful") "MOVE-PASSIVE-2" "MOVE-AGGRESSIVE-2"))
+				  (#t
+				   (if (equal? mood "peaceful") "MOVE-PASSIVE-3" "MOVE-AGGRESSIVE-3"))))
+
+(define (move-D)
+	(cond ((equal? (nth-item 3 (car target)) 'N)
+		   (cond ((equal? (nth-item 3 location) 'E) (face-L))
+				 ((equal? (nth-item 3 location) 'S) (face-A))
+				 ((equal? (nth-item 3 location) 'W) (face-R))))
+		  ((equal? (nth-item 3 (car target)) 'E)
+		   (cond ((equal? (nth-item 3 location) 'S) (face-L))
+				 ((equal? (nth-item 3 location) 'W) (face-A))
+				 ((equal? (nth-item 3 location) 'N) (face-R))))
+		  ((equal? (nth-item 3 (car target)) 'S)
+		   (cond ((equal? (nth-item 3 location) 'W) (face-L))
+				 ((equal? (nth-item 3 location) 'N) (face-A))
+				 ((equal? (nth-item 3 location) 'E) (face-R))))
+		  ((equal? (nth-item 3 (car target)) 'W)
+		   (cond ((equal? (nth-item 3 location) 'N) (face-L))
+				 ((equal? (nth-item 3 location) 'E) (face-A))
+				 ((equal? (nth-item 3 location) 'S) (face-R))))))
+
+(define (face-L)
+  (begin (cond ((equal? (nth-item 3 location) 'N)
+				(set! location (replace-nth-item 3 location 'W)))
+			   ((equal? (nth-item 3 location) 'E)
+				(set! location (replace-nth-item 3 location 'N)))
+			   ((equal? (nth-item 3 location) 'S)
+				(set! location (replace-nth-item 3 location 'E)))
+			   ((equal? (nth-item 3 location) 'W)
+				(set! location (replace-nth-item 3 location 'S))))
+		 "TURN-LEFT"))
+
+(define (face-R)
+  (begin (cond ((equal? (nth-item 3 location) 'N)
+				(set! location (replace-nth-item 3 location 'E)))
+			   ((equal? (nth-item 3 location) 'E)
+				(set! location (replace-nth-item 3 location 'S)))
+			   ((equal? (nth-item 3 location) 'S)
+				(set! location (replace-nth-item 3 location 'W)))
+			   ((equal? (nth-item 3 location) 'W)
+				(set! location (replace-nth-item 3 location 'N))))
+		 "TURN-RIGHT"))
+
+(define (face-A)
+  (begin (cond ((equal? (nth-item 3 location) 'N)
+				(set! location (replace-nth-item 3 location 'S)))
+			   ((equal? (nth-item 3 location) 'E)
+				(set! location (replace-nth-item 3 location 'W)))
+			   ((equal? (nth-item 3 location) 'S)
+				(set! location (replace-nth-item 3 location 'N)))
+			   ((equal? (nth-item 3 location) 'W)
+				(set! location (replace-nth-item 3 location 'E))))
+		 "TURN-AROUND"))
+
+(define (delta-x)
+  (abs (- (nth-item 1 location) (nth-item 1 (car target)))))
+
+(define (delta-y)
+  (abs (- (nth-item 2 location) (nth-item 2 (car target)))))
+
+
+;----------------
+;Choose + helpers
+;----------------
+
+;choose
+(define (choose energy prev percepts)
+	
+
+;-------------
+;Extra helpers
+;-------------
+
+(define (nth-item idx alist)
+  		;base case: first element is desired element given index
+  		(cond ((= idx 1) (car alist))
+			  ;decrement the index and take the cdr for recursion to get to desired index
+			  (#t (nth-item (- idx 1) (cdr alist)))))
+
+(define (replace-nth-item idx alist n)
+  		;base case: first element is to be replaced, make list of n and remainder of alist
+ 		(cond ((= idx 1) (append (list n) (cdr alist)))
+			  ;recursing backwards from insert point putting previous item in front
+			  (#t (append (list (car alist)) (replace-nth-item (- idx 1) (cdr alist) n)))))
+
+(define (get-location percept x y)
+		;The percept is made of y sublists where y=5, each with x elements where x varies from 3 to 11
+		;since negative values are valid, and the offset depends on the y value, the index of the correct 
+		;sublist can be found by the formula x=x+y+1. this formula determines which element of the sublist to choose.
+		;which sublist to choose from depends on y
+  		(nth-item (+ x y 1) (nth-item y (percept))))
+		;nth-item is nested to return the correct value. it is called to find which element of a sublist to find,
+		;which requires it to call itself for  which sublist fomr the percept string to find. the first call is x
+		;and the inttermost call is y
+

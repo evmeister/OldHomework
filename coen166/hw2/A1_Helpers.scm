@@ -1,0 +1,79 @@
+;>>>>>>>>>>>-<<<<<<<<<<<<
+;Assignment 1 Helper Code
+;>>>>>>>>>>>-<<<<<<<<<<<<
+
+;Variants of helper funcitons from previous assgnmt
+;modified for reuse in A*, essentially the same
+;Purpose: lowest level helpers
+
+;relies on:
+(load "ApplyActionHelpers.scm")
+;------------------------------
+
+
+(define (find-smallest alist)
+  		;Base case: one element in list
+		(cond ((null? (cdr alist)) (car alist))
+			  ;compare first element with the rest, see if it's smaller
+			  ((< (car alist) (find-smallest (cdr alist))) (car alist))
+			  ;otherwise it is something in the rest of the list that is smaller
+			  (else (find-smallest (cdr alist)))))
+
+
+(define (find-biggest alist)
+  		;base case: one element in list
+		(cond ((null? (cdr alist)) (car alist))
+			  ;compare first element with rest, see if it's bigger
+			  ((> (car alist) (find-smallest (cdr alist))) (car alist))
+			  ;otherwise it is someting in the rest of the list that is bigger
+			  (else (find-smallest (cdr alist)))))
+
+
+;find's action in open list with smallest A* value
+(define (find-smallest-act alist)
+		;Base case: one element in list
+		(cond ((null? (cdr alist)) (car alist))
+			  ;compare first element with rest, see if it has smaller A* value
+			  ((< (nth-item 2 (car alist)) (nth-item 2 (find-smallest-act (cdr alist)))) (car alist))
+			  ;otherwise it is something in the rest of the list that is smaller
+			  (else (find-smallest-act (cdr alist)))))
+
+
+;removes an action from the open list
+;relies on unique action & A*value combiniations
+(define (remove-action alist action)
+		;base case: remove first element
+		(cond ((equal-actions action (car alist)) (cdr alist))
+			  ;compare action with the rest, see if equal
+			  (#t (append (list (car alist)) (remove-action (cdr alist) action)))))
+;helper function for remove-action
+(define (equal-actions base comp)
+  		(and (equal? (nth-item 1 base) (nth-item 1 comp))
+			 (equal? (nth-item 2 base) (nth-item 2 comp))))
+
+
+(define (nth-item idx alist)
+  		;base case: first element is desired element given index
+  		(cond ((= idx 1) (car alist))
+			  ;decrement the index and take the cdr for recursion to get to desired index
+			  (#t (nth-item (- idx 1) (cdr alist)))))
+
+
+(define (replace-nth-item idx alist n)
+  		;base case: first element is to be replaced, make list of n and remainder of alist
+ 		(cond ((= idx 1) (append (list n) (cdr alist)))
+			  ;recursing backwards from insert point putting previous item in front
+			  (#t (append (list (car alist)) (replace-nth-item (- idx 1) (cdr alist) n)))))
+
+
+;apply action works as expected only on "fixed" 1-10 states (see "Coat Check" in )
+(define (apply-action state action)
+  		;determines result based on condition checks for the input
+		;"stay" just returns the original state
+  		(cond ( (equal? action "STAY") state )
+			  ( (equal? action "MOVE-1") (move1 state) )
+			  ( (equal? action "MOVE-2") (move2 state) )
+			  ( (equal? action "MOVE-3") (move3 state) )
+			  ( (equal? action "TURN-LEFT") (turnL state) )
+			  ( (equal? action "TURN-RIGHT") (turnR state) )
+			  ))

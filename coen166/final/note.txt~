@@ -1,0 +1,21 @@
+Keep a map of things
+-the map is a list of encountered items
+
+When in doubt, call random
+
+Keep list of encountered types of vegetation
+-keeps a value that is max energy value seen and turn it was seen on
+
+increment a turn counter
+
+if it detects a predator
+-put in list of threats
+-predict the spot it would be next turn if it is after me
+-if it goes there, put in list of, yeah they're threats
+-move away from threats, favor direction toward plants
+
+move towards item in veg list that has greatest max and farm it when it 'blooms'
+-for ties, choose closest one
+-have eat timer
+-have explore for something bigger timer
+-eat aggressive if there are competitors if victory is assured

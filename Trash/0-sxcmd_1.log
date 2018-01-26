@@ -1,0 +1,17 @@
+### CustomExplorer log file, revision C-2009.09-SP2 (build 0909) ###
+### created at 15:23:04 on Wed Apr  6 2016 (Linux) ###
+# (0) running in waveview only mode
+# (0) SW_SX_PERL_LIB defined
+# (0) SW_SX_TCL_LIB defined
+# (0) HOME defined
+wv_move_window CustomWaveView 0 0
+wv_resize_window CustomWaveView 800 400
+wv_move_window CustomWaveView 1116 25
+wv_move_window CustomWaveView 336 191
+wv_resize_window CustomWaveView 900 550
+wv_close_window CustomWaveView
+## Confirmation dialog opened
+wv_move_dialog Confirmation 692 440
+wv_select_dialog Confirmation
+wv_select_dialog Confirmation
+# wv_press_button Confirmation.Ok

@@ -1,0 +1,26 @@
+->Measure effective data rate
+
+In report, answer: What is bandwidth
+-effective data rate
+-latency is part of overall time, part of overhead. time command gives 3
+measures, user sys and real. real is cmd given to completion, includes
+everything. time looking at data ignoring overhead  is user and sys. 
+
+Deliverables: report, includes graph
+- 8 to 10 data points
+- consider scale and graph accordingly (expnential or linear etc)
+- for loop back transmission, speed measure used to calc bandwidth
+
+CMD Line instruction:
+~	ssh-keygen -t rsa
+~	*spam enter
+~	mv ~./ssh/is_rsa.pub ~/.ssh/authorized_keys
+~	*laptop version follows
+~	cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+~	dd if=/dev/zero of="test" bs=1024 count=1048576
+~	*gives file of 1 gigabyte (quotes necessary?) replace 'zero' with 'rand'
+	and makes random chars instead of straight zeroes
+~	*transfer follows:
+~	time cat test | head -c 1k | ssh username@linux.scudc.scu.edu "cd wd && cat -> somefile"
+~	*-c flag allows choice of 1k bytes; | is 'pipe' symbol
+~	* delete file when done

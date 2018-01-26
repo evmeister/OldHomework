@@ -1,0 +1,7 @@
+final presentation
+-12 minutes talk with 3min qna
+-Demo replaces conceptual model section. tab out and open browser
+-instead of testing plan, should talk about testing procedure.
+ ideally some kind of testing was done.
+-include lessons learned in the conclusion. 2 or 3 highlights
+-go light on risk table and dev timeline for sake of time 

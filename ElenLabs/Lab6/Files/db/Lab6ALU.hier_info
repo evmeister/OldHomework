@@ -1,0 +1,698 @@
+|Lab6ALU
+HEX0[0] <= SevenSeg:inst.OutputSevenSeg[0]
+HEX0[1] <= SevenSeg:inst.OutputSevenSeg[1]
+HEX0[2] <= SevenSeg:inst.OutputSevenSeg[2]
+HEX0[3] <= SevenSeg:inst.OutputSevenSeg[3]
+HEX0[4] <= SevenSeg:inst.OutputSevenSeg[4]
+HEX0[5] <= SevenSeg:inst.OutputSevenSeg[5]
+HEX0[6] <= SevenSeg:inst.OutputSevenSeg[6]
+SW[0] => 74151:a0.D5
+SW[0] => 74151:a0.D0
+SW[0] => 74151:a0.D1
+SW[0] => 74151:a0.D4
+SW[0] => insta.IN0
+SW[0] => 74151:a0.D2
+SW[0] => 74151:a0.D6
+SW[0] => 74151:a0.D7
+SW[0] => SevenSeg:a3_0.Number[0]
+SW[1] => 74151:a1.D5
+SW[1] => 74151:a1.D0
+SW[1] => 74151:a1.D1
+SW[1] => 74151:a1.D4
+SW[1] => instb.IN0
+SW[1] => 74151:a1.D2
+SW[1] => 74151:a1.D6
+SW[1] => 74151:a1.D7
+SW[1] => SevenSeg:a3_0.Number[1]
+SW[2] => 74151:a2.D5
+SW[2] => 74151:a2.D0
+SW[2] => 74151:a2.D1
+SW[2] => 74151:a2.D4
+SW[2] => instc.IN0
+SW[2] => 74151:a2.D2
+SW[2] => 74151:a2.D6
+SW[2] => 74151:a2.D7
+SW[2] => SevenSeg:a3_0.Number[2]
+SW[3] => 74151:a3.D5
+SW[3] => 74151:a3.D0
+SW[3] => 74151:a3.D1
+SW[3] => 74151:a3.D4
+SW[3] => instd.IN0
+SW[3] => 74151:a3.D2
+SW[3] => 74151:a3.D6
+SW[3] => 74151:a3.D7
+SW[3] => SevenSeg:a3_0.Number[3]
+SW[4] => inste.IN0
+SW[4] => 74151:b0.D4
+SW[4] => 74151:b0.D6
+SW[4] => instf.IN0
+SW[4] => SevenSeg:b3_0.Number[0]
+SW[5] => instg.IN0
+SW[5] => 74151:b1.D4
+SW[5] => 74151:b1.D6
+SW[5] => insth.IN0
+SW[5] => SevenSeg:b3_0.Number[1]
+SW[6] => insti.IN0
+SW[6] => 74151:b2.D4
+SW[6] => 74151:b2.D6
+SW[6] => instj.IN0
+SW[6] => SevenSeg:b3_0.Number[2]
+SW[7] => instk.IN0
+SW[7] => 74151:b3.D4
+SW[7] => 74151:b3.D6
+SW[7] => instl.IN0
+SW[7] => SevenSeg:b3_0.Number[3]
+SW[8] => 74151:CIN.A
+SW[8] => 74151:a0.A
+SW[8] => 74151:b0.A
+SW[8] => 74151:a1.A
+SW[8] => 74151:b1.A
+SW[8] => 74151:a2.A
+SW[8] => 74151:b2.A
+SW[8] => 74151:a3.A
+SW[8] => 74151:b3.A
+SW[8] => SevenSeg:inst1.Number[0]
+SW[9] => 74151:CIN.B
+SW[9] => 74151:a0.B
+SW[9] => 74151:b0.B
+SW[9] => 74151:a1.B
+SW[9] => 74151:b1.B
+SW[9] => 74151:a2.B
+SW[9] => 74151:b2.B
+SW[9] => 74151:a3.B
+SW[9] => 74151:b3.B
+SW[9] => SevenSeg:inst1.Number[1]
+SW[10] => 74151:CIN.C
+SW[10] => 74151:a0.C
+SW[10] => 74151:b0.C
+SW[10] => 74151:a1.C
+SW[10] => 74151:b1.C
+SW[10] => 74151:a2.C
+SW[10] => 74151:b2.C
+SW[10] => 74151:a3.C
+SW[10] => 74151:b3.C
+SW[10] => SevenSeg:inst1.Number[2]
+SW[11] => SevenSeg:inst1.Number[3]
+HEX2[0] <= SevenSeg:b3_0.OutputSevenSeg[0]
+HEX2[1] <= SevenSeg:b3_0.OutputSevenSeg[1]
+HEX2[2] <= SevenSeg:b3_0.OutputSevenSeg[2]
+HEX2[3] <= SevenSeg:b3_0.OutputSevenSeg[3]
+HEX2[4] <= SevenSeg:b3_0.OutputSevenSeg[4]
+HEX2[5] <= SevenSeg:b3_0.OutputSevenSeg[5]
+HEX2[6] <= SevenSeg:b3_0.OutputSevenSeg[6]
+HEX3[0] <= SevenSeg:a3_0.OutputSevenSeg[0]
+HEX3[1] <= SevenSeg:a3_0.OutputSevenSeg[1]
+HEX3[2] <= SevenSeg:a3_0.OutputSevenSeg[2]
+HEX3[3] <= SevenSeg:a3_0.OutputSevenSeg[3]
+HEX3[4] <= SevenSeg:a3_0.OutputSevenSeg[4]
+HEX3[5] <= SevenSeg:a3_0.OutputSevenSeg[5]
+HEX3[6] <= SevenSeg:a3_0.OutputSevenSeg[6]
+HEX5[0] <= SevenSeg:inst1.OutputSevenSeg[0]
+HEX5[1] <= SevenSeg:inst1.OutputSevenSeg[1]
+HEX5[2] <= SevenSeg:inst1.OutputSevenSeg[2]
+HEX5[3] <= SevenSeg:inst1.OutputSevenSeg[3]
+HEX5[4] <= SevenSeg:inst1.OutputSevenSeg[4]
+HEX5[5] <= SevenSeg:inst1.OutputSevenSeg[5]
+HEX5[6] <= SevenSeg:inst1.OutputSevenSeg[6]
+LEDR[0] <= Ripple_Carry_Adder:SUM.Cout
+
+
+|Lab6ALU|SevenSeg:inst
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM
+Cout <= FA:inst3.carryout
+Cin => FA:inst.Carryin
+A0 => FA:inst.x
+B0 => FA:inst.y
+A1 => FA:inst1.x
+B1 => FA:inst1.y
+A2 => FA:inst2.x
+B2 => FA:inst2.y
+A3 => FA:inst3.x
+B3 => FA:inst3.y
+S3 <= FA:inst3.sum
+S2 <= FA:inst2.sum
+S1 <= FA:inst1.sum
+S0 <= FA:inst.sum
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst3
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => HA:inst.x
+x => HA:inst1.x
+y => HA:inst1.y
+sum <= HA:inst.sum
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst3|HA:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst3|HA:inst1
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst2
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => HA:inst.x
+x => HA:inst1.x
+y => HA:inst1.y
+sum <= HA:inst.sum
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst2|HA:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst2|HA:inst1
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst1
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => HA:inst.x
+x => HA:inst1.x
+y => HA:inst1.y
+sum <= HA:inst.sum
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst1|HA:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst1|HA:inst1
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => HA:inst.x
+x => HA:inst1.x
+y => HA:inst1.y
+sum <= HA:inst.sum
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst|HA:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|Ripple_Carry_Adder:SUM|FA:inst|HA:inst1
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:CIN
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:CIN|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:a0
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:a0|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:b0
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:b0|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:a1
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:a1|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:b1
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:b1|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:a2
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:a2|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:b2
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:b2|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:a3
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:a3|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|74151:b3
+c => f74151:sub.c
+b => f74151:sub.b
+a => f74151:sub.a
+d[0] => f74151:sub.d[0]
+d[1] => f74151:sub.d[1]
+d[2] => f74151:sub.d[2]
+d[3] => f74151:sub.d[3]
+d[4] => f74151:sub.d[4]
+d[5] => f74151:sub.d[5]
+d[6] => f74151:sub.d[6]
+d[7] => f74151:sub.d[7]
+gn => ~NO_FANOUT~
+y <= f74151:sub.y
+wn <= f74151:sub.wn
+
+
+|Lab6ALU|74151:b3|f74151:sub
+WN <= 85.DB_MAX_OUTPUT_PORT_TYPE
+D0 => 59.IN0
+A => 19.IN0
+D1 => 60.IN0
+B => 17.IN0
+D2 => 61.IN0
+D3 => 62.IN0
+C => 16.IN0
+D4 => 63.IN0
+D5 => 64.IN0
+D6 => 65.IN0
+D7 => 66.IN0
+GN => 13.IN0
+y <= 82.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|SevenSeg:b3_0
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|SevenSeg:a3_0
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6ALU|SevenSeg:inst1
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

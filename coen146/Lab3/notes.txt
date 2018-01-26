@@ -1,0 +1,30 @@
+CLIENT SIDE/Sender
+gethostbyname
+init sockaddr_in structure
+open socket
+//new
+open loop{
+take in text on stdn
+send data to server/lisener
+wait/recieve data from server
+print text from server
+}end loop
+//best practice is to close any socket you open
+close(socket);
+//another function is called shutdown that flushes buffers
+
+EXTRA CHALLENGE
+when someone exits, notify other person. do on both ends:
+add checks for exit string at stdin read and data recieve
+
+SERVER SIDE/Listener
+init sockaddr structure
+open socket
+bind socket
+open loop{
+wait/recieve data from client
+print 
+read stdin
+send data to client
+}end loop
+close(socket);

@@ -1,0 +1,2 @@
+modulus and base must be prime base<mod
+check if prime: for i= 2 -> floor(sqrt(n)), if n%i=0 then prime

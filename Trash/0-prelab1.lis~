@@ -1,0 +1,19 @@
+PRELAB 1-IV CHARACTERISTICS-1.A-NMOS TRANSISTOR
+* EVAN EBERHARDT 4 APR 16 ELEN153L W 2:15
+*
+* Elements
+** Transistor
+M1  2 1 0 0 NCH W=1.8u L=1.8u
+** Voltage Sources
+Vgs 1 00
+Vds 2 00
+*
+* Controls
+.model NCH NMOS (LEVEL=1)
+.options post=1
+.DC Vds 0 5 0.5 Vgs 0 5 1
+*
+* Output
+.PROBE DC
+*
+.END <CR>

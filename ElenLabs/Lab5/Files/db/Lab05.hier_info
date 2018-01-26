@@ -1,0 +1,93 @@
+|parta
+HEX7[0] <= SevenSeg:inst.OutputSevenSeg[0]
+HEX7[1] <= SevenSeg:inst.OutputSevenSeg[1]
+HEX7[2] <= SevenSeg:inst.OutputSevenSeg[2]
+HEX7[3] <= SevenSeg:inst.OutputSevenSeg[3]
+HEX7[4] <= SevenSeg:inst.OutputSevenSeg[4]
+HEX7[5] <= SevenSeg:inst.OutputSevenSeg[5]
+HEX7[6] <= SevenSeg:inst.OutputSevenSeg[6]
+SW[0] => Bigmux:inst0.IN3
+SW[1] => Bigmux:inst0.IN2
+SW[2] => Bigmux:inst0.IN1
+SW[3] => Bigmux:inst0.IN0
+SW[4] => SevenSeg:inst.Number[0]
+SW[4] => Bigmux:inst0.S0
+SW[5] => SevenSeg:inst.Number[1]
+SW[5] => Bigmux:inst0.S1
+LEDG[0] <= Bigmux:inst0.OUT
+LEDR[0] <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parta|SevenSeg:inst
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|parta|Bigmux:inst0
+OUT <= Lab05:inst2.Out
+IN3 => Lab05:inst.High
+IN2 => Lab05:inst.Low
+S0 => Lab05:inst.Switch
+S0 => Lab05:inst1.Switch
+IN1 => Lab05:inst1.High
+IN0 => Lab05:inst1.Low
+S1 => Lab05:inst2.Switch
+
+
+|parta|Bigmux:inst0|Lab05:inst2
+Out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+Low => 0.IN0
+Switch => inst3.IN0
+Switch => 1.IN1
+High => 1.IN0
+
+
+|parta|Bigmux:inst0|Lab05:inst
+Out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+Low => 0.IN0
+Switch => inst3.IN0
+Switch => 1.IN1
+High => 1.IN0
+
+
+|parta|Bigmux:inst0|Lab05:inst1
+Out <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+Low => 0.IN0
+Switch => inst3.IN0
+Switch => 1.IN1
+High => 1.IN0
+
+

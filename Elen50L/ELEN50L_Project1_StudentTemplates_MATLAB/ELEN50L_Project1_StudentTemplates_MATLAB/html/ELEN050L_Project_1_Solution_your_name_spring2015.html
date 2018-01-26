@@ -1,0 +1,1676 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ELEN050L_Project_1_Solution_your_name_spring2015</title><meta name="generator" content="MATLAB 8.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-05-07"><meta name="DC.source" content="ELEN050L_Project_1_Solution_your_name_spring2015.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1></h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">ELEN 050L (Electric Circuits I): Project 1, Evan Eberhardt, Ryan Meyer</a></li><li><a href="#2">Initialize MATLAB Environment</a></li><li><a href="#3">Setup global variables</a></li><li><a href="#4">Problem 1</a></li><li><a href="#7">Problem 2</a></li><li><a href="#12">Problem 3</a></li><li><a href="#15">Problem 4</a></li><li><a href="#27">Program execution complete</a></li><li><a href="#28">MATLAB code listing</a></li></ul></div><h2>ELEN 050L (Electric Circuits I): Project 1, Evan Eberhardt, Ryan Meyer<a name="1"></a></h2><p><img vspace="5" hspace="5" src="ELEN050L_Project_1_figure_01_your_name.png" alt=""> </p><div><ul><li><b>Problem 1:</b> Find a Thevenin equivalent with respect to <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">. Use this result to determine conditions under which <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> absorbs maximal power.</li><li><b>Problem 2:</b> Create an m-file in MATLAB that will compute powers <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and the efficiency coefficient <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq14251655026512754784.png" alt="${\eta \enspace = \enspace \frac{(P_9 + P_{10})}{P_G}}$"> for different values of <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">. Plot <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq16437777058788605810.png" alt="$\displaystyle{P_9(R_9)}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq17651500663288938539.png" alt="$\displaystyle{P_{10}(R_9)}$"> on one graph and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq06540732085952807499.png" alt="$\displaystyle{\eta(R_9)}$"> on another using a logarithmic scale for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">. <b>NOTE:</b> Your plot for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq16437777058788605810.png" alt="$\displaystyle{P_9(R_9)}$"> should be consistent with the results obtained in Problem 1.</li><li><b>Problem 3:</b> Based on the plots obtained in Problem 2, select <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> so that <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> is maximized with the following additional constraint: <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq07387494166398607421.png" alt="$${0.7 \leq \frac{P_9 }{P_{10}} \leq 1.3}$"></li><li><b>Problem 4:</b> Assemble the circuit in Figure 1 and measure <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> over an appropriate range of values for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">. Plot the measured values in MATLAB and compare with your simulation results. Have the requirements for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> been satisfied with the choice of <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> obtained in Problem 3? <b>NOTE:</b> Think about how you are going to measure the generated power <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11123953056589430572.png" alt="$\displaystyle{P_G}$"> before you come to lab!</li></ul></div><p><b>Hard Copy Deliverables:</b></p><div><ol><li>A MATLAB script and publish the solution using MATLAB's <b>publish</b> feature.</li><li>Turn in MATLAB scripts and a document of the run-time results.</li><li>Turn in the Excel file with the measured results.</li></ol></div><p><b>Hints:</b></p><div><ol><li>Make sure that the choices for resistors satisfy the following relationship <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq06401331317975944101.png" alt="$${R_1 \enspace through \enspace R_8 < R_{10} \enspace and \enspace R_9 \enspace is \enspace variable}$">.</li><li>Make sure that the choices for resistors satisfy the following relationship <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11875327754953470536.png" alt="$${500 \Omega \leq R_{n} \leq 2 k\Omega , \enspace where \enspace n = \{ 1, 2, 3, 4, 5, 6, 7, 8, 10 \} }$">.</li><li>Generate 5 KCL equations, 1 at each point of the square and 1 in the middle of the square.</li><li>Use the 5 KCL equations as a starting point to simply the calculations required for computing <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01027158485228613160.png" alt="$\displaystyle{V_{th}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10840655215165906689.png" alt="$\displaystyle{R_{th}}$">.</li></ol></div><h2>Initialize MATLAB Environment<a name="2"></a></h2><pre class="codeinput">clear; clc; clf; cla; close <span class="string">all</span>;
+format <span class="string">short</span>; format <span class="string">compact</span>;
+</pre><h2>Setup global variables<a name="3"></a></h2><pre class="codeinput"><span class="comment">% These element values are fixed in the circuit.</span>
+VG  = 12;            <span class="comment">% Generator voltage</span>
+R1  = 510;          <span class="comment">% Ohms</span>
+R2  = 680;          <span class="comment">% Ohms</span>
+R3  = 680;          <span class="comment">% Ohms</span>
+R4  = 680;           <span class="comment">% Ohms</span>
+R5  = 1000;           <span class="comment">% Ohms</span>
+R6  = 1000;           <span class="comment">% Ohms</span>
+R7  = 1000;           <span class="comment">% Ohms</span>
+R8  = 1200;          <span class="comment">% Ohms</span>
+R10 = 1200;           <span class="comment">% Ohms</span>
+
+<span class="comment">% Build an array for R1 through R8, and R10 (use if calling the function).</span>
+<span class="comment">% Note that the index for R9 is set to 0 Ohms, but this is just a place</span>
+<span class="comment">%  holder in the array to make the code readable inside the external</span>
+<span class="comment">%  function (if it is used).</span>
+RN = [R1, R2, R3, R4, R5, R6, R7, R8, 0, R10];  <span class="comment">% Ohms</span>
+
+<span class="comment">% This element value is the R9 variable in the circuit.</span>
+R9 = [1:10:10^5];    <span class="comment">% Ohms</span>
+
+<span class="comment">% These values establish the constraints for the P9/P10 ratio.</span>
+P9_div_P10_ratio_min = 0.7;
+P9_div_P10_ratio_max = 1.3;
+
+<span class="comment">% These values are used for plotting purposes.</span>
+fignum = 5;
+symbolic_mode = true;
+</pre><h2>Problem 1<a name="4"></a></h2><p>Find a Thevenin equivalent with respect to <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> as illustrated in Figure 2, where <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq03345002840158455002.png" alt="$\displaystyle{V_g \enspace = \enspace V_{th}}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01866271147812587835.png" alt="$\displaystyle{R_s \enspace = \enspace R_{th}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01419963955923605455.png" alt="$\displaystyle{R_L \enspace = \enspace R_9}$">.</p><p><img vspace="5" hspace="5" src="ELEN050L_Project_1_figure_02_your_name.png" alt=""> </p><p>The computations for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq15336651602140746872.png" alt="$\displaystyle{V_{th} \enspace = \enspace V_5}$"> are based upon Figure 3.</p><p><img vspace="5" hspace="5" src="ELEN050L_Project_1_figure_03_your_name.png" alt=""> </p><pre class="codeinput">A = [ (1) (0) (0) (0) (0); <span class="keyword">...</span>
+      (-1/R3) (1/R3 + 1/R4 + 1/R5 + 1/R10) (-1/R4) (0) (-1/R5); <span class="keyword">...</span>
+      (-1/R2) (-1/R4) (1/R2 + 1/R4 + 1/R6 + 1/R7) (-1/R6) (-1/R7); <span class="keyword">...</span>
+      (-1/R1) (0) (-1/R6) (1/R1 + 1/R6 + 1/R8) (-1/R8); <span class="keyword">...</span>
+      (0) (-1/R5) (-1/R7) (-1/R8) (1/R5 + 1/R7 + 1/R8)];
+
+b = [VG; 0; 0; 0; 0];
+
+V = A\b;
+Vth = V(5);
+
+fprintf(<span class="string">'\nThe Thevenin voltage is Vth = %-6.4f Volts.\n'</span>,Vth);
+</pre><pre class="codeoutput">
+The Thevenin voltage is Vth = 10.3011 Volts.
+</pre><p>The computations for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq12734118338633905540.png" alt="$\displaystyle{R_{th} \enspace = \enspace R_s}$"> are based upon Figure 4.</p><p><img vspace="5" hspace="5" src="ELEN050L_Project_1_figure_04_your_name.png" alt=""> </p><pre class="codeinput">A = [ (1/R3 + 1/R4 + 1/R5 + 1/R10) (-1/R4) (0) (-1/R5); <span class="keyword">...</span>
+      (-1/R4) (1/R2 + 1/R4 + 1/R6 + 1/R7) (-1/R6) (-1/R7); <span class="keyword">...</span>
+      (0) (-1/R6) (1/R1 + 1/R6 + 1/R8) (-1/R8); <span class="keyword">...</span>
+      (-1/R5) (-1/R7) (-1/R8) (1/R5 + 1/R7 + 1/R8)];
+
+b = [0; 0; 0; 1];
+
+V = A\b;
+Rth = V(4)/1;
+
+fprintf(<span class="string">'\nThe Thevenin resistance is Rth = %-6.4f Ohms.\n'</span>,Rth);
+</pre><pre class="codeoutput">
+The Thevenin resistance is Rth = 529.5334 Ohms.
+</pre><h2>Problem 2<a name="7"></a></h2><p>Compute powers <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and the efficiency coefficient <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> for different values of <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">.</p><p>The computations are based upon Figure 5.</p><p><img vspace="5" hspace="5" src="ELEN050L_Project_1_figure_05_your_name.png" alt=""> </p><pre class="codeinput">G1 = [ 1, 0, 0, 0, 0; <span class="keyword">...</span>
+       (-1/R3), ((1/R3)+(1/R4)+(1/R5)+(1/R10)), (-1/R4), 0, (-1/R5); <span class="keyword">...</span>
+       (-1/R2), (-1/R4), ((1/R2)+(1/R6)+(1/R7)+(1/R4)), (-1/R6), (-1/R7); <span class="keyword">...</span>
+       (-1/R1), 0, (-1/R6), ((1/R1)+(1/R6)+(1/R8)), (-1/R8); <span class="keyword">...</span>
+       0, (-1/R5), (-1/R7), (-1/R8), ((1/R8)+(1/R7)+(1/R5)) <span class="keyword">...</span>
+       ];
+
+G2 = [ 0, 0, 0, 0, 0; <span class="keyword">...</span>
+       0, 0, 0, 0, 0; <span class="keyword">...</span>
+       0, 0, 0, 0, 0; <span class="keyword">...</span>
+       0, 0, 0, 0, 0; <span class="keyword">...</span>
+       0, 0, 0, 0, 1 <span class="keyword">...</span>
+       ];
+
+b = [ VG; 0; 0; 0; 0];
+</pre><p>The following block of code is an external function that has been inserted here for documentation purposes in the final solution.</p><pre class="codeinput"><span class="comment">% Beginning of proj1E50 function (inserted here for MATLAB publish)</span>
+P9 = []; P10 = []; eta = []; PG = [];
+
+<span class="keyword">for</span> iter = 1:length(R9)
+    <span class="comment">% We have to solve the circuit once for each different value of R9.</span>
+    <span class="comment">% Since all these different values are stored in a vector R9,</span>
+    <span class="comment">% length(R9) determines how many times we must execute the loop.</span>
+
+    R9_iter = R9(iter);
+    <span class="comment">% R9_iter takes the next value from vector R9.</span>
+
+    A = G1 + (1/R9_iter)*G2;
+    V = A\b;
+    <span class="comment">% V contains the solution of the node voltage equations.</span>
+
+    PR9     = (V(5)^2)/R9_iter;
+    PR10    = (V(2)^2)/R10;
+    IR1     = (V(1)-V(4))/R1;
+    IR2     = (V(1)-V(3))/R2;
+    IR3     = (V(1)-V(2))/R3;
+    IG      = IR1 + IR2 + IR3;
+    PG_iter = VG * IG;
+    PG = [PG, PG_iter];
+    <span class="comment">% Computation of the powers associated with R9, R10 and the generator.</span>
+
+    P9  = [P9, PR9];
+    P10 = [P10, PR10];
+    <span class="comment">% Powers PR9 and PR10 computed for different values of R9 are stored</span>
+    <span class="comment">% in vectors P9 and P10.</span>
+
+    W = (PR9 + PR10) / PG_iter;
+    eta = [eta, W];
+    <span class="comment">% Eta represents the percentage of the generated power that is absorbed</span>
+    <span class="comment">% by resistors R9 and R10.</span>
+<span class="keyword">end</span>;
+<span class="comment">% End of proj1E50 function (inserted here for MATLAB publish)</span>
+</pre><p>Generate the plot for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$"> and indicate where <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq13570960808381867210.png" alt="$\displaystyle{(P_9)_{max}}$"> occurs. The location should match the calculation for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11370510945700697799.png" alt="$\displaystyle{R_9 = R_{th}}$">.</p><pre class="codeinput"><span class="comment">% Initialize for plot</span>
+plot_left_r9 = min(R9);   plot_right_r9 = max(R9);
+PG_plot_min = 0;          PG_plot_max = max(PG);
+P9_min = 0;               P9_max = max(P9);
+P10_min = 0;              P10_max = max(P10);
+eta_plot_min = 0;         eta_plot_max = max(eta);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'P9(R9) at Rth'</span>]);      <span class="comment">% Name the figure</span>
+
+P9_Rth_Plot = semilogx(R9,P9);              <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_9 (Watts)'</span>);               <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      P9_min, <span class="keyword">...</span>
+      P9_max+0.01]);                        <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_9(R_9) with max at R_t_h'</span>]);
+legend(<span class="string">'P_9(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Find the R9 values that satisfy max(P9)</span>
+cursor1 = 1;            cursor2 = 1;
+cursor1_found = false;  cursor2_found = false;
+R9_best = -1.0;
+<span class="keyword">for</span> iter = 1:length(R9)            <span class="comment">% Locate the left min constraint</span>
+    <span class="keyword">if</span> (~(cursor1_found) &amp;&amp; <span class="keyword">...</span>
+            P9(iter) &gt;= P9_max &amp;&amp; <span class="keyword">...</span>
+            P9(iter) &lt;= P9_max)
+        cursor1 = iter;
+        R9_left_min  = R9(iter);
+        cursor1_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor1+1:length(R9)    <span class="comment">% Locate the left max constraint</span>
+    <span class="keyword">if</span> (~(cursor2_found) &amp;&amp; <span class="keyword">...</span>
+            (P9(iter) &lt; P9(iter-1) || <span class="keyword">...</span>
+             P9(iter) &gt; P9_max))
+        <span class="keyword">if</span> (P9(iter-1) &lt;= P9_max)
+            cursor2 = iter-1;
+            R9_left_max  = R9(iter-1);
+        <span class="keyword">else</span>
+            cursor2 = iter;
+            R9_left_max  = R9(iter);
+        <span class="keyword">end</span>;
+        cursor2_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+
+makedatatip(P9_Rth_Plot, [cursor1; cursor2]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_01.png" alt=""> <pre class="codeinput">fprintf(<span class="keyword">...</span>
+     <span class="string">'\nFrom Figure %-2.u the maximum P9 occurs at R9 = %-6.4f Ohms.\n'</span>,<span class="keyword">...</span>
+     fignum, R9(floor(mean(cursor1,cursor2))));
+fprintf(<span class="string">'\nFrom Figure %-2.u the maximum P9 is = %-6.4f Watts.\n'</span>,<span class="keyword">...</span>
+         fignum, P9(floor(mean(cursor1,cursor2))));
+</pre><pre class="codeoutput">
+From Figure 6  the maximum P9 occurs at R9 = 531.0000 Ohms.
+
+From Figure 6  the maximum P9 is = 0.0501 Watts.
+</pre><p>Generate the plots for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11123953056589430572.png" alt="$\displaystyle{P_G}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$">.</p><pre class="codeinput">fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'PG(R9)'</span>]);             <span class="comment">% Name the figure</span>
+
+PG_Plot = semilogx( R9, PG);                 <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_G (Watts)'</span>);               <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      PG_plot_min, <span class="keyword">...</span>
+      PG_plot_max+0.01]);                   <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_G(R_9)'</span>]);
+legend(<span class="string">'P_G(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'P9(R9) and P10(R9)'</span>]); <span class="comment">% Name the figure</span>
+
+P9_P10_Plot = semilogx( R9, P9,  R9, P10);      <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_9 and P_1_0 (Watts)'</span>);     <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      min(P9_min,P10_min), <span class="keyword">...</span>
+      max(P9_max,P10_max)+0.01]);           <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_9(R_9) and P_1_0(R_9)'</span>]);
+legend(<span class="string">'P_9(R_9)'</span>, <span class="string">'P_1_0(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Coefficient eta'</span>]);    <span class="comment">% Name the figure</span>
+
+eta_Plot = semilogx( R9,  eta);                   <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Coefficient: \eta'</span>);                <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      eta_plot_min, eta_plot_max+0.1]);     <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="string">': \eta(R_9)'</span>]);
+legend(<span class="string">'\eta'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_02.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_03.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_04.png" alt=""> <h2>Problem 3<a name="12"></a></h2><p>Select <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> so that <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> is maximized with the following additional constraint: <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq07387494166398607421.png" alt="$${0.7 \leq \frac{P_9 }{P_{10}} \leq 1.3}$">.</p><pre class="codeinput">P9_div_P10 = P9 ./ P10;
+P9_div_P10_min = 0;    P9_div_P10_max = max(P9_div_P10);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'P9/P10'</span>]);             <span class="comment">% Name the figure</span>
+
+P9_div_P10_Plot = semilogx( R9,P9_div_P10);      <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Ratio: P_9/P_1_0'</span>);                 <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      P9_div_P10_min, P9_div_P10_max+0.2]); <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="string">': P_9/P_1_0 versus R_9'</span>]);
+legend(<span class="string">'P_9/P_1_0'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Find the R9 values that satisfy the P9/P10 ratio constraints</span>
+cursor1 = 1;            cursor2 = 1;
+cursor3 = 1;            cursor4 = 1;
+cursor1_found = false;  cursor2_found = false;
+cursor3_found = false;  cursor4_found = false;
+R9_best = -1.0; eta_max = -1.0; locator = -1;
+<span class="keyword">for</span> iter = 1:length(R9)            <span class="comment">% Locate the left min constraint</span>
+    <span class="keyword">if</span> (~(cursor1_found) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10(iter) &gt;= P9_div_P10_ratio_min &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10(iter) &lt;= P9_div_P10_ratio_max)
+        cursor1 = iter;
+        R9_left_min  = R9(iter);
+        eta_left_min = eta(iter);
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_left_min &gt; eta_max)
+            eta_max = eta_left_min;
+            R9_best = R9_left_min;
+            locator = cursor1;
+        <span class="keyword">end</span>;
+        cursor1_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor1+1:length(R9)    <span class="comment">% Locate the left max constraint</span>
+    <span class="keyword">if</span> (~(cursor2_found) &amp;&amp; <span class="keyword">...</span>
+            (P9_div_P10(iter) &lt; P9_div_P10(iter-1) || <span class="keyword">...</span>
+             P9_div_P10(iter) &gt; P9_div_P10_ratio_max))
+        <span class="keyword">if</span> (P9_div_P10(iter-1) &lt;= P9_div_P10_ratio_max)
+            cursor2 = iter-1;
+            R9_left_max  = R9(iter-1);
+            eta_left_max = eta(iter-1);
+        <span class="keyword">else</span>
+            cursor2 = iter;
+            R9_left_max  = R9(iter);
+            eta_left_max = eta(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_left_max &gt; eta_max)
+            eta_max = eta_left_max;
+            R9_best = R9_left_max;
+            locator = cursor2;
+        <span class="keyword">end</span>;
+        cursor2_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor2+1:length(R9)    <span class="comment">% Locate the right max constraint</span>
+    <span class="keyword">if</span> (~(cursor3_found) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10(iter) &gt;= P9_div_P10_ratio_min &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10(iter) &lt;= P9_div_P10_ratio_max)
+        <span class="keyword">if</span> (P9_div_P10(iter-1) &lt;= P9_div_P10_ratio_max)
+            cursor3 = iter-1;
+            R9_right_max  = R9(iter-1);
+            eta_right_max = eta(iter-1);
+        <span class="keyword">else</span>
+            cursor3 = iter;
+            R9_right_max  = R9(iter);
+            eta_right_max = eta(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_right_max &gt; eta_max)
+            eta_max = eta_right_max;
+            R9_best = R9_right_max;
+            locator = cursor3;
+        <span class="keyword">end</span>;
+        cursor3_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor3+1:length(R9)    <span class="comment">% Locate the right min constraint</span>
+    <span class="keyword">if</span> (~(cursor4_found) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10(iter) &lt; P9_div_P10_ratio_min)
+        <span class="keyword">if</span> (P9_div_P10(iter-1) &gt;= P9_div_P10_ratio_min)
+            cursor4 = iter-1;
+            R9_right_min  = R9(iter-1);
+            eta_right_min = eta(iter-1);
+        <span class="keyword">else</span>
+            cursor4 = iter;
+            R9_right_min  = R9(iter);
+            eta_right_min = eta(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_right_min &gt; eta_max)
+            eta_max = eta_right_min;
+            R9_best = R9_right_min;
+            locator = cursor4;
+        <span class="keyword">end</span>;
+        cursor3_found = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Coefficient eta'</span>]);    <span class="comment">% Name the figure</span>
+
+eta_Plot2 = semilogx( R9, eta);                <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Coefficient: \eta'</span>);                <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      eta_plot_min, eta_plot_max+0.1]);     <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="string">': \eta(R_9)'</span>]);
+legend(<span class="string">'\eta'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Display target cursors</span>
+makedatatip(P9_div_P10_Plot, [cursor1; cursor2; cursor3; cursor4]);
+makedatatip(eta_Plot2       , [locator]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_05.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_06.png" alt=""> <pre class="codeinput">fprintf(<span class="string">'\nThe following data is determined from Figure %-2.u.\n'</span>, fignum);
+fprintf(<span class="string">'\n The index locator into the arrays = %u.\n'</span>, locator);
+fprintf(<span class="string">'\n Given we wish to maximize the coefficient eta,\n'</span>);
+fprintf(<span class="string">'    the best result for eta = %-6.4f.\n'</span>, eta_max);
+fprintf(<span class="string">' The best choice for R9 = %-6.4f Ohms.\n'</span>, R9_best);
+fprintf(<span class="string">' The power dissipated in R9  = %-6.4f Watts.\n'</span>, P9(locator));
+fprintf(<span class="string">' The power dissipated in R10 = %-6.4f Watts.\n'</span>, P10(locator));
+</pre><pre class="codeoutput">
+The following data is determined from Figure 11.
+
+ The index locator into the arrays = 143.
+
+ Given we wish to maximize the coefficient eta,
+    the best result for eta = 0.6600.
+ The best choice for R9 = 1421.0000 Ohms.
+ The power dissipated in R9  = 0.0396 Watts.
+ The power dissipated in R10 = 0.0566 Watts.
+</pre><p>Update the plots for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11123953056589430572.png" alt="$\displaystyle{P_G}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> with the target <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> indicators.</p><pre class="codeinput">fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'PG(R9)'</span>]);             <span class="comment">% Name the figure</span>
+
+PG_Plot2 = semilogx( R9, PG);                     <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_G (Watts)'</span>);               <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      PG_plot_min, <span class="keyword">...</span>
+      PG_plot_max+0.01]);                   <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_G(R_9)'</span>]);
+legend(<span class="string">'P_G(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'P9(R9)'</span>]);             <span class="comment">% Name the figure</span>
+
+P9_Plot = semilogx( R9, P9);                  <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_9 (Watts)'</span>);               <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      P9_min, P9_max+0.01]);                <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_9(R_9)'</span>]);
+legend(<span class="string">'P_9(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum); <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'P10(R9)'</span>]);            <span class="comment">% Name the figure</span>
+
+P10_Plot = semilogx( R9, P10);                        <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                    <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Resistance: R_9 (\Omega)'</span>);         <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: P_1_0 (Watts)'</span>);             <span class="comment">% Label the axis</span>
+axis([plot_left_r9, plot_right_r9,<span class="keyword">...</span>
+      P10_min, P10_max+0.01]);              <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': P_1_0(R_9)'</span>]);
+legend(<span class="string">'P_1_0(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Display target cursors (annotated results from Problem 3)</span>
+makedatatip(PG_Plot2        , [locator]);
+makedatatip(P9_Plot         , [locator]);
+makedatatip(P10_Plot        , [locator]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_07.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_08.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_09.png" alt=""> <h2>Problem 4<a name="15"></a></h2><p>Assemble the circuit in Figure 1 and measure <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> over an appropriate range of values for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$">.</p><p>The measured values are contained in the external Excel spreadsheet file named "ELEN050L_Project_1_Measured_Results". These measured values are imported into MATLAB at run-time using MATLAB's <b>Import</b> feature. For the solution shown below, the initial "import" was executed to generate an external function file which can be called at run-time.</p><p>The measured values for the circuit elements are shown below.</p><pre class="codeinput">display(<span class="string">' '</span>);
+fprintf(<span class="string">'\nMeasured values for the voltage elements are (Volts):\n'</span>);
+VG_meas  = 11.995         <span class="comment">% Generator voltage</span>
+Vth_meas = 10.288         <span class="comment">% Thevenin voltage</span>
+</pre><pre class="codeoutput"> 
+
+Measured values for the voltage elements are (Volts):
+VG_meas =
+   11.9950
+Vth_meas =
+   10.2880
+</pre><p>Compare the measured <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01027158485228613160.png" alt="$\displaystyle{V_{th}}$"> to the expected value.</p><pre class="codeinput">Vth_diff = (Vth_meas - Vth)/Vth * 100;
+
+fprintf(<span class="string">'\nThe difference between measured and expected\n'</span>);
+fprintf(<span class="string">'  Vth = %-6.4f%%.\n'</span>, Vth_diff);
+</pre><pre class="codeoutput">
+The difference between measured and expected
+  Vth = -0.1276%.
+</pre><p>Compare the measured <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10840655215165906689.png" alt="$\displaystyle{R_{th}}$"> to the expected value.</p><pre class="codeinput">display(<span class="string">' '</span>);
+fprintf(<span class="string">'\nMeasured values for the resistive elements are (Ohms):\n'</span>);
+R1_meas  = 507;          <span class="comment">% Ohms</span>
+R2_meas  = 676;          <span class="comment">% Ohms</span>
+R3_meas  = 674;          <span class="comment">% Ohms</span>
+R4_meas  = 680;          <span class="comment">% Ohms</span>
+R5_meas  = 985;          <span class="comment">% Ohms</span>
+R6_meas  = 980;          <span class="comment">% Ohms</span>
+R7_meas  = 991;          <span class="comment">% Ohms</span>
+R8_meas  = 1168;          <span class="comment">% Ohms</span>
+R10_meas = 1189;          <span class="comment">% Ohms</span>
+Rth_meas = 522;         <span class="comment">% Thevenin resistance</span>
+</pre><pre class="codeoutput"> 
+
+Measured values for the resistive elements are (Ohms):
+</pre><p>Compare the measured <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10840655215165906689.png" alt="$\displaystyle{R_{th}}$"> to the expected value.</p><pre class="codeinput">Rth_diff = (Rth_meas - Rth)/Rth * 100;
+
+fprintf(<span class="string">'\nThe difference between measured and expected\n'</span>);
+fprintf(<span class="string">'  Rth = %-6.4f%%.\n'</span>, Rth_diff);
+display(<span class="string">' '</span>);
+</pre><pre class="codeoutput">
+The difference between measured and expected
+  Rth = -1.4226%.
+ 
+</pre><p>Import the measured data for processing.</p><pre class="codeinput">[R9_decade,Vmeas_R9,Vmeas_R10,Vmeas_R1,Vmeas_R2,Vmeas_R3] = <span class="keyword">...</span>
+    importfile(<span class="keyword">...</span>
+    <span class="string">'ELEN050L_Project_1_Measured_Results_blank.xlsx'</span>,<span class="keyword">...</span>
+    <span class="string">'Sheet1'</span>,2,49);
+</pre><p>Calculate the measured <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11123953056589430572.png" alt="$\displaystyle{P_G}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> over the range of decade box values used for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01427468263111832097.png" alt="$\displaystyle{R_{9}}$"> in the experiment.</p><pre class="codeinput"><span class="comment">% Compute generator power from measured values</span>
+I1_meas   = (Vmeas_R1) ./ R1_meas;
+I2_meas   = (Vmeas_R2) ./ R2_meas;
+I3_meas   = (Vmeas_R3) ./ R3_meas;
+IG_meas   = I3_meas + I2_meas + I1_meas;
+PG_meas   = IG_meas .* VG;
+
+<span class="comment">% Compute P9 and P10 from measured values</span>
+P9_meas   = (Vmeas_R9).^2 ./ R9_decade;
+P10_meas  = (Vmeas_R10).^2 ./ R10_meas;
+
+<span class="comment">% Compute eta from measured values</span>
+eta_meas  = (P9_meas + P10_meas) ./ PG_meas;
+</pre><p>Plot the measured values in MATLAB and compare them to the simulation results.</p><pre class="codeinput"><span class="comment">% Initialize for plot</span>
+plot_left_r9_decade  = min(R9_decade);
+plot_right_r9_decade = max(R9_decade);
+PG_plot_min_meas = 0;          PG_plot_max_meas = max(PG_meas);
+P9_min_meas = 0;               P9_max_meas = max(P9_meas);
+P10_min_meas = 0;              P10_max_meas = max(P10_meas);
+eta_plot_min_meas = 0;         eta_plot_max_meas = max(eta_meas);
+
+fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Measured P9(R9) at Rth'</span>]); <span class="comment">% Name the figure</span>
+
+P9_Meas_Rth_Plot = semilogx(R9_decade, P9_meas);      <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Measured Power: P_9 (Watts)'</span>);          <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, plot_right_r9_decade,<span class="keyword">...</span>
+      P9_min_meas, <span class="keyword">...</span>
+      P9_max_meas+0.01]);                       <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': Measured P_9(R_9) with max at R_t_h'</span>]);
+legend(<span class="string">'Measured P_9(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Find the Decade Box R9 values that satisfy max(P9_meas)</span>
+cursor1_meas = 1;            cursor2_meas = 1;
+cursor1_found_meas = false;  cursor2_found_meas = false;
+R9_best_decade = -1.0;
+<span class="keyword">for</span> iter = 1:length(R9_decade)         <span class="comment">% Locate the left min constraint</span>
+    <span class="keyword">if</span> (~(cursor1_found_meas) &amp;&amp; <span class="keyword">...</span>
+            P9_meas(iter) &gt;= P9_max_meas &amp;&amp; <span class="keyword">...</span>
+            P9_meas(iter) &lt;= P9_max_meas)
+        cursor1_meas = iter;
+        R9_left_min_decade  = R9_decade(iter);
+        cursor1_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor1_meas+1:length(R9_decade) <span class="comment">% Locate the left max constraint</span>
+    <span class="keyword">if</span> (~(cursor2_found_meas) &amp;&amp; <span class="keyword">...</span>
+            (P9_meas(iter) &lt; P9_meas(iter-1) || <span class="keyword">...</span>
+             P9_meas(iter) &gt; P9_max_meas))
+        <span class="keyword">if</span> (P9_meas(iter-1) &lt;= P9_max_meas)
+            cursor2_meas = iter-1;
+            R9_left_max_decade  = R9_decade(iter-1);
+        <span class="keyword">else</span>
+            cursor2_meas = iter;
+            R9_left_max_decade  = R9_decade(iter);
+        <span class="keyword">end</span>;
+        cursor2_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+
+makedatatip(P9_Meas_Rth_Plot, [cursor1_meas; cursor2_meas]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_10.png" alt=""> <pre class="codeinput">fprintf(<span class="string">'\nFrom Figure %-2.u the maximum measured P9 occurs at\n'</span>, fignum);
+fprintf(<span class="string">'  R9 = %-6.4f Ohms.\n'</span>,<span class="keyword">...</span>
+         R9_decade(floor(mean(cursor1_meas,cursor2_meas))));
+
+fprintf(<span class="string">'\nFrom Figure %-2.u the maximum measured P9\n'</span>, fignum);
+fprintf(<span class="string">'  is = %-6.4f Watts.\n'</span>,<span class="keyword">...</span>
+         P9_meas(floor(mean(cursor1_meas,cursor2_meas))));
+</pre><pre class="codeoutput">
+From Figure 15 the maximum measured P9 occurs at
+  R9 = 500.0000 Ohms.
+
+From Figure 15 the maximum measured P9
+  is = 0.0505 Watts.
+</pre><p>From the measured values select <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq02719915034311771290.png" alt="$\displaystyle{R_9}$"> so that <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$"> is maximized with the following additional constraint: <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq07387494166398607421.png" alt="$${0.7 \leq \frac{P_9 }{P_{10}} \leq 1.3}$">.</p><pre class="codeinput">P9_div_P10_meas = P9_meas ./ P10_meas;
+P9_div_P10_min_meas = 0;    P9_div_P10_max_meas = max(P9_div_P10_meas);
+
+fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Measured P9/P10'</span>]);        <span class="comment">% Name the figure</span>
+
+P9_div_P10_Meas_Plot = <span class="keyword">...</span>
+    semilogx( R9_decade, P9_div_P10_meas);         <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Measured Ratio: P_9/P_1_0'</span>);            <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, <span class="keyword">...</span>
+      plot_right_r9_decade,<span class="keyword">...</span>
+      P9_div_P10_min_meas, <span class="keyword">...</span>
+      P9_div_P10_max_meas+0.2]);                <span class="comment">% Bound plot</span>
+title(<span class="keyword">...</span>
+    [<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="string">': Measured P_9/P_1_0 versus R_9'</span>]);
+legend(<span class="string">'Measured P_9/P_1_0'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Find the R9 values that satisfy the P9/P10 ratio constraints</span>
+cursor1_meas = 1;            cursor2_meas = 1;
+cursor3_meas = 1;            cursor4_meas = 1;
+cursor1_found_meas = false;  cursor2_found_meas = false;
+cursor3_found_meas = false;  cursor4_found_meas = false;
+R9_best_meas = -1.0; eta_max_meas = -1.0; locator_meas = -1;
+<span class="keyword">for</span> iter = 1:length(R9_decade)             <span class="comment">% Locate the left min constraint</span>
+    <span class="keyword">if</span> (~(cursor1_found_meas) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10_meas(iter) &gt;= P9_div_P10_ratio_min &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10_meas(iter) &lt;= P9_div_P10_ratio_max)
+        cursor1_meas = iter;
+        R9_left_min_meas  = R9_decade(iter);
+        eta_left_min_meas = eta_meas(iter);
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_left_min_meas &gt; eta_max_meas)
+            eta_max_meas = eta_left_min_meas;
+            R9_best_meas = R9_left_min_meas;
+            locator_meas = cursor1_meas;
+        <span class="keyword">end</span>;
+        cursor1_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor1_meas+1:length(R9_decade)<span class="comment">% Locate the left max constraint</span>
+    <span class="keyword">if</span> (~(cursor2_found_meas) &amp;&amp; <span class="keyword">...</span>
+            (P9_div_P10_meas(iter) &lt; P9_div_P10_meas(iter-1) || <span class="keyword">...</span>
+             P9_div_P10_meas(iter) &gt; P9_div_P10_ratio_max))
+        <span class="keyword">if</span> (P9_div_P10_meas(iter-1) &lt;= P9_div_P10_ratio_max)
+            cursor2_meas = iter-1;
+            R9_left_max_meas  = R9_decade(iter-1);
+            eta_left_max_meas = eta_meas(iter-1);
+        <span class="keyword">else</span>
+            cursor2_meas = iter;
+            R9_left_max_meas  = R9_decade(iter);
+            eta_left_max_meas = eta_meas(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_left_max_meas &gt; eta_max_meas)
+            eta_max_meas = eta_left_max_meas;
+            R9_best_meas = R9_left_max_meas;
+            locator_meas = cursor2_meas;
+        <span class="keyword">end</span>;
+        cursor2_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor2_meas+1:length(R9_decade)<span class="comment">% Locate the right max constraint</span>
+    <span class="keyword">if</span> (~(cursor3_found_meas) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10_meas(iter) &gt;= P9_div_P10_ratio_min &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10_meas(iter) &lt;= P9_div_P10_ratio_max)
+        <span class="keyword">if</span> (P9_div_P10_meas(iter-1) &lt;= P9_div_P10_ratio_max)
+            cursor3_meas = iter-1;
+            R9_right_max_meas  = R9_decade(iter-1);
+            eta_right_max_meas = eta_meas(iter-1);
+        <span class="keyword">else</span>
+            cursor3_meas = iter;
+            R9_right_max_meas  = R9_decade(iter);
+            eta_right_max_meas = eta_meas(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_right_max_meas &gt; eta_max_meas)
+            eta_max_meas = eta_right_max_meas;
+            R9_best_meas = R9_right_max_meas;
+            locator_meas = cursor3_meas;
+        <span class="keyword">end</span>;
+        cursor3_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+<span class="keyword">for</span> iter = cursor3_meas+1:length(R9_decade)<span class="comment">% Locate the right min constraint</span>
+    <span class="keyword">if</span> (~(cursor4_found_meas) &amp;&amp; <span class="keyword">...</span>
+            P9_div_P10_meas(iter) &lt; P9_div_P10_ratio_min)
+        <span class="keyword">if</span> (P9_div_P10_meas(iter-1) &gt;= P9_div_P10_ratio_min)
+            cursor4_meas = iter-1;
+            R9_right_min_meas  = R9_decade(iter-1);
+            eta_right_min_meas = eta_meas(iter-1);
+        <span class="keyword">else</span>
+            cursor4_meas = iter;
+            R9_right_min_meas  = R9_decade(iter);
+            eta_right_min_meas = eta_meas(iter);
+        <span class="keyword">end</span>;
+        <span class="comment">% Calculate the best choice for R9</span>
+        <span class="keyword">if</span> (eta_right_min_meas &gt; eta_max_meas)
+            eta_max_meas = eta_right_min_meas;
+            R9_best_meas = R9_right_min_meas;
+            locator_meas = cursor4_meas;
+        <span class="keyword">end</span>;
+        cursor3_found_meas = true;
+        <span class="keyword">break</span>;
+    <span class="keyword">end</span>;
+<span class="keyword">end</span>;
+
+fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="keyword">...</span>
+    <span class="string">'Name'</span>,[<span class="string">'Measured Coefficient eta'</span>]);       <span class="comment">% Name the figure</span>
+
+eta_Meas_Plot2 = semilogx( R9_decade, eta_meas);       <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Measured Coefficient: \eta'</span>);           <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, <span class="keyword">...</span>
+      plot_right_r9_decade,<span class="keyword">...</span>
+      eta_plot_min_meas, <span class="keyword">...</span>
+      eta_plot_max_meas+0.1]);                  <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="string">': Measured \eta(R_9)'</span>]);
+legend(<span class="string">'Measured \eta'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+<span class="comment">% Display target cursors</span>
+makedatatip(P9_div_P10_Meas_Plot, <span class="keyword">...</span>
+            [cursor1_meas; cursor2_meas; cursor3_meas; cursor4_meas]);
+makedatatip(eta_Meas_Plot2       , [locator_meas]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_11.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_12.png" alt=""> <pre class="codeinput">fprintf(<span class="string">'\nThe following data is determined from Figure %-2.u.\n'</span>, fignum);
+fprintf(<span class="string">'\n The index locator into the arrays = %u.\n'</span>, locator_meas);
+fprintf(<span class="string">'\n Given we wish to maximize the coefficient eta,\n'</span>);
+fprintf(<span class="string">'    the best result for eta = %-6.4f.\n'</span>, eta_max_meas);
+fprintf(<span class="string">' The best choice for R9 = %-6.4f Ohms.\n'</span>, R9_best_meas);
+fprintf(<span class="string">' The power dissipated in R9  = %-6.4f Watts.\n'</span>, <span class="keyword">...</span>
+         P9_meas(locator_meas));
+fprintf( <span class="keyword">...</span>
+       <span class="string">' The power dissipated in R10 = %-6.4f Watts.\n'</span>, <span class="keyword">...</span>
+         P10_meas(locator_meas));
+</pre><pre class="codeoutput">
+The following data is determined from Figure 17.
+
+ The index locator into the arrays = 32.
+
+ Given we wish to maximize the coefficient eta,
+    the best result for eta = 0.6360.
+ The best choice for R9 = 1400.0000 Ohms.
+ The power dissipated in R9  = 0.0401 Watts.
+ The power dissipated in R10 = 0.0569 Watts.
+</pre><p>Compare the measured best choice for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq01427468263111832097.png" alt="$\displaystyle{R_{9}}$"> to the expected value.</p><pre class="codeinput">R9_best_diff = (R9_best_meas - R9_best)/R9_best * 100;
+
+fprintf(<span class="string">'\nThe difference between measured and expected\n'</span>);
+fprintf(<span class="string">'  R9_best = %-6.4f%%.\n'</span>, R9_best_diff);
+display(<span class="string">' '</span>);
+</pre><pre class="codeoutput">
+The difference between measured and expected
+  R9_best = -1.4778%.
+ 
+</pre><p>Generate the measured value plots for <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11123953056589430572.png" alt="$\displaystyle{P_G}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq10501403894567887262.png" alt="$\displaystyle{P_9}$">, <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq08020420261418497694.png" alt="$\displaystyle{P_{10}}$"> and <img src="ELEN050L_Project_1_Solution_your_name_spring2015_eq11129794528146605327.png" alt="$\displaystyle{\eta}$">.</p><pre class="codeinput">fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Measured PG(R9)'</span>]);        <span class="comment">% Name the figure</span>
+
+PG_Meas_Plot = semilogx( R9_decade, PG_meas);         <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Measured Power: P_G (Watts)'</span>);          <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, plot_right_r9_decade,<span class="keyword">...</span>
+      PG_plot_min_meas, <span class="keyword">...</span>
+      PG_plot_max_meas+0.01]);                  <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': Measured P_G(R_9)'</span>]);
+legend(<span class="string">'Measured P_G(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Measured P9(R9)'</span>]);        <span class="comment">% Name the figure</span>
+
+P9_Meas_Plot = semilogx( R9_decade, P9_meas);                        <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: Measured P_9 (Watts)'</span>);          <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, <span class="keyword">...</span>
+      plot_right_r9_decade,<span class="keyword">...</span>
+      P9_min_meas, <span class="keyword">...</span>
+      P9_max_meas+0.01]);                       <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': Measured P_9(R_9)'</span>]);
+legend(<span class="string">'Measured P_9(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+fignum = fignum+1; figObj = figure(fignum);     <span class="comment">% Establish a figure number</span>
+set(fignum, <span class="string">'Name'</span>,[<span class="string">'Measured P10(R9)'</span>]);       <span class="comment">% Name the figure</span>
+
+P10_Meas_Plot = semilogx( R9_decade, P10_meas);                       <span class="comment">% Generate plot</span>
+grid <span class="string">on</span>;                                        <span class="comment">% Turn grid on</span>
+xlabel(<span class="string">'Decade Box Resistance: R_9 (\Omega)'</span>);  <span class="comment">% Label the axis</span>
+ylabel(<span class="string">'Power: Measured P_1_0 (Watts)'</span>);        <span class="comment">% Label the axis</span>
+axis([plot_left_r9_decade, <span class="keyword">...</span>
+      plot_right_r9_decade,<span class="keyword">...</span>
+      P10_min_meas, <span class="keyword">...</span>
+      P10_max_meas+0.01]);     <span class="comment">% Bound plot</span>
+title([<span class="string">'Figure '</span>,num2str(fignum,<span class="string">'%-2.u'</span>),<span class="keyword">...</span>
+       <span class="string">': Measured P_1_0(R_9)'</span>]);
+legend(<span class="string">'Measured P_1_0(R_9)'</span>, <span class="string">'Location'</span>, <span class="string">'Best'</span>);
+
+makedatatip(PG_Meas_Plot         , [locator_meas]);
+makedatatip(P9_Meas_Plot         , [locator_meas]);
+makedatatip(P10_Meas_Plot        , [locator_meas]);
+</pre><img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_13.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_14.png" alt=""> <img vspace="5" hspace="5" src="ELEN050L_Project_1_Solution_your_name_spring2015_15.png" alt=""> <h2>Program execution complete<a name="27"></a></h2><pre class="codeinput">display(<span class="string">' '</span>);
+disp(<span class="string">'Program execution complete....'</span>);
+</pre><pre class="codeoutput"> 
+Program execution complete....
+</pre><h2>MATLAB code listing<a name="28"></a></h2><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2014b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+%% ELEN 050L (Electric Circuits I): Project 1, Evan Eberhardt, Ryan Meyer
+%
+% <<ELEN050L_Project_1_figure_01_your_name.png>>
+%
+% * *Problem 1:* Find a Thevenin equivalent with respect to
+% $\displaystyle{R_9}$. Use this result to determine conditions under which
+% $\displaystyle{R_9}$ absorbs maximal power.
+% * *Problem 2:* Create an m-file in MATLAB that will compute powers
+% $\displaystyle{P_9}$, $\displaystyle{P_{10}}$ and the efficiency
+% coefficient ${\eta \enspace = \enspace \frac{(P_9 + P_{10})}{P_G}}$ for
+% different values of $\displaystyle{R_9}$. Plot $\displaystyle{P_9(R_9)}$
+% and $\displaystyle{P_{10}(R_9)}$ on one graph and
+% $\displaystyle{\eta(R_9)}$ on another using a logarithmic scale for
+% $\displaystyle{R_9}$. *NOTE:* Your plot for $\displaystyle{P_9(R_9)}$
+% should be consistent with the results obtained in Problem 1.
+% * *Problem 3:* Based on the plots obtained in Problem 2, select
+% $\displaystyle{R_9}$ so that $\displaystyle{\eta}$ is maximized with the
+% following additional constraint: $${0.7 \leq \frac{P_9 }{P_{10}} \leq
+% 1.3}$
+% * *Problem 4:* Assemble the circuit in Figure 1 and measure
+% $\displaystyle{P_9}$, $\displaystyle{P_{10}}$ and $\displaystyle{\eta}$
+% over an appropriate range of values for $\displaystyle{R_9}$. Plot the
+% measured values in MATLAB and compare with your simulation results. Have
+% the requirements for $\displaystyle{P_9}$, $\displaystyle{P_{10}}$ and
+% $\displaystyle{\eta}$ been satisfied with the choice of
+% $\displaystyle{R_9}$ obtained in Problem 3? *NOTE:* Think about how you
+% are going to measure the generated power $\displaystyle{P_G}$ before you
+% come to lab!
+% 
+% *Hard Copy Deliverables:*
+%
+% # A MATLAB script and publish the solution using MATLAB's *publish*
+% feature.
+% # Turn in MATLAB scripts and a document of the run-time results.
+% # Turn in the Excel file with the measured results.
+%
+% *Hints:*
+%
+% # Make sure that the choices for resistors satisfy the following
+% relationship $${R_1 \enspace through \enspace R_8 < R_{10} \enspace and
+% \enspace R_9 \enspace is \enspace variable}$.
+% # Make sure that the choices for resistors satisfy the following
+% relationship $${500 \Omega \leq R_{n} \leq 2 k\Omega , \enspace where
+% \enspace n = \{ 1, 2, 3, 4, 5, 6, 7, 8, 10 \} }$.
+% # Generate 5 KCL equations, 1 at each point of the square and 1 in the
+% middle of the square.
+% # Use the 5 KCL equations as a starting point to simply the calculations
+% required for computing $\displaystyle{V_{th}}$ and
+% $\displaystyle{R_{th}}$.
+%
+
+%% Initialize MATLAB Environment
+%
+
+clear; clc; clf; cla; close all;
+format short; format compact;
+
+%% Setup global variables
+%
+
+% These element values are fixed in the circuit.
+VG  = 12;            % Generator voltage
+R1  = 510;          % Ohms
+R2  = 680;          % Ohms
+R3  = 680;          % Ohms
+R4  = 680;           % Ohms
+R5  = 1000;           % Ohms
+R6  = 1000;           % Ohms
+R7  = 1000;           % Ohms
+R8  = 1200;          % Ohms
+R10 = 1200;           % Ohms
+
+% Build an array for R1 through R8, and R10 (use if calling the function).
+% Note that the index for R9 is set to 0 Ohms, but this is just a place
+%  holder in the array to make the code readable inside the external
+%  function (if it is used).
+RN = [R1, R2, R3, R4, R5, R6, R7, R8, 0, R10];  % Ohms
+
+% This element value is the R9 variable in the circuit.
+R9 = [1:10:10^5];    % Ohms
+
+% These values establish the constraints for the P9/P10 ratio.
+P9_div_P10_ratio_min = 0.7;
+P9_div_P10_ratio_max = 1.3;
+
+% These values are used for plotting purposes.
+fignum = 5;
+symbolic_mode = true;
+
+%% Problem 1
+%
+% Find a Thevenin equivalent with respect to $\displaystyle{R_9}$ as
+% illustrated in Figure 2, where $\displaystyle{V_g \enspace = \enspace
+% V_{th}}$, $\displaystyle{R_s \enspace = \enspace R_{th}}$ and
+% $\displaystyle{R_L \enspace = \enspace R_9}$.
+%
+% <<ELEN050L_Project_1_figure_02_your_name.png>>
+%
+%%
+% The computations for $\displaystyle{V_{th} \enspace = \enspace V_5}$ are
+% based upon Figure 3.
+%
+% <<ELEN050L_Project_1_figure_03_your_name.png>>
+%
+
+A = [ (1) (0) (0) (0) (0); ...
+      (-1/R3) (1/R3 + 1/R4 + 1/R5 + 1/R10) (-1/R4) (0) (-1/R5); ...
+      (-1/R2) (-1/R4) (1/R2 + 1/R4 + 1/R6 + 1/R7) (-1/R6) (-1/R7); ...
+      (-1/R1) (0) (-1/R6) (1/R1 + 1/R6 + 1/R8) (-1/R8); ...
+      (0) (-1/R5) (-1/R7) (-1/R8) (1/R5 + 1/R7 + 1/R8)];
+      
+b = [VG; 0; 0; 0; 0];
+
+V = A\b;
+Vth = V(5);
+
+fprintf('\nThe Thevenin voltage is Vth = %-6.4f Volts.\n',Vth);
+
+%%
+% The computations for $\displaystyle{R_{th} \enspace = \enspace R_s}$ are
+% based upon Figure 4.
+%
+% <<ELEN050L_Project_1_figure_04_your_name.png>>
+%
+
+A = [ (1/R3 + 1/R4 + 1/R5 + 1/R10) (-1/R4) (0) (-1/R5); ...
+      (-1/R4) (1/R2 + 1/R4 + 1/R6 + 1/R7) (-1/R6) (-1/R7); ...
+      (0) (-1/R6) (1/R1 + 1/R6 + 1/R8) (-1/R8); ...
+      (-1/R5) (-1/R7) (-1/R8) (1/R5 + 1/R7 + 1/R8)];
+      
+b = [0; 0; 0; 1];
+
+V = A\b;
+Rth = V(4)/1;
+
+fprintf('\nThe Thevenin resistance is Rth = %-6.4f Ohms.\n',Rth);
+
+%% Problem 2
+%
+% Compute powers $\displaystyle{P_9}$, $\displaystyle{P_{10}}$ and the
+% efficiency coefficient $\displaystyle{\eta}$ for different values of
+% $\displaystyle{R_9}$.
+%
+% The computations are based upon Figure 5.
+%
+% <<ELEN050L_Project_1_figure_05_your_name.png>>
+%
+
+G1 = [ 1, 0, 0, 0, 0; ...
+       (-1/R3), ((1/R3)+(1/R4)+(1/R5)+(1/R10)), (-1/R4), 0, (-1/R5); ...
+       (-1/R2), (-1/R4), ((1/R2)+(1/R6)+(1/R7)+(1/R4)), (-1/R6), (-1/R7); ...
+       (-1/R1), 0, (-1/R6), ((1/R1)+(1/R6)+(1/R8)), (-1/R8); ...
+       0, (-1/R5), (-1/R7), (-1/R8), ((1/R8)+(1/R7)+(1/R5)) ...
+       ];
+      
+G2 = [ 0, 0, 0, 0, 0; ...
+       0, 0, 0, 0, 0; ...
+       0, 0, 0, 0, 0; ...
+       0, 0, 0, 0, 0; ...
+       0, 0, 0, 0, 1 ...
+       ];
+
+b = [ VG; 0; 0; 0; 0];
+
+%%
+% The following block of code is an external function that has been
+% inserted here for documentation purposes in the final solution.
+
+% Beginning of proj1E50 function (inserted here for MATLAB publish)
+P9 = []; P10 = []; eta = []; PG = [];
+
+for iter = 1:length(R9)
+    % We have to solve the circuit once for each different value of R9.
+    % Since all these different values are stored in a vector R9,
+    % length(R9) determines how many times we must execute the loop.
+    
+    R9_iter = R9(iter);
+    % R9_iter takes the next value from vector R9.
+    
+    A = G1 + (1/R9_iter)*G2;
+    V = A\b;
+    % V contains the solution of the node voltage equations.
+    
+    PR9     = (V(5)^2)/R9_iter;
+    PR10    = (V(2)^2)/R10;
+    IR1     = (V(1)-V(4))/R1;
+    IR2     = (V(1)-V(3))/R2;
+    IR3     = (V(1)-V(2))/R3;
+    IG      = IR1 + IR2 + IR3;
+    PG_iter = VG * IG;
+    PG = [PG, PG_iter];
+    % Computation of the powers associated with R9, R10 and the generator.
+    
+    P9  = [P9, PR9];
+    P10 = [P10, PR10];
+    % Powers PR9 and PR10 computed for different values of R9 are stored
+    % in vectors P9 and P10.
+    
+    W = (PR9 + PR10) / PG_iter;
+    eta = [eta, W];
+    % Eta represents the percentage of the generated power that is absorbed
+    % by resistors R9 and R10.
+end;
+% End of proj1E50 function (inserted here for MATLAB publish)
+
+%%
+% Generate the plot for $\displaystyle{P_9}$ and indicate where
+% $\displaystyle{(P_9)_{max}}$ occurs. The location should match the
+% calculation for $\displaystyle{R_9 = R_{th}}$.
+
+% Initialize for plot 
+plot_left_r9 = min(R9);   plot_right_r9 = max(R9);
+PG_plot_min = 0;          PG_plot_max = max(PG);
+P9_min = 0;               P9_max = max(P9);
+P10_min = 0;              P10_max = max(P10);
+eta_plot_min = 0;         eta_plot_max = max(eta);
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['P9(R9) at Rth']);      % Name the figure
+
+P9_Rth_Plot = semilogx(R9,P9);              % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_9 (Watts)');               % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      P9_min, ...
+      P9_max+0.01]);                        % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_9(R_9) with max at R_t_h']);
+legend('P_9(R_9)', 'Location', 'Best');
+
+% Find the R9 values that satisfy max(P9)
+cursor1 = 1;            cursor2 = 1;
+cursor1_found = false;  cursor2_found = false;
+R9_best = -1.0;
+for iter = 1:length(R9)            % Locate the left min constraint
+    if (~(cursor1_found) && ...
+            P9(iter) >= P9_max && ...
+            P9(iter) <= P9_max)
+        cursor1 = iter;
+        R9_left_min  = R9(iter);
+        cursor1_found = true;
+        break;
+    end;
+end;
+for iter = cursor1+1:length(R9)    % Locate the left max constraint
+    if (~(cursor2_found) && ...
+            (P9(iter) < P9(iter-1) || ...
+             P9(iter) > P9_max))
+        if (P9(iter-1) <= P9_max)
+            cursor2 = iter-1;
+            R9_left_max  = R9(iter-1);
+        else
+            cursor2 = iter;
+            R9_left_max  = R9(iter);
+        end;
+        cursor2_found = true;
+        break;
+    end;
+end;
+
+makedatatip(P9_Rth_Plot, [cursor1; cursor2]);
+
+%%
+%
+
+fprintf(...
+     '\nFrom Figure %-2.u the maximum P9 occurs at R9 = %-6.4f Ohms.\n',...
+     fignum, R9(floor(mean(cursor1,cursor2))));
+fprintf('\nFrom Figure %-2.u the maximum P9 is = %-6.4f Watts.\n',...
+         fignum, P9(floor(mean(cursor1,cursor2))));
+
+%%
+% Generate the plots for $\displaystyle{P_G}$, $\displaystyle{P_9}$,
+% $\displaystyle{P_{10}}$ and $\displaystyle{\eta}$.
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['PG(R9)']);             % Name the figure
+
+PG_Plot = semilogx( R9, PG);                 % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_G (Watts)');               % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      PG_plot_min, ...
+      PG_plot_max+0.01]);                   % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_G(R_9)']);
+legend('P_G(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['P9(R9) and P10(R9)']); % Name the figure
+
+P9_P10_Plot = semilogx( R9, P9,  R9, P10);      % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_9 and P_1_0 (Watts)');     % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      min(P9_min,P10_min), ...
+      max(P9_max,P10_max)+0.01]);           % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_9(R_9) and P_1_0(R_9)']);
+legend('P_9(R_9)', 'P_1_0(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['Coefficient eta']);    % Name the figure
+
+eta_Plot = semilogx( R9,  eta);                   % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Coefficient: \eta');                % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      eta_plot_min, eta_plot_max+0.1]);     % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),': \eta(R_9)']);
+legend('\eta', 'Location', 'Best');
+
+%% Problem 3
+%
+% Select $\displaystyle{R_9}$ so that $\displaystyle{\eta}$ is maximized
+% with the following additional constraint: $${0.7 \leq \frac{P_9 }{P_{10}}
+% \leq 1.3}$.
+
+P9_div_P10 = P9 ./ P10;
+P9_div_P10_min = 0;    P9_div_P10_max = max(P9_div_P10);
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['P9/P10']);             % Name the figure
+
+P9_div_P10_Plot = semilogx( R9,P9_div_P10);      % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Ratio: P_9/P_1_0');                 % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      P9_div_P10_min, P9_div_P10_max+0.2]); % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),': P_9/P_1_0 versus R_9']);
+legend('P_9/P_1_0', 'Location', 'Best');
+
+% Find the R9 values that satisfy the P9/P10 ratio constraints
+cursor1 = 1;            cursor2 = 1;
+cursor3 = 1;            cursor4 = 1;
+cursor1_found = false;  cursor2_found = false;
+cursor3_found = false;  cursor4_found = false;
+R9_best = -1.0; eta_max = -1.0; locator = -1;
+for iter = 1:length(R9)            % Locate the left min constraint
+    if (~(cursor1_found) && ...
+            P9_div_P10(iter) >= P9_div_P10_ratio_min && ...
+            P9_div_P10(iter) <= P9_div_P10_ratio_max)
+        cursor1 = iter;
+        R9_left_min  = R9(iter);
+        eta_left_min = eta(iter);
+        % Calculate the best choice for R9
+        if (eta_left_min > eta_max)
+            eta_max = eta_left_min;
+            R9_best = R9_left_min;
+            locator = cursor1;
+        end;
+        cursor1_found = true;
+        break;
+    end;
+end;
+for iter = cursor1+1:length(R9)    % Locate the left max constraint
+    if (~(cursor2_found) && ...
+            (P9_div_P10(iter) < P9_div_P10(iter-1) || ...
+             P9_div_P10(iter) > P9_div_P10_ratio_max))
+        if (P9_div_P10(iter-1) <= P9_div_P10_ratio_max)
+            cursor2 = iter-1;
+            R9_left_max  = R9(iter-1);
+            eta_left_max = eta(iter-1);
+        else
+            cursor2 = iter;
+            R9_left_max  = R9(iter);
+            eta_left_max = eta(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_left_max > eta_max)
+            eta_max = eta_left_max;
+            R9_best = R9_left_max;
+            locator = cursor2;
+        end;
+        cursor2_found = true;
+        break;
+    end;
+end;
+for iter = cursor2+1:length(R9)    % Locate the right max constraint
+    if (~(cursor3_found) && ...
+            P9_div_P10(iter) >= P9_div_P10_ratio_min && ...
+            P9_div_P10(iter) <= P9_div_P10_ratio_max)
+        if (P9_div_P10(iter-1) <= P9_div_P10_ratio_max)
+            cursor3 = iter-1;
+            R9_right_max  = R9(iter-1);
+            eta_right_max = eta(iter-1);
+        else
+            cursor3 = iter;
+            R9_right_max  = R9(iter);
+            eta_right_max = eta(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_right_max > eta_max)
+            eta_max = eta_right_max;
+            R9_best = R9_right_max;
+            locator = cursor3;
+        end;
+        cursor3_found = true;
+        break;
+    end;
+end;
+for iter = cursor3+1:length(R9)    % Locate the right min constraint
+    if (~(cursor4_found) && ...
+            P9_div_P10(iter) < P9_div_P10_ratio_min)
+        if (P9_div_P10(iter-1) >= P9_div_P10_ratio_min)
+            cursor4 = iter-1;
+            R9_right_min  = R9(iter-1);
+            eta_right_min = eta(iter-1);
+        else
+            cursor4 = iter;
+            R9_right_min  = R9(iter);
+            eta_right_min = eta(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_right_min > eta_max)
+            eta_max = eta_right_min;
+            R9_best = R9_right_min;
+            locator = cursor4;
+        end;
+        cursor3_found = true;
+        break;
+    end;
+end;
+ 
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['Coefficient eta']);    % Name the figure
+
+eta_Plot2 = semilogx( R9, eta);                % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Coefficient: \eta');                % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      eta_plot_min, eta_plot_max+0.1]);     % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),': \eta(R_9)']);
+legend('\eta', 'Location', 'Best');
+
+% Display target cursors
+makedatatip(P9_div_P10_Plot, [cursor1; cursor2; cursor3; cursor4]);
+makedatatip(eta_Plot2       , [locator]);
+
+%%
+%
+
+fprintf('\nThe following data is determined from Figure %-2.u.\n', fignum);
+fprintf('\n The index locator into the arrays = %u.\n', locator);
+fprintf('\n Given we wish to maximize the coefficient eta,\n');
+fprintf('    the best result for eta = %-6.4f.\n', eta_max);
+fprintf(' The best choice for R9 = %-6.4f Ohms.\n', R9_best);
+fprintf(' The power dissipated in R9  = %-6.4f Watts.\n', P9(locator));
+fprintf(' The power dissipated in R10 = %-6.4f Watts.\n', P10(locator));
+
+%%
+% Update the plots for $\displaystyle{P_G}$, $\displaystyle{P_9}$ and
+% $\displaystyle{P_{10}}$ with the target $\displaystyle{R_9}$ indicators.
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['PG(R9)']);             % Name the figure
+
+PG_Plot2 = semilogx( R9, PG);                     % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_G (Watts)');               % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      PG_plot_min, ...
+      PG_plot_max+0.01]);                   % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_G(R_9)']);
+legend('P_G(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['P9(R9)']);             % Name the figure
+
+P9_Plot = semilogx( R9, P9);                  % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_9 (Watts)');               % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      P9_min, P9_max+0.01]);                % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_9(R_9)']);
+legend('P_9(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum); % Establish a figure number
+set(fignum, 'Name',['P10(R9)']);            % Name the figure
+
+P10_Plot = semilogx( R9, P10);                        % Generate plot
+grid on;                                    % Turn grid on
+xlabel('Resistance: R_9 (\Omega)');         % Label the axis
+ylabel('Power: P_1_0 (Watts)');             % Label the axis
+axis([plot_left_r9, plot_right_r9,...
+      P10_min, P10_max+0.01]);              % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': P_1_0(R_9)']);
+legend('P_1_0(R_9)', 'Location', 'Best');
+
+% Display target cursors (annotated results from Problem 3)
+makedatatip(PG_Plot2        , [locator]);
+makedatatip(P9_Plot         , [locator]);
+makedatatip(P10_Plot        , [locator]);
+
+%% Problem 4
+%
+% Assemble the circuit in Figure 1 and measure $\displaystyle{P_9}$,
+% $\displaystyle{P_{10}}$ and $\displaystyle{\eta}$ over an appropriate
+% range of values for $\displaystyle{R_9}$.
+%
+% The measured values are contained in the external Excel spreadsheet file
+% named "ELEN050L_Project_1_Measured_Results". These measured values are
+% imported into MATLAB at run-time using MATLAB's *Import* feature. For the
+% solution shown below, the initial "import" was executed to generate an
+% external function file which can be called at run-time.
+% 
+% The measured values for the circuit elements are shown below.
+%
+
+display(' ');
+fprintf('\nMeasured values for the voltage elements are (Volts):\n');
+VG_meas  = 11.995         % Generator voltage
+Vth_meas = 10.288         % Thevenin voltage
+
+%%
+% Compare the measured $\displaystyle{V_{th}}$ to the expected value.
+
+Vth_diff = (Vth_meas - Vth)/Vth * 100;
+
+fprintf('\nThe difference between measured and expected\n');
+fprintf('  Vth = %-6.4f%%.\n', Vth_diff);
+
+%%
+% Compare the measured $\displaystyle{R_{th}}$ to the expected value.
+
+display(' ');
+fprintf('\nMeasured values for the resistive elements are (Ohms):\n');
+R1_meas  = 507;          % Ohms
+R2_meas  = 676;          % Ohms
+R3_meas  = 674;          % Ohms
+R4_meas  = 680;          % Ohms
+R5_meas  = 985;          % Ohms
+R6_meas  = 980;          % Ohms
+R7_meas  = 991;          % Ohms
+R8_meas  = 1168;          % Ohms
+R10_meas = 1189;          % Ohms
+Rth_meas = 522;         % Thevenin resistance
+
+%%
+% Compare the measured $\displaystyle{R_{th}}$ to the expected value.
+
+Rth_diff = (Rth_meas - Rth)/Rth * 100;
+
+fprintf('\nThe difference between measured and expected\n');
+fprintf('  Rth = %-6.4f%%.\n', Rth_diff);
+display(' ');
+
+%%
+% Import the measured data for processing.
+
+[R9_decade,Vmeas_R9,Vmeas_R10,Vmeas_R1,Vmeas_R2,Vmeas_R3] = ...
+    importfile(...
+    'ELEN050L_Project_1_Measured_Results_blank.xlsx',...
+    'Sheet1',2,49);
+
+%%
+% Calculate the measured $\displaystyle{P_G}$, $\displaystyle{P_9}$,
+% $\displaystyle{P_{10}}$ and $\displaystyle{\eta}$ over the range of
+% decade box values used for $\displaystyle{R_{9}}$ in the experiment.
+%
+
+% Compute generator power from measured values
+I1_meas   = (Vmeas_R1) ./ R1_meas;
+I2_meas   = (Vmeas_R2) ./ R2_meas;
+I3_meas   = (Vmeas_R3) ./ R3_meas;
+IG_meas   = I3_meas + I2_meas + I1_meas;
+PG_meas   = IG_meas .* VG;
+
+% Compute P9 and P10 from measured values
+P9_meas   = (Vmeas_R9).^2 ./ R9_decade;
+P10_meas  = (Vmeas_R10).^2 ./ R10_meas;
+
+% Compute eta from measured values
+eta_meas  = (P9_meas + P10_meas) ./ PG_meas;
+
+%%
+% Plot the measured values in MATLAB and compare them to the simulation
+% results.
+%
+
+% Initialize for plot 
+plot_left_r9_decade  = min(R9_decade);
+plot_right_r9_decade = max(R9_decade);
+PG_plot_min_meas = 0;          PG_plot_max_meas = max(PG_meas);
+P9_min_meas = 0;               P9_max_meas = max(P9_meas);
+P10_min_meas = 0;              P10_max_meas = max(P10_meas);
+eta_plot_min_meas = 0;         eta_plot_max_meas = max(eta_meas);
+
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, 'Name',['Measured P9(R9) at Rth']); % Name the figure
+
+P9_Meas_Rth_Plot = semilogx(R9_decade, P9_meas);      % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Measured Power: P_9 (Watts)');          % Label the axis
+axis([plot_left_r9_decade, plot_right_r9_decade,...
+      P9_min_meas, ...
+      P9_max_meas+0.01]);                       % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': Measured P_9(R_9) with max at R_t_h']);
+legend('Measured P_9(R_9)', 'Location', 'Best');
+
+% Find the Decade Box R9 values that satisfy max(P9_meas)
+cursor1_meas = 1;            cursor2_meas = 1;
+cursor1_found_meas = false;  cursor2_found_meas = false;
+R9_best_decade = -1.0;
+for iter = 1:length(R9_decade)         % Locate the left min constraint
+    if (~(cursor1_found_meas) && ...
+            P9_meas(iter) >= P9_max_meas && ...
+            P9_meas(iter) <= P9_max_meas)
+        cursor1_meas = iter;
+        R9_left_min_decade  = R9_decade(iter);
+        cursor1_found_meas = true;
+        break;
+    end;
+end;
+for iter = cursor1_meas+1:length(R9_decade) % Locate the left max constraint
+    if (~(cursor2_found_meas) && ...
+            (P9_meas(iter) < P9_meas(iter-1) || ...
+             P9_meas(iter) > P9_max_meas))
+        if (P9_meas(iter-1) <= P9_max_meas)
+            cursor2_meas = iter-1;
+            R9_left_max_decade  = R9_decade(iter-1);
+        else
+            cursor2_meas = iter;
+            R9_left_max_decade  = R9_decade(iter);
+        end;
+        cursor2_found_meas = true;
+        break;
+    end;
+end;
+
+makedatatip(P9_Meas_Rth_Plot, [cursor1_meas; cursor2_meas]);
+
+%%
+%
+
+fprintf('\nFrom Figure %-2.u the maximum measured P9 occurs at\n', fignum);
+fprintf('  R9 = %-6.4f Ohms.\n',...
+         R9_decade(floor(mean(cursor1_meas,cursor2_meas))));
+ 
+fprintf('\nFrom Figure %-2.u the maximum measured P9\n', fignum);
+fprintf('  is = %-6.4f Watts.\n',...
+         P9_meas(floor(mean(cursor1_meas,cursor2_meas))));
+
+%%
+%
+% From the measured values select $\displaystyle{R_9}$ so that
+% $\displaystyle{\eta}$ is maximized with the following additional
+% constraint: $${0.7 \leq \frac{P_9 }{P_{10}} \leq 1.3}$.
+
+P9_div_P10_meas = P9_meas ./ P10_meas;
+P9_div_P10_min_meas = 0;    P9_div_P10_max_meas = max(P9_div_P10_meas);
+
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, 'Name',['Measured P9/P10']);        % Name the figure
+
+P9_div_P10_Meas_Plot = ...
+    semilogx( R9_decade, P9_div_P10_meas);         % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Measured Ratio: P_9/P_1_0');            % Label the axis
+axis([plot_left_r9_decade, ...
+      plot_right_r9_decade,...
+      P9_div_P10_min_meas, ...
+      P9_div_P10_max_meas+0.2]);                % Bound plot
+title(...
+    ['Figure ',num2str(fignum,'%-2.u'),': Measured P_9/P_1_0 versus R_9']);
+legend('Measured P_9/P_1_0', 'Location', 'Best');
+
+% Find the R9 values that satisfy the P9/P10 ratio constraints
+cursor1_meas = 1;            cursor2_meas = 1;
+cursor3_meas = 1;            cursor4_meas = 1;
+cursor1_found_meas = false;  cursor2_found_meas = false;
+cursor3_found_meas = false;  cursor4_found_meas = false;
+R9_best_meas = -1.0; eta_max_meas = -1.0; locator_meas = -1;
+for iter = 1:length(R9_decade)             % Locate the left min constraint
+    if (~(cursor1_found_meas) && ...
+            P9_div_P10_meas(iter) >= P9_div_P10_ratio_min && ...
+            P9_div_P10_meas(iter) <= P9_div_P10_ratio_max)
+        cursor1_meas = iter;
+        R9_left_min_meas  = R9_decade(iter);
+        eta_left_min_meas = eta_meas(iter);
+        % Calculate the best choice for R9
+        if (eta_left_min_meas > eta_max_meas)
+            eta_max_meas = eta_left_min_meas;
+            R9_best_meas = R9_left_min_meas;
+            locator_meas = cursor1_meas;
+        end;
+        cursor1_found_meas = true;
+        break;
+    end;
+end;
+for iter = cursor1_meas+1:length(R9_decade)% Locate the left max constraint
+    if (~(cursor2_found_meas) && ...
+            (P9_div_P10_meas(iter) < P9_div_P10_meas(iter-1) || ...
+             P9_div_P10_meas(iter) > P9_div_P10_ratio_max))
+        if (P9_div_P10_meas(iter-1) <= P9_div_P10_ratio_max)
+            cursor2_meas = iter-1;
+            R9_left_max_meas  = R9_decade(iter-1);
+            eta_left_max_meas = eta_meas(iter-1);
+        else
+            cursor2_meas = iter;
+            R9_left_max_meas  = R9_decade(iter);
+            eta_left_max_meas = eta_meas(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_left_max_meas > eta_max_meas)
+            eta_max_meas = eta_left_max_meas;
+            R9_best_meas = R9_left_max_meas;
+            locator_meas = cursor2_meas;
+        end;
+        cursor2_found_meas = true;
+        break;
+    end;
+end;
+for iter = cursor2_meas+1:length(R9_decade)% Locate the right max constraint
+    if (~(cursor3_found_meas) && ...
+            P9_div_P10_meas(iter) >= P9_div_P10_ratio_min && ...
+            P9_div_P10_meas(iter) <= P9_div_P10_ratio_max)
+        if (P9_div_P10_meas(iter-1) <= P9_div_P10_ratio_max)
+            cursor3_meas = iter-1;
+            R9_right_max_meas  = R9_decade(iter-1);
+            eta_right_max_meas = eta_meas(iter-1);
+        else
+            cursor3_meas = iter;
+            R9_right_max_meas  = R9_decade(iter);
+            eta_right_max_meas = eta_meas(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_right_max_meas > eta_max_meas)
+            eta_max_meas = eta_right_max_meas;
+            R9_best_meas = R9_right_max_meas;
+            locator_meas = cursor3_meas;
+        end;
+        cursor3_found_meas = true;
+        break;
+    end;
+end;
+for iter = cursor3_meas+1:length(R9_decade)% Locate the right min constraint
+    if (~(cursor4_found_meas) && ...
+            P9_div_P10_meas(iter) < P9_div_P10_ratio_min)
+        if (P9_div_P10_meas(iter-1) >= P9_div_P10_ratio_min)
+            cursor4_meas = iter-1;
+            R9_right_min_meas  = R9_decade(iter-1);
+            eta_right_min_meas = eta_meas(iter-1);
+        else
+            cursor4_meas = iter;
+            R9_right_min_meas  = R9_decade(iter);
+            eta_right_min_meas = eta_meas(iter);
+        end;
+        % Calculate the best choice for R9
+        if (eta_right_min_meas > eta_max_meas)
+            eta_max_meas = eta_right_min_meas;
+            R9_best_meas = R9_right_min_meas;
+            locator_meas = cursor4_meas;
+        end;
+        cursor3_found_meas = true;
+        break;
+    end;
+end;
+ 
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, ...
+    'Name',['Measured Coefficient eta']);       % Name the figure
+
+eta_Meas_Plot2 = semilogx( R9_decade, eta_meas);       % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Measured Coefficient: \eta');           % Label the axis
+axis([plot_left_r9_decade, ...
+      plot_right_r9_decade,...
+      eta_plot_min_meas, ...
+      eta_plot_max_meas+0.1]);                  % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),': Measured \eta(R_9)']);
+legend('Measured \eta', 'Location', 'Best');
+
+% Display target cursors
+makedatatip(P9_div_P10_Meas_Plot, ...
+            [cursor1_meas; cursor2_meas; cursor3_meas; cursor4_meas]);
+makedatatip(eta_Meas_Plot2       , [locator_meas]);
+
+%%
+%
+
+fprintf('\nThe following data is determined from Figure %-2.u.\n', fignum);
+fprintf('\n The index locator into the arrays = %u.\n', locator_meas);
+fprintf('\n Given we wish to maximize the coefficient eta,\n');
+fprintf('    the best result for eta = %-6.4f.\n', eta_max_meas);
+fprintf(' The best choice for R9 = %-6.4f Ohms.\n', R9_best_meas);
+fprintf(' The power dissipated in R9  = %-6.4f Watts.\n', ...
+         P9_meas(locator_meas));
+fprintf( ...
+       ' The power dissipated in R10 = %-6.4f Watts.\n', ...
+         P10_meas(locator_meas));
+
+%%
+% Compare the measured best choice for $\displaystyle{R_{9}}$ to the
+% expected value.
+
+R9_best_diff = (R9_best_meas - R9_best)/R9_best * 100;
+
+fprintf('\nThe difference between measured and expected\n');
+fprintf('  R9_best = %-6.4f%%.\n', R9_best_diff);
+display(' ');
+
+%%
+% Generate the measured value plots for $\displaystyle{P_G}$,
+% $\displaystyle{P_9}$, $\displaystyle{P_{10}}$ and $\displaystyle{\eta}$.
+
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, 'Name',['Measured PG(R9)']);        % Name the figure
+
+PG_Meas_Plot = semilogx( R9_decade, PG_meas);         % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Measured Power: P_G (Watts)');          % Label the axis
+axis([plot_left_r9_decade, plot_right_r9_decade,...
+      PG_plot_min_meas, ...
+      PG_plot_max_meas+0.01]);                  % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': Measured P_G(R_9)']);
+legend('Measured P_G(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, 'Name',['Measured P9(R9)']);        % Name the figure
+
+P9_Meas_Plot = semilogx( R9_decade, P9_meas);                        % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Power: Measured P_9 (Watts)');          % Label the axis
+axis([plot_left_r9_decade, ...
+      plot_right_r9_decade,...
+      P9_min_meas, ...
+      P9_max_meas+0.01]);                       % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': Measured P_9(R_9)']);
+legend('Measured P_9(R_9)', 'Location', 'Best');
+
+fignum = fignum+1; figObj = figure(fignum);     % Establish a figure number
+set(fignum, 'Name',['Measured P10(R9)']);       % Name the figure
+
+P10_Meas_Plot = semilogx( R9_decade, P10_meas);                       % Generate plot
+grid on;                                        % Turn grid on
+xlabel('Decade Box Resistance: R_9 (\Omega)');  % Label the axis
+ylabel('Power: Measured P_1_0 (Watts)');        % Label the axis
+axis([plot_left_r9_decade, ...
+      plot_right_r9_decade,...
+      P10_min_meas, ...
+      P10_max_meas+0.01]);     % Bound plot
+title(['Figure ',num2str(fignum,'%-2.u'),...
+       ': Measured P_1_0(R_9)']);
+legend('Measured P_1_0(R_9)', 'Location', 'Best');
+
+makedatatip(PG_Meas_Plot         , [locator_meas]);
+makedatatip(P9_Meas_Plot         , [locator_meas]);
+makedatatip(P10_Meas_Plot        , [locator_meas]);
+
+%% Program execution complete
+%
+
+display(' ');
+disp('Program execution complete....');
+
+%% MATLAB code listing
+%
+##### SOURCE END #####
+--></body></html>

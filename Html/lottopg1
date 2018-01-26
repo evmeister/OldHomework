@@ -1,0 +1,18 @@
+<html>
+<body>
+<center><p>
+Here to satisfy your compulsive gambling? Very well, guess the five numbers correctly, and you will have a 0.00003125% chance of winning. Enjoy!
+</P></center>
+</br>
+<center>
+<form action="lottopg2" method="POST">
+<input type="number" name="guess0"/>
+<input type="number" name="guess1"/>
+<input type="number" name="guess2"/>
+<input type="number" name="guess3"/>
+<input type="number" name="guess4"/>
+<input type="Submit" Value="Send guesses and money"/>
+</form>
+</center>
+</body>
+</html>

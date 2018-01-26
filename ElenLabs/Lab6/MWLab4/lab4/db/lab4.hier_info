@@ -1,0 +1,260 @@
+|Block4
+Cout <= Block3:inst10.carryout
+Cin => Block3:inst.Carryin
+A[0] => Block3:inst.x
+A[0] => SevenSeg:inst11.Number[0]
+A[1] => Block3:inst8.x
+A[1] => SevenSeg:inst11.Number[1]
+A[2] => Block3:inst9.x
+A[2] => SevenSeg:inst11.Number[2]
+A[3] => Block3:inst10.x
+A[3] => SevenSeg:inst11.Number[3]
+B[0] => Block3:inst.y
+B[0] => SevenSeg:inst12.Number[0]
+B[1] => Block3:inst8.y
+B[1] => SevenSeg:inst12.Number[1]
+B[2] => Block3:inst9.y
+B[2] => SevenSeg:inst12.Number[2]
+B[3] => Block3:inst10.y
+B[3] => SevenSeg:inst12.Number[3]
+SevenSegA[0] <= SevenSeg:inst11.OutputSevenSeg[0]
+SevenSegA[1] <= SevenSeg:inst11.OutputSevenSeg[1]
+SevenSegA[2] <= SevenSeg:inst11.OutputSevenSeg[2]
+SevenSegA[3] <= SevenSeg:inst11.OutputSevenSeg[3]
+SevenSegA[4] <= SevenSeg:inst11.OutputSevenSeg[4]
+SevenSegA[5] <= SevenSeg:inst11.OutputSevenSeg[5]
+SevenSegA[6] <= SevenSeg:inst11.OutputSevenSeg[6]
+SevenSegB[0] <= SevenSeg:inst12.OutputSevenSeg[0]
+SevenSegB[1] <= SevenSeg:inst12.OutputSevenSeg[1]
+SevenSegB[2] <= SevenSeg:inst12.OutputSevenSeg[2]
+SevenSegB[3] <= SevenSeg:inst12.OutputSevenSeg[3]
+SevenSegB[4] <= SevenSeg:inst12.OutputSevenSeg[4]
+SevenSegB[5] <= SevenSeg:inst12.OutputSevenSeg[5]
+SevenSegB[6] <= SevenSeg:inst12.OutputSevenSeg[6]
+SevenSegS[0] <= SevenSeg:inst13.OutputSevenSeg[0]
+SevenSegS[1] <= SevenSeg:inst13.OutputSevenSeg[1]
+SevenSegS[2] <= SevenSeg:inst13.OutputSevenSeg[2]
+SevenSegS[3] <= SevenSeg:inst13.OutputSevenSeg[3]
+SevenSegS[4] <= SevenSeg:inst13.OutputSevenSeg[4]
+SevenSegS[5] <= SevenSeg:inst13.OutputSevenSeg[5]
+SevenSegS[6] <= SevenSeg:inst13.OutputSevenSeg[6]
+
+
+|Block4|Block3:inst10
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => lab4:inst6.x
+x => lab4:inst.x
+y => lab4:inst.y
+sum <= lab4:inst6.sum
+
+
+|Block4|Block3:inst10|lab4:inst6
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst10|lab4:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst9
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => lab4:inst6.x
+x => lab4:inst.x
+y => lab4:inst.y
+sum <= lab4:inst6.sum
+
+
+|Block4|Block3:inst9|lab4:inst6
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst9|lab4:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst8
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => lab4:inst6.x
+x => lab4:inst.x
+y => lab4:inst.y
+sum <= lab4:inst6.sum
+
+
+|Block4|Block3:inst8|lab4:inst6
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst8|lab4:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst
+carryout <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+Carryin => lab4:inst6.x
+x => lab4:inst.x
+y => lab4:inst.y
+sum <= lab4:inst6.sum
+
+
+|Block4|Block3:inst|lab4:inst6
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|Block3:inst|lab4:inst
+sum <= inst.DB_MAX_OUTPUT_PORT_TYPE
+x => inst.IN0
+x => inst6.IN0
+y => inst.IN1
+y => inst6.IN1
+carry <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|SevenSeg:inst11
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|SevenSeg:inst12
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Block4|SevenSeg:inst13
+Number[0] => Mux0.IN19
+Number[0] => Mux1.IN19
+Number[0] => Mux2.IN19
+Number[0] => Mux3.IN19
+Number[0] => Mux4.IN19
+Number[0] => Mux5.IN19
+Number[0] => Mux6.IN19
+Number[1] => Mux0.IN18
+Number[1] => Mux1.IN18
+Number[1] => Mux2.IN18
+Number[1] => Mux3.IN18
+Number[1] => Mux4.IN18
+Number[1] => Mux5.IN18
+Number[1] => Mux6.IN18
+Number[2] => Mux0.IN17
+Number[2] => Mux1.IN17
+Number[2] => Mux2.IN17
+Number[2] => Mux3.IN17
+Number[2] => Mux4.IN17
+Number[2] => Mux5.IN17
+Number[2] => Mux6.IN17
+Number[3] => Mux0.IN16
+Number[3] => Mux1.IN16
+Number[3] => Mux2.IN16
+Number[3] => Mux3.IN16
+Number[3] => Mux4.IN16
+Number[3] => Mux5.IN16
+Number[3] => Mux6.IN16
+OutputSevenSeg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+OutputSevenSeg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

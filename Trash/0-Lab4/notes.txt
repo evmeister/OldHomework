@@ -1,0 +1,15 @@
+CLIENT
+send packet. predefined strings
+...
+receive packet
+if next print modified 
+if not resend
+send...
+SERVER
+receive packet
+check packet seq and checksum
+if ok, print message, length & checksum. then modify packet.
+	 toupper()
+if not do not modify
+send return packet to client
+recieve...

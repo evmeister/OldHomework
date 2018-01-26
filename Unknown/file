@@ -1,0 +1,33 @@
+// compiler commands
+/*
+gcc [flags] file ...
+gcc -o executable_name file ...
+gcc -wall file
+	^this causes compiler to ignore warnings
+		^not compiler errors
+*/
+// setup help
+/*
+$setup vmware
+$minix-get-image
+$vmware&      <-- Use this 
+*/
+//Simple Shell and Fork
+/*
+print_prompt()  displays a prompt
+read_command(command, parameters) gets input and will be parsed to get executable
+~eg echo hello world -:- echo is command and hello world is parameter
+~char* parameters[10] and char* command[10] will be passed to execve
+  ~look up execve or execvp (google or man pages)
+~look at strtok function in string.h library (c++.com, man pages, or google)
+fork makes two copies of a process, a parent and a child. parent gets return from fork (pid) from child. fork returns 0 to the child. both run side by
+side and can be different. waitpid(-1, &status, 0); blocks parent till 
+child is done. if/else statement allows us to overwrite child's process.
+*/
+//Child Processes (Assgnmt1)
+/* 
+1. 7 child prcs w/ ea prc <= 2 children
+2. 9 child prcs w/ ea 2 <- #prc <= 3 children
+draw a tree and figure out where to call fork()
+*/
+

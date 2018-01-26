@@ -1,0 +1,138 @@
+;Evan Eberhardt
+;18 Apr 16
+
+(define (find-biggest alist)
+  		;Base case: one element in list
+		(cond ((null? (cdr alist)) (car alist))
+			  ;compare first element with the rest, see if it's bigger
+			  ((> (car alist) (find-biggest (cdr alist))) (car alist))
+			  ;otherwise it is something in the rest of the list that is bigger
+			  (else (find-biggest (cdr alist)))))
+
+(define (count-from bgn end)
+		(if (<= bgn end)
+		  	;base case: stop evaluating when bgn is greater than end so it prints all numbers
+			(begin (display bgn)
+				   (newline)
+				   ;after displaying number, increment the number and call self
+				   (count-from (+ bgn 1) end))))
+
+(define (nth-item idx alist)
+  		;base case: first element is desired element given index
+  		(cond ((= idx 1) (car alist))
+			  ;decrement the index and take the cdr for recursion to get to desired index
+			  (#t (nth-item (- idx 1) (cdr alist)))))
+
+(define (replace-nth-item idx alist n)
+  		;base case: first element is to be replaced, make list of n and remainder of alist
+ 		(cond ((= idx 1) (append (list n) (cdr alist)))
+			  ;recursing backwards from insert point putting previous item in front
+			  (#t (append (list (car alist)) (replace-nth-item (- idx 1) (cdr alist) n)))))
+
+(define (sorted? alist)
+  		;base case: single item in list is already sorted
+  		(cond ((null? (cdr alist)) #t)
+			  ;compate two values for sorted order, recursively check through rest of list
+			  ((< (car alist) (car (cdr alist))) (sorted? (cdr alist)))
+			  ;if any two values aren't in sorted order, return false
+			  (else #f)))
+
+(define (apply-action state action)
+  		;determines result based on condition checks for the input, and uses display to show the result
+		;"stay" just returns the original state
+  		(cond ((equal? action "STAY") state)
+			  ;each "move" checks the direction to determine whether to modify x or y, and how to modify it.
+			  ;the funciton nth-item is used to check the direction in state against a dummy state with the corresponding direction
+			  ;replace-nth-item is used to alter the correct value x or y
+			  ((equal? action "MOVE-1")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))			
+					   		 (display (replace-nth-item 2 state (+ (car (cdr state)) 1))))
+							;if facing north, add to y
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S)))
+					  		 (display (replace-nth-item 2 state (- (car (cdr state)) 1))))
+							;if facing south, subtract from y
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					  		 (display (replace-nth-item 1 state (+ (car state) 1))))
+							;if facing east, add to x
+							((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					 		 (display (replace-nth-item 1 state (- (car state) 1)))))
+					  		;if facing west, subtract from x
+			   		  (newline))
+			   )
+			  ;same pattern for each "move"
+			  ((equal? action "MOVE-2")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))
+					 		 (display (replace-nth-item 2 state (+ (car (cdr state)) 2))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S))) 
+					  		 (display (replace-nth-item 2 state (- (car (cdr state)) 2))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					 		 (display (replace-nth-item 1 state (+ (car state) 2))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					 		 (display (replace-nth-item 1 state (- (car state) 2)))))
+					 (newline))
+			   )
+			  ((equal? action "MOVE-3")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))
+					 		 (display (replace-nth-item 2 state (+ (car (cdr state)) 3))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S)))
+					 		 (display (replace-nth-item 2 state (- (car (cdr state)) 3))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					 		 (display (replace-nth-item 1 state (+ (car state) 3))))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					 		 (display (replace-nth-item 1 state (- (car state) 3)))))
+					 (newline))
+			   )
+			  ;similarly the turning commands require nth-item to check against a dummy state to determine 
+			  ;which direction to face, and replace-nth-item is used to replace the correct value
+			  ((equal? action "TURN-RIGHT")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))
+					 		 (display (replace-nth-item 3 state 'E)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					 		 (display (replace-nth-item 3 state 'S)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S)))
+					 		 (display (replace-nth-item 3 state 'W)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					  		 (display (replace-nth-item 3 state 'N))))
+					 (newline))
+			   )
+			  ((equal? action "TURN-LEFT")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))
+					 		 (display (replace-nth-item 3 state 'W)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					 		 (display (replace-nth-item 3 state 'S)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S)))
+					 		 (display (replace-nth-item 3 state 'E)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					 		 (display (replace-nth-item 3 state 'N))))
+					 (newline))
+			   )
+			  ((equal? action "TURN-AROUND")
+			   (begin (cond ((equal? (nth-item 3 state) (nth-item 3 '(0 0 N)))
+					 		 (display (replace-nth-item 3 state 'S)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 E)))
+					 		 (display (replace-nth-item 3 state 'W)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 S)))
+					 		 (display (replace-nth-item 3 state 'N)))
+					 		((equal? (nth-item 3 state) (nth-item 3 '(0 0 W)))
+					  	   	 (display (replace-nth-item 3 state 'E))))
+					 (newline))
+			   )
+			  ))
+
+(define (percept)
+  		;this is the given percept as a list
+		(list '(empty empty empty)
+				'(empty (vegetation 2 45) (predator 12) empty empty)
+				'((vegetation 3 150) empty empty empty empty empty barrier)
+				'(barrier empty empty empty empty empty empty barrier barrier)
+				'(barrier barrier empty (vegetation 4 200) empty empty empty (vegetation 1 125)
+						 barrier barrier barrier)))
+(define (get-location percept x y)
+		;The percept is made of y sublists where y=5, each with x elements where x varies from 3 to 11
+		;since negative values are valid, and the offset depends on the y value, the index of the correct 
+		;sublist can be found by the formula x=x+y+1. this formula determines which element of the sublist to choose.
+		;which sublist to choose from depends on y
+  		(nth-item (+ x y 1) (nth-item y (percept))))
+		;nth-item is nested to return the correct value. it is called to find which element of a sublist to find,
+		;which requires it to call itself for  which sublist fomr the percept string to find. the first call is x
+		;and the inttermost call is y

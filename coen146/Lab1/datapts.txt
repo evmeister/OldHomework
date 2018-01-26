@@ -1,0 +1,41 @@
+dat1
+1k
+real 0.195s
+user 0.020s
+sys 0.016s
+
+dat2
+10k
+real 0.284s
+user 0.020s
+sys 0.029s
+
+dat3
+100k
+real 0.178s
+user 0.018s
+sys 0.017s
+
+dat4
+1000k
+real 3.074s
+user 0.027s
+sys 0.019s
+
+dat5
+10M
+real 8.467s
+user 0.056s
+sys 0.039s
+
+dat6
+100M
+real 6.455s
+user 0.287s
+sys 0.182s
+
+dat7
+1000M
+real 27.094s 
+user 1.926s
+sys  1.904s
