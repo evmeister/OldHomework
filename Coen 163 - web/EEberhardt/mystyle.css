@@ -1,0 +1,43 @@
+.Section {
+	text-align: left;
+}
+a:hover{
+	background-color: yellow;
+}
+#Sidebar{
+	float: right;
+	position: relative;
+	top:-420px;
+}
+.main {
+	text-align: left;
+	border:1px solid black; margin:15px; padding:8px;
+	background-color:BurlyWood;
+	width:550px;
+	float: left;
+}
+.bar{
+	border:0px solid black; padding:8px;
+	background-color:CadetBlue;
+}
+.side{
+	text-align: left;
+	border:1px solid black; margin:15px; padding:8px;
+	background-color: PeachPuff;
+	Width: 250px;
+
+}
+.pic{
+	float: left;
+	display: inline;
+	text-align: center;
+}
+
+figcaption{
+	display: block;
+}
+footer{
+	clear:both;
+}
+nav ul{margin:0; padding:0;}
+nav ul li {display:inline; margin:5px;}

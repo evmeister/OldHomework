@@ -1,0 +1,94 @@
+.Section {
+	text-align: left;
+}
+body {
+    width: 100%;
+}
+a:hover{
+	background-color: yellow;`
+}
+#sidebar{
+    float: left;
+	//position: relative;
+	//top:-420px;
+}
+.main {
+	text-align: left;
+	border:1px solid black; margin:15px; padding:8px;
+	background-color:BurlyWood;
+	//width:550px;
+	float: left;
+}
+.bar{
+	border:0px solid black; padding:8px;
+	background-color:CadetBlue;
+}
+.side{
+	text-align: left;
+	border:1px solid black; margin:15px; padding:8px;
+	background-color: PeachPuff;
+	//Width: 250px;
+
+}
+.pic{
+	float: left;
+	display: inline;
+	text-align: center;
+}
+
+figcaption{
+	display: block;
+}
+footer{
+	clear:both;
+}
+
+
+
+
+
+#section {
+    width: 65%;
+    float: right;
+}
+
+#sidebar {
+    width: 30%;
+}
+
+#side{
+    width: 35%;
+}
+
+
+@media screen and (max-width:700px) {
+    #section {
+        width: auto;
+        float: none;
+    }
+
+    #sidebar {
+        width: auto;
+        float: none;
+    }
+
+}
+@media screen and (ax-width: 480px) {
+    #header {
+        height: auto;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #sidebar {
+        display: none;
+    }
+    #secion{
+        width: auto;
+        float: none;
+    }
+}
+
+//Cite: "http://webdesignerwall.com/tutorials/responsive-design-in-3-steps"//
