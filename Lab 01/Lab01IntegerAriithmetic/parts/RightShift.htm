@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Shift vs. Multiply and Divide</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+var user2, dvdnd, d2dec, d2bin, srdec, srbin, bits, dvsr ;
+var shift, signed, offby1 ;
+var range = "<font color='red'>Range Error</font>" ;
+var base2 = "<sub>2</sub>" ;
+var base10 = "<sub>10</sub>" ;
+var nbsp = "&nbsp;" ;
+function Sign(x)
+	{
+	if (signed.value == "0") return "" ;
+	return (x > 0) ? "+" : "" ;
+	}
+function Init()
+	{
+	user2 = document.getElementById("user2") ;
+	dvdnd = document.getElementById("dvdnd") ;
+	d2dec = document.getElementById("d2dec") ;
+	d2bin = document.getElementById("d2bin") ;
+	srdec = document.getElementById("srdec") ;
+	srbin = document.getElementById("srbin") ;
+	bits = document.getElementById("bits") ;
+	dvsr = document.getElementById("dvsr") ;
+	shift = document.getElementById("shift") ;
+	signed = document.getElementById("signed") ;
+	offby1 = document.getElementById("offby1") ;
+	go() ;
+	}
+function Code(s)
+	{
+	return "<code>" + s + "</code>" ;
+	}
+function Number(obj)
+	{
+	return parseInt(obj.options[obj.selectedIndex].value) ;
+	}
+function Binary(value)
+	{
+	var k, s ;
+
+	value &= 0xFF ;
+
+	s = "" ;
+	for (k = 0; k < 8; k++)
+		{
+		s = "01".charAt(value & 1) + s ;
+		value = value >> 1 ;
+		}
+	return Code(s + base2) ;
+	}
+function go()
+	{
+	var k = parseInt(bits.value) ;
+	var unsigned = (signed.value == "0") ;
+	var min = unsigned ? 0 : -128 ;
+	var max = unsigned ? 255 : 127 ;
+	var x, y1, y2 ;
+
+	shift.innerHTML = (unsigned ? "LSR " : "ASR ") + k + " bits" ;
+
+	x = parseFloat(user2.value) ;
+	var d = Math.pow(2, k) ;
+	dvsr.innerHTML = Sign(d) + d + base10 ;
+
+	if (x != (x|0) || isNaN(x) || x < min || x > max)
+		{
+		dvdnd.innerHTML = range ;
+		d2dec.innerHTML = nbsp ;
+		d2bin.innerHTML = nbsp ;
+		srdec.innerHTML = nbsp ;
+		srbin.innerHTML = nbsp ;
+		offby1.innerHTML = nbsp ;
+		}
+	else
+		{
+		dvdnd.innerHTML = Code(Binary(x)) ;
+
+		y1 = (x / Math.pow(2, k)) | 0 ;
+		d2dec.innerHTML = Code(Sign(y1) + y1 + base10) ;
+		d2bin.innerHTML = Code(Binary(y1)) ;
+
+		y2 = y1 ;
+		if (k > 0 && x < 0) y2 = ((x - 1) / Math.pow(2, k)) | 0 ;
+		srdec.innerHTML = Code(Sign(y2) + y2 + base10) ;
+		srbin.innerHTML = Code(Binary(y2)) ;
+
+		offby1.innerHTML = (y1 != y2) ? "Off by 1" : nbsp ;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr> 
+    <td colspan="2"> 
+      <select id="signed" onChange="go();">
+        <option value="0" selected>Unsigned</option>
+        <option value="1">2's Complement</option>
+      </select>
+    </td>
+    <td id="offby1" style="color:red">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Dividend<sub>10</sub></td>
+    <td>
+      <input type="text" id="user2" value="0" onChange="go();">
+    </td>
+    <td id="dvdnd">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Divisor (2<sup>k</sup>)</td>
+    <td id="dvsr">&nbsp;</td>
+    <td>
+      <select id="bits" onChange="go();">
+        <option value="0" selected>k=0</option>
+        <option value="1">k=1</option>
+        <option value="2">k=2</option>
+        <option value="3">k=3</option>
+        <option value="4">k=4</option>
+        <option value="5">k=5</option>
+        <option value="6">k=6</option>
+        <option value="7">k=7</option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td>Quotient</td>
+    <td id="d2dec">&nbsp;</td>
+    <td id="d2bin">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td id="shift">&nbsp;</td>
+    <td id="srdec">&nbsp;</td>
+    <td id="srbin">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

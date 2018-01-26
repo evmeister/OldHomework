@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>Shift vs. Multiply</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+var user1, mcand, m2dec, m2bin, sldec, slbin, overflow, signed ;
+var bits, mpier, shift ;
+var range = "<font color='red'>Range Error</font>" ;
+var overflow = "<font color='red'>Overflow</font>" ;
+var nbsp = "&nbsp;" ;
+function Sign(x)
+	{
+	if (signed.value == "0") return "" ;
+	return (x > 0) ? "+" : "" ;
+	}
+function Init()
+	{
+	user1 = document.getElementById("user1") ;
+	mcand = document.getElementById("mcand") ;
+	m2dec = document.getElementById("m2dec") ;
+	m2bin = document.getElementById("m2bin") ;
+	sldec = document.getElementById("sldec") ;
+	slbin = document.getElementById("slbin") ;
+	signed = document.getElementById("signed") ;
+	overflow = document.getElementById("overflow") ;
+	bits = document.getElementById("bits") ;
+	mpier = document.getElementById("mpier") ;
+	shift = document.getElementById("shift") ;
+	go() ;
+	}
+function Code(s)
+	{
+	return "<code>" + s + "</code>" ;
+	}
+function Number(obj)
+	{
+	return parseInt(obj.options[obj.selectedIndex].value) ;
+	}
+function Binary(value)
+	{
+	var k, s ;
+
+	value &= 0xFF ;
+
+	s = "" ;
+	for (k = 0; k < 8; k++)
+		{
+		s = "01".charAt(value & 1) + s ;
+		value = value >> 1 ;
+		}
+	return Code(s + "<sub>2</sub>") ;
+	}
+function go()
+	{
+	var base10 = "<sub>10</sub>" ;
+	var unsigned = (signed.value == "0") ;
+	var min = unsigned ? 0 : -128 ;
+	var max = unsigned ? 255 : +127 ;
+	var k = parseInt(bits.value) ;
+	var x, y ;
+
+	var m = Math.pow(2, k) ;
+	mpier.innerHTML = Sign(m) + m + base10 ;
+	shift.innerHTML = "LSL " + k + " bits" ;
+	x = parseFloat(user1.value) ;
+	if (x != (x|0) || isNaN(x) || x < min || x > max)
+		{
+		mcand.innerHTML = range ;
+		m2dec.innerHTML = nbsp ;
+		m2bin.innerHTML = nbsp ;
+		sldec.innerHTML = nbsp ;
+		slbin.innerHTML = nbsp ;
+		overflow.innerHTML = nbsp ;
+		}
+	else
+		{
+		mcand.innerHTML = Binary(x) ;
+
+		y = x << k ;
+
+		if (y < min || y > max)
+			{
+			overflow.innerHTML = "Overflow" ;
+
+			m2dec.innerHTML = nbsp ;
+			m2bin.innerHTML = Binary(y);
+
+			sldec.innerHTML = nbsp ;
+			slbin.innerHTML = Binary(y);
+			}
+		else
+			{
+			overflow.innerHTML = nbsp ;
+
+			m2dec.innerHTML = Sign(y) + y + base10 ;
+			m2bin.innerHTML = Binary(y) ;
+
+			sldec.innerHTML = Sign(y) + y + base10 ;
+			slbin.innerHTML = Binary(y) ;
+			}
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr> 
+    <td colspan="2"> 
+      <select id="signed" onChange="go();">
+        <option value="0" selected>Unsigned</option>
+        <option value="1">2's Complement</option>
+      </select>
+    </td>
+    <td id="overflow" style="color:red">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Multiplicand<sub>10</sub></td>
+    <td> 
+      <input type="text" id="user1" value="0" onChange="go();">
+    </td>
+    <td id="mcand">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Multiplier (2<sup>k</sup>)</td>
+    <td id="mpier">&nbsp</td>
+    <td>
+      <select id="bits" onChange="go();">
+        <option value="0" selected>k=0</option>
+        <option value="1">k=1</option>
+        <option value="2">k=2</option>
+        <option value="3">k=3</option>
+        <option value="4">k=4</option>
+        <option value="5">k=5</option>
+        <option value="6">k=6</option>
+        <option value="7">k=7</option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td id="product">Product</td>
+    <td id="m2dec">&nbsp;</td>
+    <td id=m2bin>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td id="shift">&nbsp;</td>
+    <td id="sldec">&nbsp;</td>
+    <td id="slbin">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

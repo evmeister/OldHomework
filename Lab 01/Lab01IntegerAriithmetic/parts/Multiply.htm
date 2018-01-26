@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css">
+<script language="JavaScript" type="text/javascript">
+var signed, mpcnd10, mpcnd2, mpier10, mpier2, prod10, prod2, overflow ;
+var range = "<font color='red'>Range Error</font>" ;
+var base2 = "<sub>2</sub>" ;
+var base10 = "<sub>10</sub>" ;
+var nbsp = "&nbsp;" ;
+function Code(x)
+	{
+	return "<code>" + x + "</code>" ;
+	}
+function Binary(value)
+	{
+	var k, s ;
+
+	value &= 0xFF ;
+
+	s = "" ;
+	for (k = 0; k < 8; k++)
+		{
+		s = "01".charAt(value & 1) + s ;
+		value = value >> 1 ;
+		}
+	return s ;
+	}
+function Init()
+	{
+	signed = document.getElementById("signed") ;
+	mpcnd10 = document.getElementById("mpcnd10") ;
+	mpcnd2 = document.getElementById("mpcnd2") ;
+	mpier10 = document.getElementById("mpier10") ;
+	mpier2 = document.getElementById("mpier2") ;
+	prod10 = document.getElementById("prod10") ;
+	prod2 = document.getElementById("prod2") ;
+	overflow = document.getElementById("overflow") ;
+
+	go() ;
+	}
+function go()
+	{
+	var mpcnd = parseInt(mpcnd10.value) ;
+	var mpier = parseInt(mpier10.value) ;
+	var unsigned = (signed.value == "0") ;
+	var min = unsigned ? 0 : -128 ;
+	var max = unsigned ? 255 : 127 ;
+
+	if (mpcnd < min || mpcnd > max) mpcnd = NaN ;
+	if (isNaN(mpcnd)) mpcnd2.innerHTML = range ;
+	else mpcnd2.innerHTML = Code(Binary(mpcnd) + base2) ;
+
+	if (mpier < min || mpier > max) mpier = NaN ;
+	if (isNaN(mpier)) mpier2.innerHTML = range ;
+	else mpier2.innerHTML = Code(Binary(mpier) + base2) ;
+
+	if (isNaN(mpcnd) || isNaN(mpier))
+		{
+		prod10.innerHTML = prod2.innerHTML = nbsp ;
+		overflow.innerHTML = nbsp ;
+		}
+	else
+		{
+		var prod = mpcnd * mpier ;
+		prod10.innerHTML = prod + base10 ;
+		var bits = prod & 0xFFFF ;
+		var hi = bits >> 8 ;
+		var lo = bits & 0xFF ;
+		prod2.innerHTML = Code(Binary(hi) + " " + Binary(lo) + base2) ;
+		overflow.innerHTML = (prod < min || prod > max) ? "Overflow" : nbsp ;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellpadding="4" cellspacing="0" bgcolor="#FFFF99">
+  <tr> 
+    <td colspan="2"> 
+      <select id="signed" onChange="go();">
+        <option value="0" selected>Unsigned</option>
+        <option value="1">2's Complement</option>
+      </select>
+    </td>
+    <td id="overflow" style="color:red">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Multiplicand<sub>10</sub></td>
+    <td> 
+      <input type="text" id="mpcnd10" value="0" onChange="go();">
+    </td>
+    <td id="mpcnd2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Multiplier<sub>10</sub></td>
+    <td> 
+      <input type="text" id="mpier10" value="0" onChange="go();">
+    </td>
+    <td id="mpier2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Product</td>
+    <td id="prod10">&nbsp;</td>
+    <td id="prod2" align="right">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

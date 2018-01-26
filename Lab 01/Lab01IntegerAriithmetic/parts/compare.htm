@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+code {font-size: 12pt}
+sub, sup {font-size: 8pt}
+td, p {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px}
+input {width:100px}
+button {width:23px;height:23px}
+</style>
+<script language="JavaScript" type="text/javascript">
+var bits1, disp1, user1, unbin, s2bin, s1bin, spbin ;
+var bits2, disp2, user2, undec, s2dec, s1dec, spdec ;
+var range = "<b><font color='red'>Range Error!</font></b>" ;
+var base10 = "<sub>10</sub>" ;
+function Code(s)
+	{
+	return "<code>" + s + "</code>" ;
+	}
+function Number(obj)
+	{
+	return parseInt(obj.options[obj.selectedIndex].value) ;
+	}
+function Group(radix)
+	{
+	if (radix == 2) return 1 ;
+	if (radix == 8) return 3 ;
+	return 4 ;
+	}
+function Binary(value, radix, digits)
+	{
+	var k, s, group, mask ;
+
+	group = Group(radix) ;
+	value &= Math.pow(2, group * digits) - 1 ;
+	mask = Math.pow(2, group) - 1 ;
+
+	s = "" ;
+	for (k = 0; k < digits; k++)
+		{
+		s = "0123456789ABCDEF".charAt(value & mask) + s ;
+		value = value >> group ;
+		}
+	return Code(s + "<sub>" + radix + "</sub>") ;
+	}
+function go1()
+	{
+	var dec = parseFloat(user1.value) ;
+	var minus0  = (user1.value == "-0") ;
+	if (minus0) dec = 0 ;
+	var n   = Number(bits1) ;
+	var rdx = Number(disp1) ;
+	var r2m = Math.pow(2, n-1) ;
+	var dig = n / Group(rdx) ;	
+
+	if (dec != (dec|0) || isNaN(dec) || dec < 0 || dec > (Math.pow(2, n) - 1) || minus0) unbin.innerHTML = range ;
+	else unbin.innerHTML = Binary(dec, rdx, dig) ;
+
+	if (dec != (dec|0) || isNaN(dec) || dec < -r2m || dec > (r2m - 1) || minus0) s2bin.innerHTML = range ;
+	else s2bin.innerHTML = Binary(dec, rdx, dig) ;
+
+	if (dec != (dec|0) || isNaN(dec) || dec < -(r2m - 1) || dec > (r2m - 1)) s1bin.innerHTML = range ;
+	else if (minus0) s1bin.innerHTML = Binary(-1, rdx, dig) ;
+	else if (dec >= 0) s1bin.innerHTML = Binary(dec, rdx, dig) ;
+	else s1bin.innerHTML = Binary(dec - 1, rdx, dig) ;
+
+	if (dec != (dec|0) || isNaN(dec) || dec < -(r2m - 1) || dec > (r2m - 1)) spbin.innerHTML = range ;
+	else if (minus0) spbin.innerHTML = Binary(~(r2m - 1), rdx, dig) ;
+	else if (dec >= 0) spbin.innerHTML = Binary(dec, rdx, dig) ;
+	else spbin.innerHTML = Binary((dec - 1) ^ (r2m - 1), rdx, dig) ;
+	}
+function go2()
+	{
+	var str = user2.value ;
+	var n   = Number(bits2) ;
+	var rdx = Number(disp2) ;
+	var r2n = Math.pow(2, n) ;
+	var r2m = Math.pow(2, n-1) ;
+	var dig = n / Group(rdx) ;
+	var k, dec, val, digit ;
+
+	dec = 0 ;
+	str = str.toUpperCase() ;
+	for (k = 0; k < str.length; k++)
+		{
+		digit = "0123456789ABCDEF".substr(0,rdx).indexOf(str.charAt(k)) ;
+		if (digit != -1) dec = rdx * dec + digit ;
+		else dec = NaN ;
+		}
+
+	if (isNaN(dec) || dec > (r2n - 1)) undec.innerHTML = range ;
+	else undec.innerHTML = Code(dec + base10) ;
+
+	val = ((dec & r2m) == 0) ? dec : (dec - r2n) ;
+	if (isNaN(dec) || val < -r2m || val > (r2m - 1)) s2dec.innerHTML = range ;
+	else if (val > 0) s2dec.innerHTML = Code("+" + val + base10) ;
+	else s2dec.innerHTML = Code(val + base10) ;
+
+	val = ((dec & r2m) == 0) ? dec : (dec - r2n + 1) ;
+	if (isNaN(dec) || val < -(r2m - 1) || val > (r2m - 1)) s1dec.innerHTML = range ;
+	else if (dec == (r2n - 1)) s1dec.innerHTML = Code("-0" + base10) ;
+	else if (val >= 0) s1dec.innerHTML = Code("+" + val + base10) ;
+	else s1dec.innerHTML = Code(val + base10) ;
+
+	val = ((dec & r2m) == 0) ? dec : -(dec & (r2m - 1)) ;
+	if (isNaN(dec) || val < -(r2m - 1) || val > (r2m - 1)) spdec.innerHTML = range ;
+	else if (dec == r2m) spdec.innerHTML = Code("-0" + base10) ;
+	else if (val >= 0) spdec.innerHTML = Code("+" + val + base10) ;
+	else spdec.innerHTML = Code(val + base10) ;
+	}
+function Init()
+	{
+	bits1 = document.getElementById("bits1") ;
+	disp1 = document.getElementById("disp1") ;
+	user1 = document.getElementById("user1") ;
+	unbin	= document.getElementById("unbin") ;
+	s2bin	= document.getElementById("s2bin") ;
+	s1bin	= document.getElementById("s1bin") ;
+	spbin	= document.getElementById("spbin") ;
+	go1() ;
+
+	bits2 = document.getElementById("bits2") ;
+	disp2 = document.getElementById("disp2") ;
+	user2 = document.getElementById("user2") ;
+	undec	= document.getElementById("undec") ;
+	s2dec	= document.getElementById("s2dec") ;
+	s1dec	= document.getElementById("s1dec") ;
+	spdec	= document.getElementById("spdec") ;
+
+	go2() ;
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<p>Comparing various representations:</p>
+<table border="1" cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr>
+    <td nowrap colspan="2">Output:
+      <select id="bits1" onChange="go1();">
+        <option value="8" selected>8 bits</option>
+        <option value="16">16 bits</option>
+        <option value="32">32 bits</option>
+      </select>
+      <select id="disp1" onChange="go1();">
+        <option value="2" selected>Binary</option>
+        <option value="8">Octal</option>
+        <option value="16">Hexadecimal</option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td nowrap>Decimal</td>
+    <td> 
+      <input type="text" id="user1" value="0" onChange="go1();">
+    </td>
+  </tr>
+  <tr> 
+    <td nowrap>Unsigned</td>
+    <td id="unbin">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap height="25">2's complement</td>
+    <td id="s2bin" height="25">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>1's complement</td>
+    <td id="s1bin">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>Sign + Magnitude</td>
+    <td id="spbin">&nbsp;</td>
+  </tr>
+</table>
+<p>Comparing various interpretations:</p>
+<table border="1" cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr> 
+    <td nowrap colspan="2">Input:
+      <select id="bits2" onChange="go2();">
+        <option value="8" selected>8 bits</option>
+        <option value="16">16 bits</option>
+        <option value="32">32 bits</option>
+      </select>
+      <select id="disp2" onChange="go2();">
+        <option value="2" selected>Binary</option>
+        <option value="8">Octal</option>
+        <option value="16">Hexadecimal</option>
+      </select>
+    </td>
+  </tr>
+  <tr> 
+    <td nowrap>Bit Pattern</td>
+    <td> 
+      <input type="text" id="user2" value="00000000" onChange="go2();">
+    </td>
+  </tr>
+  <tr> 
+    <td nowrap>Unsigned</td>
+    <td id="undec">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>2's complement</td>
+    <td id="s2dec">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>1's complement</td>
+    <td id="s1dec">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>Sign + Magnitude</td>
+    <td id="spdec">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp; </p>
+</body>
+</html>
