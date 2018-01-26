@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+var btm10, top10, res10, topname, btmname ;
+var btm2, top2, res2, cryname, carries, resname ;
+var signed, overflow, addsub ;
+function Code(x)
+	{
+	return "<code>" + x + "</code>" ;
+	}
+function Init()
+	{
+	topname = document.getElementById("topname") ;
+	btmname = document.getElementById("btmname") ;
+	resname = document.getElementById("resname") ;
+	cryname = document.getElementById("cryname") ;
+
+	top10 = document.getElementById("top10") ;
+	btm10 = document.getElementById("btm10") ;
+	res10 = document.getElementById("res10") ;
+
+	top2  = document.getElementById("top2") ;
+	btm2  = document.getElementById("btm2") ;
+	res2  = document.getElementById("res2") ;
+
+	carries  = document.getElementById("carries") ;
+	signed	 = document.getElementById("signed") ;
+	overflow = document.getElementById("overflow") ;
+	addsub	 = document.getElementById("addsub") ;
+
+	go() ;
+	}
+function Binary(value)
+	{
+	var k, s ;
+
+	value &= 0xFF ;
+
+	s = "" ;
+	for (k = 0; k < 8; k++)
+		{
+		s = "01".charAt(value & 1) + s ;
+		value = value >> 1 ;
+		}
+	return s ;
+	}
+function Sign(x)
+	{
+	if (signed.value == "0") return "" ;
+	return (x > 0) ? "+" : "" ;
+	}
+function Propagate(top, btm)
+	{
+	var k, bit, result ;
+
+	bit = 0 ;
+	result = "0" ;
+	for (k = 0; k < 8; k++)
+		{
+		var t = top & 0x1 ;
+		var b = btm & 0x1 ;
+		var res = (addsub.value == "0") ? (t + b + bit) : (t - b - bit) ;
+		top >>= 1 ;
+		btm >>= 1 ;
+		bit = (res < 0 || res > 1) ? 1 : 0 ;
+		result = bit + result ;
+		}
+	return result ;
+	}
+function go()
+	{
+	var range  = "<font color='red'>Range Error</font>" ;
+	var base10 = "<sub>10</sub>" ;
+	var base2  = "<sub>2</sub>" ;
+	var nbsp = "&nbsp;" ;
+
+	var top = parseInt(top10.value) ;
+	var btm = parseInt(btm10.value) ;
+	var add = (addsub.value == "0") ;
+	var min, max ;
+
+	topname.innerHTML = (add ? "Addend" : "Subtrahend") + base10 ;
+	btmname.innerHTML = (add ? "Augend" : "Minuend") + base10 ;
+	resname.innerHTML = add ? "Sum" : "Difference" ;
+	cryname.innerHTML = add ? "Carries:" : "Borrows:" ;	
+
+	if (signed.value == "1")
+		{
+		min = -128 ;
+		max = 127 ;
+		}
+	else
+		{
+		min = 0 ;
+		max = 255 ;
+		}
+
+	if (btm < min || btm > max) btm = NaN ;
+	if (top < min || top > max) top = NaN ;
+
+	if (isNaN(btm)) btm2.innerHTML = range ;
+	else btm2.innerHTML = Code(Binary(btm) + base2) ;
+	if (isNaN(top)) top2.innerHTML = range ;
+	else top2.innerHTML = Code(Binary(top) + base2) ;
+
+	var raw = add ? (top + btm) : (top - btm) ;
+	var res = raw % 256 ;
+
+	if (isNaN(btm) || isNaN(top))
+		{
+		res10.innerHTML = res2.innerHTML = nbsp ;
+		carries.innerHTML = nbsp ;
+		overflow.innerHTML = nbsp ;
+		return ;
+		}
+
+	res2.innerHTML	  = Code(Binary(res) + base2) ;
+	carries.innerHTML = Code(Propagate(top, btm) + base2) ;
+
+	if (raw < min || raw > max)
+		{
+		res10.innerHTML = nbsp ;
+		overflow.innerHTML = "Overflow" ;
+		}
+	else
+		{
+		res10.innerHTML	  = Sign(res) + res + base10 ;
+		overflow.innerHTML = nbsp ;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr>
+    <td>Representation</td>
+    <td>
+      <select id="signed" onChange="go();">
+        <option selected value="0">Unsigned</option>
+        <option value="1">2's Complement</option>
+      </select>
+    </td>
+    <td id="overflow" align="center" style="color:red">Overflow</td>
+  <tr>
+    <td>
+      <select id="addsub" onChange="go();">
+        <option selected value="0">Add</option>
+        <option value="1">Subtract</option>
+      </select>
+    </td>
+    <td id="cryname" align="right">?</td>
+    <td id="carries" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td id="topname">?</td>
+    <td><input id="top10" value="85" onChange="go();"></td>
+    <td id="top2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td id="btmname">?</td>
+    <td><input id="btm10" value="119" onChange="go();"></td>
+    <td id="btm2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td id="resname">?</td>
+    <td id="res10">&nbsp;</td>
+    <td id="res2" align="right">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

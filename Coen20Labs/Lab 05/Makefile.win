@@ -1,0 +1,30 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main5.o $(RES)
+LINKOBJ  = main5.o $(RES)
+LIBS =  -L"C:/Apps/Dev-Cpp/lib"  
+INCS =  -I"C:/Apps/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Apps/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Apps/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Apps/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Apps/Dev-Cpp/include/c++/3.4.2"  -I"C:/Apps/Dev-Cpp/include" 
+BIN  = main.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before main.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "main.exe" $(LIBS)
+
+main5.o: main5.c
+	$(CC) -c main5.c -o main5.o $(CFLAGS)

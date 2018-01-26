@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Recoded Multiply by Constant</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+var plus, minus, obj, multiplier ;
+function Init()
+	{
+	obj = new Array(4) ;
+	obj[0] = document.getElementById("binary") ;
+	obj[1] = document.getElementById("plus") ;
+	obj[2] = document.getElementById("minus") ;
+	obj[3] = document.getElementById("code") ;
+	multiplier = document.getElementById("multiplier") ;
+	go() ;
+	}
+function Ones(n)
+	{
+	var pos, count ;
+
+	count = 0 ;
+	for (pos = 0; pos < 8; pos++)
+		{
+		if ((n & 1) != 0) count++ ;
+		n >>= 1 ;
+		}
+	return count ;
+	}
+function Convert(number)
+	{
+	var result = "" ;
+	if (number < 0) number = 256 + number ;
+	for (k = 1; k <= 8; k++)
+		{
+		result = (number & 1) + result ;
+		number = number >> 1 ;
+		}
+	return result ;
+	}
+function Code(s)
+	{
+	return "<code>" + s + "</code>" ;
+	}
+function Operations(n, inc)
+	{
+	var pos, cin, result ;
+
+	cin = 0 ;
+	result = 0 ;
+	for (pos = 0; pos < 8; pos++)
+		{
+		var bit, cout ;
+
+		cout = cin ;
+		if ((n & 3) == 0) cout = 0 ;
+		if ((n & 3) == 3) cout = 1 ;
+
+		bit = (n & 1) + cin - 2*cout ;
+		if (bit == inc) result |= (1 << pos) ;
+
+		cin = cout ;
+		n >>= 1 ;
+		}
+	
+	return result ;
+	}
+function ReplacePairings()
+	{
+	var pos ;
+    
+	for (pos = 7; pos > 0; pos--)
+		{
+		if (((minus & (1 << pos)) != 0) && ((plus & (1 << (pos - 1))) != 0))
+			{
+			minus &= ~(1 << pos) ;
+			plus &= ~(1 << (pos - 1)) ;
+			minus |= 1 << (pos - 1) ;
+			}
+		else if (((plus & (1 << pos)) != 0) && ((minus & (1 << (pos - 1))) != 0))
+			{
+			plus &= ~(1 << pos) ;
+			minus &= ~(1 << (pos - 1)) ;
+			plus |= 1 << (pos - 1) ;
+			}
+		}
+	}
+function Instructions(plus, minus)
+	{
+	var pos, addsub, shifts, code ;
+
+	code = "" ;
+	addsub = shifts = 0 ;
+	for (pos = 7; pos >= 0; pos--)
+		{
+		if ((plus & (1 << pos)) != 0)
+			{	
+			if (shifts != 0)	code += "reg = reg << " + shifts + "<br>" ;
+			if (!addsub)	code += "reg = multiplicand<br>" ;
+			else			code += "reg = reg + multiplicand<br>" ;
+			addsub = 1 ;
+			shifts = (pos > 0) ? 1 : 0 ;
+			}
+		else if ((minus & (1 << pos)) != 0)
+			{
+			if (shifts != 0)	code += "reg = reg << " + shifts + "<br>" ;
+			if (!addsub)	code += "reg = -multiplicand<br>" ;
+			else			code += "reg = reg - multiplicand<br>" ;
+			addsub = 1 ;
+			shifts = (pos > 0) ? 1 : 0 ;
+			}
+		else if (addsub != 0) shifts += (pos > 0) ? 1 : 0 ;
+		}
+
+	if (shifts != 0) code += "reg = reg << " + shifts + "<br>" ;
+	if (code == "") code = "<i>do nothing</i>" ;
+	return code ;
+	}
+function Clear(id)
+	{
+	var obj = document.getElementById(id) ;
+	if (isNaN(parseInt(obj.value)))
+		{
+		obj.value = ""  ;
+		go() ;
+		}
+	}
+function go()
+	{
+	var range = "<font color='red'>Range Error</font>" ;
+	var base2 = "<sub>2</sub>" ;
+	var nbsp = "&nbsp;" ;
+
+	var m = parseFloat(multiplier.value) ;
+	plus = Operations(m, 1) ;
+	minus = Operations(m, -1) ;
+	ReplacePairings() ;
+
+	if (isNaN(m))
+		{
+		obj[0].innerHTML = nbsp ;
+		obj[1].innerHTML = nbsp ;
+		obj[2].innerHTML = nbsp ;
+		obj[3].innerHTML = nbsp ;
+		}
+	else if (m != (m|0) || m < -128 || m > 127)
+		{
+		obj[0].innerHTML = range ;
+		obj[1].innerHTML = nbsp ;
+		obj[2].innerHTML = nbsp ;
+		obj[3].innerHTML = nbsp ;
+		}
+	else if (Ones(plus) + Ones(minus) >= Ones(m))
+		{
+		obj[0].innerHTML = Code(Convert(m) + base2) ;
+		obj[1].innerHTML = Code(Convert(plus) + base2) ;
+		obj[2].innerHTML = Code(Convert(minus) + base2) ;
+		obj[3].innerHTML = Instructions(m, 0) ;
+		}
+	else
+		{
+		obj[0].innerHTML = Code(Convert(m) + base2) ;
+		obj[1].innerHTML = Code(Convert(plus) + base2) ;
+		obj[2].innerHTML = Code(Convert(minus) + base2) ;
+		obj[3].innerHTML = Instructions(plus, minus) ;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr> 
+    <td>Multiplier<sub>10</sub></td>
+    <td> 
+      <input type="text" id="multiplier" onChange="go();" onFocus="Clear('multiplier');" value="19">
+    </td>
+  </tr>
+  <tr> 
+    <td>2's Complement</td>
+    <td nowrap id="binary">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Recoded (+)</td>
+    <td nowrap id="plus">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Recoded (-)</td>
+    <td nowrap id="minus">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Code</td>
+    <td nowrap id="code">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

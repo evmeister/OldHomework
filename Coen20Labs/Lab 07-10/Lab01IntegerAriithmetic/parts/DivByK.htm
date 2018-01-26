@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>Integer Division by Constant using Multiplication</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+var ERR, M2, QE, QE10, C, D, Q, Q10 ;
+var dividend, divisor, A2, B2 ;
+function Init()
+	{
+	ERR = document.getElementById("err") ;
+	M2 = document.getElementById("M2") ;
+	QE = document.getElementById("QE") ;
+	QE10 = document.getElementById("QE10") ;
+	C = document.getElementById("C") ;
+	D = document.getElementById("D") ;
+	Q = document.getElementById("Q") ;
+	Q10 = document.getElementById("Q10") ;
+	A2 = document.getElementById("A2") ;
+	B2 = document.getElementById("B2") ;
+	dividend = document.getElementById("dividend") ;
+	divisor = document.getElementById("divisor") ;
+	go() ;
+	}
+function Convert(number)
+	{
+	var result = "" ;
+	if (number < 0) number = 256 + number ;
+	for (k = 1; k <= 8; k++)
+		{
+		var digit = number & 0x1 ;
+		number = number >> 1 ;
+		result = "01".charAt(digit) + result ;
+		}
+	return result ;
+	}
+function Code(s)
+	{
+	return "<code>" + s + "</code>" ;
+	}
+function Clear(id)
+	{
+	var obj = document.getElementById(id) ;
+	if (isNaN(parseInt(obj.value)))
+		{
+		obj.value = ""  ;
+		go() ;
+		}
+	}
+function Protect(id)
+	{
+	document.getElementById(id).blur() ;
+	}
+function Sign(x)
+	{
+	return (x > 0) ? "+" : "" ;
+	}
+function go()
+	{
+	var range = "<font color='red'>Range Error</font>" ;
+	var base2 = "<sub>2</sub>" ;
+	var base10 = "<sub>10</sub>" ;
+	var nbsp = "&nbsp;" ;
+	var k, a, b, c, d, m, p, q, err, v ;
+
+	ERR.innerHTML = nbsp ;
+	M2.innerHTML = nbsp ;
+	QE.innerHTML = nbsp ;
+	QE10.innerHTML = nbsp ;
+	C.innerHTML = nbsp ;
+	D.innerHTML = nbsp ;
+	Q.innerHTML = nbsp ;
+	Q10.innerHTML = nbsp ;
+
+	a = parseFloat(dividend.value) ;
+	if (isNaN(a)) A2.innerHTML = nbsp ;
+	else if (a != (a|0) || a < -128 || a > 127)
+		{
+		A2.innerHTML = range ;
+		a = NaN ;
+		}
+	else A2.innerHTML = Code(Convert(a) + base2) ;
+
+	b = parseFloat(divisor.value) ;
+	if (isNaN(b)) B2.innerHTML = nbsp ;
+	else if (b != (b|0) || b < -128 || b > 127)
+		{
+		B2.innerHTML = range ;
+		b = NaN ;
+		}
+	else B2.innerHTML = Code(Convert(b) + base2) ;
+
+	if (isNaN(a) || isNaN(b)) return ;
+
+	c = 256 ;
+	m = Math.round(c / b) ;
+	err = (c / b) - m ;
+	ERR.innerHTML = "Err: " + err.toFixed(3) + "<sub>10</sub>" ;
+
+	p = a * m ;
+
+	if (m < -128 || m > 127) M2.innerHTML = range ;
+	else M2.innerHTML = Code(Convert(m) + base2) ;
+
+	var q = (p / 256) | 0 ;
+	QE.innerHTML = Code(Convert(q) + base2) ;
+	QE10.innerHTML = Sign(q) + q + base10 ;
+
+	d = a - b * q ;
+	D.innerHTML = Sign(d) + d + base10 ;
+
+	c = 0 ;
+	if (Math.abs(d) >= Math.abs(b))
+		{
+		if (((d ^ b) & 0x80) == 0)
+			{
+			// Sign bits of B and A-BxQ are the same
+			c = d - b + 1 ;
+			}
+		else
+			{
+			// Sign bits of B and A-BxQ are different
+			c = d + b - 1 ;
+			}
+		}
+	if (c > 0) C.innerHTML = "Correction: Q" + Code("++") ;
+	else if (c < 0) C.innerHTML = "Correction: Q" + Code("--") ;
+	else C.innerHTML = "Correction: None" ;
+
+	if (c > 0) q++ ;
+	if (c < 0) q-- ;
+
+	Q10.innerHTML = Sign(q) + q + base10 ;
+	Q.innerHTML = Code(Convert(q) + base2) ;
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onload="Init();">
+<table cellspacing="0" cellpadding="4" bgcolor="#FFFF99">
+  <tr> 
+    <td nowrap>A<sub>10</sub> <i>(Dividend)</i></td>
+    <td align="center" nowrap> 
+      <input type="text" id="dividend" onchange="go();" value="125" onFocus="Clear('dividend');">
+    </td>
+    <td id="A2" nowrap align="center">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>B<sub>10</sub> <i>(Divisor)</i></td>
+    <td align="center" nowrap> 
+      <input type="text" id="divisor" onchange="go();" value="15" onFocus="Clear('divisor');">
+    </td>
+    <td id="B2" nowrap align="center">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>(2<sup>8</sup> / B)<sub>rounded</sub></td>
+    <td align="center" nowrap id="err">&nbsp;</td>
+    <td id="M2" nowrap align="center">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>Q: (A x (2<sup>8</sup> / B))<sub id="2n1">15..8</sub></td>
+    <td id="QE10">&nbsp;</td>
+    <td id="QE" nowrap align="center">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td nowrap>A - B x Q <i>(Remainder)</i></td>
+    <td nowrap id="D">0</td>
+    <td align="center" nowrap id="C">?</td>
+  </tr>
+  <tr> 
+    <td nowrap>Q <i>(Corrected Quotient)</i></td>
+    <td id="Q10">&nbsp;</td>
+    <td id="Q" nowrap align="center">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

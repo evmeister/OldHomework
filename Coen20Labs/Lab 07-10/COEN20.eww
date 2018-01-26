@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\Lab07IntegerFunctionsStraightLine\Lab07IntegerFunctionStraightLine.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Lab08IntegerFunctionsWithLoops\Lab08IntegerFunctionsWithLoops.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Lab09Integer64Multiplication\Lab09Integer64Multiplication.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\Lab10Unsigned64x32Division\Lab10Unsigned64x32Division.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\LM3S811\LM3S811Drivers.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

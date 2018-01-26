@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>113318496</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\disc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\Lab07IntegerFunctionStraightLine.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\disc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main4absval.o</file>
+      <file>$PROJ_DIR$\disc.s</file>
+      <file>$PROJ_DIR$\absval.c</file>
+      <file>$PROJ_DIR$\absval.s</file>
+      <file>$PROJ_DIR$\main4absval.c</file>
+      <file>$PROJ_DIR$\disc.c</file>
+      <file>$PROJ_DIR$\main4disc.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\absval.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\main4absval.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\absval.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\config\generic_cortex.icf</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lab07IntegerFunctionStraightLine.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ystdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\LM3S811\inc\display96x16x1.h</file>
+      <file>$PROJ_DIR$\..\LM3S811\inc\hw_types.h</file>
+      <file>$PROJ_DIR$\..\LM3S811\inc\pushbutton.h</file>
+      <file>$TOOLKIT_DIR$\lib\dl7M_tln.a</file>
+      <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+      <file>$PROJ_DIR$\..\LM3S811\Debug\Exe\LM3S811drivers.a</file>
+      <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\main4disc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main4disc.o</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Lab07IntegerFunctionStraightLine.out</name>
+      <inputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 16 2 35 32 31 33 14 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\disc.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\absval.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15 18 19 21 20 22 23</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 15 18 19 21 13 20 22 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\absval.s</name>
+      <outputs>
+        <tool>
+          <name>AARM</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main4absval.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 18 19 21 20 22 23 26 25 15 28 27 29</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 18 19 21 13 20 22 23 26 25 15 28 27 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\disc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15 18 19 21 20 22 23</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 15 18 19 21 13 20 22 23</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main4disc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 18 19 21 20 22 23 26 25 15 28 27 29</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 24 18 19 21 13 20 22 23 26 25 15 28 27 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\Lab07IntegerFunctionStraightLine.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 34</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\..\[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

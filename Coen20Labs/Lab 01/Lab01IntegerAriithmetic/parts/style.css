@@ -1,0 +1,37 @@
+td, p, input, select
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	}
+input
+	{
+	width:75px;
+	margin:0px;
+	}
+code
+	{
+	font-size: 9pt ;
+	}
+sub, sup
+	{
+	font-size: 8pt ;
+	}
+button
+	{
+	width:23px;
+	height:23px;
+	}
+.readonly
+	{
+	background-color: #CCCCCC;
+	}
+table
+	{
+	border: solid 1px #CCCCCC;
+	border-collapse: collapse;
+	}
+td
+	{
+	border: solid 1px #CCCCCC;
+	}
+

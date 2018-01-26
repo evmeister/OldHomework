@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="style.css" type="text/css">
+<script language="JavaScript" type="text/javascript">
+var signed, dvnd10, dvnd2, dvsr10, dvsr2, quot10, quot2, rem10, rem2, overflow ;
+var range = "<font color='red'>Range Error</font>" ;
+var base2 = "<sub>2</sub>" ;
+var base10 = "<sub>10</sub>" ;
+var nbsp = "&nbsp;" ;
+function Code(x)
+	{
+	return "<code>" + x + "</code>" ;
+	}
+function Binary(value)
+	{
+	var k, s ;
+
+	value &= 0xFF ;
+
+	s = "" ;
+	for (k = 0; k < 8; k++)
+		{
+		s = "01".charAt(value & 1) + s ;
+		value = value >> 1 ;
+		}
+	return s ;
+	}
+function Init()
+	{
+	signed = document.getElementById("signed") ;
+	dvnd10 = document.getElementById("dvnd10") ;
+	dvnd2 = document.getElementById("dvnd2") ;
+	dvsr10 = document.getElementById("dvsr10") ;
+	dvsr2 = document.getElementById("dvsr2") ;
+	quot10 = document.getElementById("quot10") ;
+	quot2 = document.getElementById("quot2") ;
+	rem10 = document.getElementById("rem10") ;
+	rem2 = document.getElementById("rem2") ;
+	overflow = document.getElementById("overflow") ;
+
+	go() ;
+	}
+function go()
+	{
+	var dvnd = parseInt(dvnd10.value) ;
+	var dvsr = parseInt(dvsr10.value) ;
+	var unsigned = (signed.value == "0") ;
+	var min16 = unsigned ? 0 : -32768 ;
+	var max16 = unsigned ? 65535 : 32767 ;
+	var min8 = unsigned ? 0 : -128 ;
+	var max8 = unsigned ? 255 : 127 ;
+
+	if (dvnd < min16 || dvnd > max16)
+		{
+		dvnd = NaN ;
+		dvnd2.innerHTML = range ;
+		}
+	else
+		{
+		var hi = (dvnd >> 8) & 0xFF ;
+		var lo = dvnd & 0xFF ;
+		dvnd2.innerHTML = Code(Binary(hi) + " " + Binary(lo) + base2) ;
+		}
+
+	if (dvsr < min8 || dvsr > max8)
+		{
+		dvsr = NaN ;
+		dvsr2.innerHTML = range ;
+		}
+	else dvsr2.innerHTML = Code(Binary(dvsr) + base2) ;
+
+	var quot = (dvnd / dvsr) | 0 ;
+	if (isNaN(dvnd) || isNaN(dvsr))
+		{
+		overflow.innerHTML = nbsp ;
+		quot10.innerHTML = quot2.innerHTML = nbsp ;
+		rem10.innerHTML = rem2.innerHTML = nbsp ;
+		}
+	else if (quot < min8 || quot > max8)
+		{
+		overflow.innerHTML = "Overflow" ;
+		quot10.innerHTML = quot2.innerHTML = nbsp ;
+		rem10.innerHTML = rem2.innerHTML = nbsp ;
+		}
+	else
+		{
+		overflow.innerHTML = nbsp ;
+
+		quot10.innerHTML = quot + base10 ;
+		quot2.innerHTML = Code(Binary(quot) + base2) ;
+
+		var rem = dvnd % dvsr ;
+		rem10.innerHTML = rem + base10 ;
+		rem2.innerHTML = Code(Binary(rem) + base2) ;
+		}
+	}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" onLoad="Init();">
+<table cellpadding="4" cellspacing="0" bgcolor="#FFFF99">
+  <tr> 
+    <td colspan="2"> 
+      <select id="signed" onChange="go();">
+        <option value="0" selected>Unsigned</option>
+        <option value="1">2's Complement</option>
+      </select>
+    </td>
+    <td id="overflow" style="color:red">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Dividend<sub>10</sub></td>
+    <td>
+      <input type="text" id="dvnd10" value="0" onChange="go();">
+    </td>
+    <td id="dvnd2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Divisor<sub>10</sub></td>
+    <td> 
+      <input type="text" id="dvsr10" value="1" onChange="go();">
+    </td>
+    <td id="dvsr2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Quotient</td>
+    <td id="quot10" value="0" align="right">&nbsp;</td>
+    <td id="quot2" align="right">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>Remainder</td>
+    <td id="rem10" value="0" align="right">&nbsp;</td>
+    <td id="rem2" align="right">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
